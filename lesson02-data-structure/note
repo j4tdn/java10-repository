@@ -1,0 +1,28 @@
++JDK, JRV, JVM
++Compile - dang code thi loi, runtime - chay roi moi phat hien loi
+
++ Variable declaration
+	. Primitive: int, float, char => Stored in STACK
+	. Object: String, Integer, Character, HandInteger
+				=> Reference: STACK
+					Value: HEAP
+					=> JAVA passed by VALUE: dia chi o STACK
+	.Integer, Float, Double, String: Immutable class (gia tri cua o nho trong vung nho HEAP se 
+												khong bao gio thay doi ma chi tao moi them va tro den)
+		e.g: Integer a = 10; //0x34
+						a = 20; //0x13 ~ tao ra o nho moi tren HEAP
+	. Memory Allocation:
+	+ Stack
+	+ Heap
+	. Constants: final
+	. final int a = 5; // khong the gan bien a nay cho mot gia tri khac (cannot assign a to another one)
+	. HandInteger a = new HandInteger(5);
+		=>a.setValue(); => able to set new VALUE (thay doi gia tri trong o nho tai HEAP, 
+													khong tao ra o nho moi tren HEAP)
+	. enum ~ enumerate: set of constants
+	. Operator: Left -> Right
+	. IO: Scanner & Random
+	. Control: If Else, Switch Case
+	. Iterable: for, while, do while, break, continue
+	
+	
