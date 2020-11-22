@@ -1,0 +1,25 @@
++ JDK, JRV, JVM
++ Compile (Code bi loi), Runtime (Chay bi loi)
++Variable declaration
+ .Primitive: int, float, char
+   => Store in STACK
+ .Object: String , HandInteger, Character, Integer
+   => Reference in STACK
+   => Value in HEAP
+   => JAVA passed by VALUE: STACK
+  .Integer, String, Double, Float: Immutable class
+  .E.g: Integer a=10; // 0x34
+                a=20; // 0x13
+ .Memory allocation:
+ . Constants: final => cannot assign a to another  ONE
+ . final int =5;
+ . final HandInteger a = new HandInteger(5)
+  =>a.setValue() => able to set VALUE
+  +stack
+  +heap
+  .Enumeration: Set of constants
+  .Operation : :LEFT to RIGHT
+  .IO: Scanner & random
+  .Control: If Else Switch Case
+  .Iterable : For , While, Do While, Break, Continue
+  . 
