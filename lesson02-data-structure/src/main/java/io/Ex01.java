@@ -12,9 +12,7 @@ public class Ex01 {
 		//enter age
 		System.out.print("Enter age: ");
 		int age = Integer.parseInt(ip.nextLine());
-		
-		//enter grade
-		System.out.println("Enter grade: ");
+	System.out.println("Enter grade: ");
 		String grade = ip.nextLine();
 		
 		//enter point

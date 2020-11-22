@@ -23,19 +23,18 @@ public class Ex03 {
 			//set text to array
 			
 			breakline++;
-			if (breakline % 13 == 0) {
+			
+			if (breakline % 12 == 0) {
 				System.out.println();
 			}
 			System.out.print(text +" ");
 
 		} while (!signIn("admin", text));
-
-		System.out.println("===Sign In successfully ====");
-		System.out.println("Username: admin");
-		System.out.println("Password: " + text);
-	}
+		}
 
 	// == compare variable in stack
+	// == : only compare variable in stack
+	// == : compare value (primitive type)
 	private static boolean signIn(String ipUsername, String ipPassword) {
 		return ipUsername.equals(username) && ipPassword.equals(password);
 	}
