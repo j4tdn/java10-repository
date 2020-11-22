@@ -1,0 +1,25 @@
++ JDK, JRE, JVM
++ Compile, Runtime
+
++ Variable declaration
+	. Primitive: int, float, char 
+		=> Store in STACK
+	. Object: String, Character, Integer, HandInteger 
+		=> Reference: STACK; 
+			Value: HEAP
+	. JAVA passed by VALUE
+	. Integer, Float, Double: Immutable class
+		
+	. Memory allocation:
+		+ Stack
+		+ Heap
+	. Constants: final
+
++ Enum (Enumeration): Set of constants
+
++ Operator: Left -> Right
+
++ IO: Scanner & Random
++ Control: If Else Switch Case
++ Iterable: for, whlie, do while, break, continue
+
