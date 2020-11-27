@@ -1,0 +1,29 @@
+package data.type;
+
+public class Ex02 {
+	public static void main(String[] args) {
+		char c = '6';
+		System.out.println("isDigit: " + isDigit('c'));
+		System.out.println("isDigit: " + (c >= 0 && c <= 9));
+		System.out.println("isDigit: " + Character.isDigit(c));
+	
+		System.out.println("===========");
+		System.out.println("isNumber: " + isNumber("1x23"));
+	}
+
+	// write mothod whether character is a digit?
+	private static boolean isDigit(char c) {
+		return c >= '0' && c <= '9';
+	}
+
+	// 123, 12x3
+	private static boolean isNumber(String intput) {
+		for (int i = 0; i < intput.length(); i++) {
+			char c = intput.charAt(i);
+			if (!Character.isDigit(c)) {
+				return false;
+			}
+		}
+		return true;
+	}
+}
