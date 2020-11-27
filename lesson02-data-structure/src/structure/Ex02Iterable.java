@@ -11,7 +11,17 @@ public class Ex02Iterable {
 		             + "\nsumWhile: " +sumWhile(10)
 		             +"\nsumDoWhile: " + sumDoWhile(10));
 		
-		// break, continue
+		// break, continue: used in for, while
+		// break: switch case
+		// break: pause and exit the LOOP
+		// continue: ignore the below code
+		for (int i = 1; i <=5; i++) {
+			if (i == 4) {
+				break;
+			}
+		System.out.println("i: " + i);
+		}
+		
 	}
 	
 	private static int sumFor(int n) {
