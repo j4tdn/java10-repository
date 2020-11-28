@@ -1,4 +1,4 @@
-package NhatTai.lesson02_NhatTai;
+package NhatTai.lesson02_nhattai;
 
 import java.util.Scanner;
 
