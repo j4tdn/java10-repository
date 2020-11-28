@@ -1,0 +1,47 @@
+package anhtuan.lesson02_anhtuan;
+
+import java.util.Scanner;
+
+public class Ex04 {
+	public static void main(String[] args) {
+		int n;
+		Scanner ip = new Scanner(System.in);
+		do {
+			System.out.println("Enter the number of elements in the array: ");
+			n = ip.nextInt();
+		} while (n < 0);
+		int array[] = new int[n];
+
+		System.out.println("Enter elements for the array: ");
+		for (int i = 0; i < n; i++) {
+			System.out.print("Enter the th element " + i + ": ");
+			array[i] = ip.nextInt();
+		}
+		timptlonthu2(array, n);
+	}
+
+	private static void timptlonthu2(int array[], int n) {
+		int a[] = new int[n];
+		int k = 0;
+		for (int i = 0; i < n; i++) {
+			if (array[i] % 2 != 0)
+				a[k] = array[i];
+			k++;
+		}
+		for (int i = 0; i < n; i++) {
+			for (int j = i + 1; j < n; j++) {
+				if (a[i] > a[j]) {
+					int z = a[i];
+					a[i] = a[j];
+					a[j] = z;
+				}
+			}
+		}
+		for (int i = n - 1; i >= 0; i--) {
+			if (a[i] > a[i - 1]) {
+				System.out.println("The value of children in the gills is:" + a[i - 1]);
+				break;
+			}
+		}
+	}
+}
