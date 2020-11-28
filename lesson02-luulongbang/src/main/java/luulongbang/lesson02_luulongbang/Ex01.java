@@ -4,7 +4,6 @@ public class Ex01 {
 
 	public static void main(String[] args) {
 		int[] myNum = {5,9,8};
-		System.out.println("Array before Sorting");
 		System.out.println(myNum[0]);
 		System.out.println(myNum[1]);
 		System.out.println(myNum[2]);
@@ -18,7 +17,6 @@ public class Ex01 {
                 }
             }
         }
-        System.out.println("Array after Sorting");
         System.out.println(myNum[0]);
         System.out.println(myNum[1]);
         System.out.println(myNum[2]);
