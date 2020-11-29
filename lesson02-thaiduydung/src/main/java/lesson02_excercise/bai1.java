@@ -24,7 +24,7 @@ public class bai1 {
 			b = c;
 			c = tmp;
 		}
-
+		// Print out
 		System.out.println("thu tu: " + a + " " + b + " " + " " + c);
 
 	}
