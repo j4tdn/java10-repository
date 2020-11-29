@@ -1,0 +1,7 @@
++ static versus non static
++ this
++ get set => access attributes value(truy cap gia tir thuoc tinh ben trong class,class de private de bao mat)
++ constructor , attributes , toString
++ FOP || OOP
++ class versus object
++ destructor: JVM's garbage collection
