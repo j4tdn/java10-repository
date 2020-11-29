@@ -17,7 +17,7 @@ public class Ex01Control {
 	private static void demoSwithCase() {
 		
 		//swith case: chir so sánh điều kiện bằng
-		// break : sau 1 case , khi đúng sẽ dừng Ctrinh.
+		// break : sau 1 case , when condition = true => exit 
 		int month = 4;
 		switch (month) {
 		case 1:
