@@ -59,3 +59,4 @@ public class Car {
 		return "Car: [id=" + id + ", color=" + color + ", model=" + model + ", cost=" + cost + "]";
 	}
 }
+
