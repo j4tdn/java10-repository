@@ -40,13 +40,13 @@ public class Ex01Control {
 	
 	private static int max(int first, int second) {
 		return first > second ? first :second ;
-		int max = first;
-		if(first > second ) {
+		//int max = first;
+		//if(first > second ) {
 			
-			return first;
+		//	return first;
 		}
-		return second;
-	}
+		//return second;
+	//}
 	//find max 3 digits
 	
 	private static int max(int first, int second, int third) {
