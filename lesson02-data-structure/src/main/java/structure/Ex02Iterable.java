@@ -19,13 +19,14 @@ public class Ex02Iterable {
 		if (i==4) {
 			continue;
 		}
-		if (i = 4) {
+		//if (i = 4) {
 			break;
 		}
 			
-		}
+		//}
 		
-		System.out.println("i: " +i);
+		//String i;
+		//System.out.println("i: " +i);
 	}
 	private static int sumFor (int n) {
 		int result = 0;
