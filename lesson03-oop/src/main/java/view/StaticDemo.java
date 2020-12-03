@@ -3,33 +3,35 @@ package view;
 public class StaticDemo {
 	private String id;
 	private String name;
-	private static String age;
-
+	private static int age;
+	
 	public static void main(String[] args) {
-		// 1, Teo, 18
+		StaticDemo.age = 18;
+		// 1, Teo, 18 
 		// 2, Nam, 28
 		StaticDemo sd1 = new StaticDemo();
 		sd1.id = "1";
 		sd1.name = "Teo";
-		StaticDemo.age = "18";
-		System.out.println(sd1);
-
+		
 		StaticDemo sd2 = new StaticDemo();
 		sd2.id = "2";
 		sd2.name = "Nam";
-		StaticDemo.age = "28";
+		// sd2.age = 28;
+		
+		System.out.println(sd1);
 		System.out.println(sd2);
 
 	}
-// method, atributes
-	//static: class'scope
-	//=>construt at the runtime beginning
 	
-	//non- static: object'scope
-	//=> will be construted when object call it
+	// methods, attributes
+	// static: class'scope
+	//  => construct at the runtime beginning
+	
+	// non-static: object'scope
+	//  => will be constructed when object calls
+	
 	@Override
 	public String toString() {
 		return id + ", " + name + ", " + age;
 	}
-
 }
