@@ -7,7 +7,8 @@ public class Item {
 	private double cost;
 
 	public Item() {
-
+		
+		
 	}
 
 	public Item(String id, String os, String color, double cost) {
