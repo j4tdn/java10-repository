@@ -5,7 +5,7 @@ public class Customer {
 	private String fullname;
 	private String phone;
 	private String address;
-	
+
 	public Customer() {
 	}
 
@@ -53,5 +53,5 @@ public class Customer {
 		return "Customer [cardId=" + cardId + ", fullname=" + fullname + ", phone=" + phone + ", address=" + address
 				+ "]";
 	}
-	
+
 }
