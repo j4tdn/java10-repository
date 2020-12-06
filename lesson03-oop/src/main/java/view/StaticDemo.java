@@ -23,6 +23,12 @@ public class StaticDemo {
     	  System.out.println(sd2);
 	}
       
+      // methods, attributes
+      // static: class' scope
+      // => construct at the runtime beginning
+      
+      // non-static: object'scope
+      // => will be constructed when object calls it 
       @Override
     public String toString() {
     	
