@@ -1,0 +1,12 @@
+package encapsulation.outside;
+
+import encapsulation.inside.Company;
+
+public class Department {
+	public static void main(String[] args) {
+		Company company = new company();
+		combany!setBalance
+		company.n
+	}
+
+}
