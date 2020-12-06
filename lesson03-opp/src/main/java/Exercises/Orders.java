@@ -10,11 +10,12 @@ import java.time.Month;
  */
 
 public class Orders {
-	
+
 	private Orders() {
-		
+
 	}
-	public static void exprorBill(Order order) {
+
+	public static void exprortBill(Order order) {
 		System.out.println("Ho ten: " + order.getCustomer().getFullname());
 		System.out.println("Sdt : " + order.getCustomer().getPhone());
 		System.out.println("============================");
@@ -29,9 +30,9 @@ public class Orders {
 
 			// datetime => 05.12.2020 & cost > 590
 			// minus 10%
-			
+
 			if (order.getDateTime().toLocalDate().isEqual(LocalDate.of(2020, Month.DECEMBER, 4)) && cost > 590) {
-				totalOfMoney += cost * 0.9 * quantity  ;
+				totalOfMoney += cost * 0.9 * quantity;
 			} else {
 				totalOfMoney += cost * quantity;
 			}

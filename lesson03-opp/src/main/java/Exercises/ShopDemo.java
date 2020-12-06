@@ -14,12 +14,12 @@ public class ShopDemo {
 
 		ItemInfo[] firstInfo = { new ItemInfo(items[2], 2) };
 		Order first = new Order(customers[0], firstInfo, LocalDateTime.now());
-		Orders.exprorBill(first);
+		Orders.exprortBill(first);
 		System.out.println();
 		System.out.println();
 		ItemInfo[] secondInfo = { new ItemInfo(items[3], 3), new ItemInfo(items[1], 1) };
 		Order second = new Order(customers[1], secondInfo, LocalDateTime.now());
-		Orders.exprorBill(second);
+		Orders.exprortBill(second);
 
 		// ItemInfo: item, quantity
 		// ItemDetail: customer, Item[], time
