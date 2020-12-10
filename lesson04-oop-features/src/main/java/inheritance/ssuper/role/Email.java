@@ -1,4 +1,4 @@
-package inheritance.iinterface;
+package inheritance.ssuper.role;
 
 public interface Email {
 	//class's default modifier => package (default)
