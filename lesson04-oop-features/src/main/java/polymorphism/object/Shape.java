@@ -1,7 +1,7 @@
 package polymorphism.object;
 
 public class Shape {
-	void draw() {
+	public void draw() {
 		System.out.println("Shape ====> drawing");
 	}
 	
