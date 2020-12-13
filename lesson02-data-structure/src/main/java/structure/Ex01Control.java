@@ -17,7 +17,7 @@ public class Ex01Control {
 		demoSwitchCase();
 	}
 	private static void demoSwitchCase() {
-		int month = 14;
+		int month = 12;
 		switch(month) {
 		case 1:
 		case 3:

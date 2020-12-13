@@ -1,9 +1,9 @@
 package inheritance;
 
-public class Sub extends Parent {
+public class Sub extends Parent{
 	int number = 20;
-	String text = " Sub";
-
+	String text = "Sub";
+	
 	@Override
 	void log() {
 		System.out.println("Sub log");

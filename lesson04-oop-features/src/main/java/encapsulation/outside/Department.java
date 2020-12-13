@@ -7,5 +7,4 @@ public class Department {
 		Company company = new Company();
 		company.setBalance(100);
 	}
-	
 }

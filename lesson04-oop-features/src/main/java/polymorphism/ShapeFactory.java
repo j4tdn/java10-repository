@@ -1,24 +1,25 @@
 package polymorphism;
 
 /**
- * Factory shape. Place to construct shape object.
- *
+ * Factory shape.
+ * Place to construct shape object.
  */
 public class ShapeFactory {
-
+	
 	private enum ShapeType {
 		RECT, SQUARE
 	}
 
+	
 	public static Shape createRectShape() {
 		return createShape(ShapeType.RECT);
 	}
-
-	//
+	
 	public static Shape createSquareShape() {
 		return createShape(ShapeType.SQUARE);
 	}
-
+	
+	
 	private static Shape createShape(ShapeType shape) {
 		Shape result = null;
 		switch (shape) {
@@ -27,13 +28,11 @@ public class ShapeFactory {
 			break;
 		case SQUARE:
 			result = new Square();
-			break;
+			break;	
 		default:
 			result = new Shape();
-			break;
 		}
 		return result;
-
 	}
-
+	
 }
