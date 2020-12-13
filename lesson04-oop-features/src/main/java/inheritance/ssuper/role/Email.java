@@ -1,4 +1,4 @@
-package inheritance.iinterface;
+package inheritance.ssuper.role;
 
 public interface Email {
 	// class default access modifier => package
@@ -8,5 +8,5 @@ public interface Email {
 	
 	
 	boolean login(String username, String password );
-	void logout();
+
 }
