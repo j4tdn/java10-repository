@@ -6,20 +6,12 @@ package polymorphism;
  *
  */
 public class ShapeFactory {
-	private enum ShapeType{
+	public enum ShapeType{
 		RECT, SQUARE
 	}
 	
 	
-	public static Shape createRectShap() {
-		return createShape(ShapeType.RECT);
-	}
-	public static Shape createSquareShap() {
-		return createShape(ShapeType.SQUARE);
-	}
-	
-	
-	private static Shape createShape(ShapeType shape) {
+	public static Shape createShape(ShapeType shape) {
 		Shape result = null;
 		switch (shape) {
 		

@@ -1,9 +1,11 @@
 package polymorphism;
 
+import polymorphism.ShapeFactory.ShapeType;
+
 public class PoObject {
 	public static void main(String[] args) {
 		
-	Shape poR1 = ShapeFactory.createRectShap();
+	Shape poR1 = ShapeFactory.createShape(ShapeType.RECT);
 	poR1.draw();
 		
 		
