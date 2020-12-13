@@ -14,9 +14,9 @@ public enum CirclePos {
 	public String value;
 	
 	//enumeration constructor's access modifier default: private 
-	private CirclePos(String initial) {
+	private CirclePos(String value) {
 		// TODO Auto-generated constructor stub
-		value = initial;
+		this.value = value;
 	}
 	
 	public String getValue() {
