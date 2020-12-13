@@ -1,0 +1,17 @@
+package inheritance.ssupper.role;
+
+public class BusinessEmail extends AbstractEmail implements Transfer {
+	public boolean send(String content) {
+		return false;
+	}
+
+	@Override
+	public boolean login(String username, String password) {
+		return false;
+	}
+	
+	@Override
+	protected boolean login2Steps(String username, String password) {
+		return false;
+	}
+}
