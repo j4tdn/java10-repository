@@ -3,7 +3,7 @@ package polymorphism;
 public class Rectangle extends Shape {
 
 	@Override
-	void draw() {
+	public void draw() {
 		System.out.println("Rectangle =====> drawing...");
 	}
 	
