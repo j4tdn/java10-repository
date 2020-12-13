@@ -5,7 +5,7 @@ public class Rectangle extends Shape {
 	
 	//method : declaration , definition
 	@Override
-	void draw() {
+	public void draw() {
 		// TODO Auto-generated method stub
 		System.out.println("Rectangle ===> drawing ... ");
 	}
