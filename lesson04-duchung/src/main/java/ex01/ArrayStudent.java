@@ -2,13 +2,12 @@ package ex01;
 
 import java.util.Scanner;
 
-public class Main {
-private static Scanner sc = new Scanner(System.in);
-	
+public class ArrayStudent {
+	public static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) {
 		Student stu1 = new Student(239, "Trần Đức Hùng", 8.5f, 9);
 		
-		Student stu2 = new Student(156, "Trần Thị Thu Hồng", 8, 9);
+		Student stu2 = new Student(156, "Trần Thu Hồng", 8, 9);
 		
 		Student stu3 = new Student();
 		System.out.println("Student 3");
