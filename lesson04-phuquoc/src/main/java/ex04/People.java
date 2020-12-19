@@ -50,7 +50,7 @@ public class People {
 	public void input() {
 		System.out.print("Enter fullName: ");
 		fullName = ip.nextLine();
-		System.out.print("Enter birthDate: (yy,MM,dd)");
+		System.out.print("Enter Year - Enter Month - Enter Day: (yyyy,MM,dd)");
 		dateOfBirth = LocalDate.of(Integer.parseInt(ip.nextLine()), Integer.parseInt(ip.nextLine()),
 				Integer.parseInt(ip.nextLine()));
 		
