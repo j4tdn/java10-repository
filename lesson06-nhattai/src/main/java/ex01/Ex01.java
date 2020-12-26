@@ -11,13 +11,12 @@ public class Ex01 {
 				result = fde();
 				break;
 			} catch (RuntimeException e) {
+				System.out.println(e.getMessage());
 				System.out.println("Nhập lại !!!");
 			}
 		} while (true);
 
 	}
-
-	private static Scanner ip = new Scanner(System.in);
 
 	private static double fde() throws RuntimeException {
 		int a, b;
