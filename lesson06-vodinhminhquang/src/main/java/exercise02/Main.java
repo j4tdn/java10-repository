@@ -21,6 +21,7 @@ public class Main {
 				System.out.println();
 			}
 		} while (!isValid);
+		console.close();
 	}
 
 	private static boolean validateEachCharacter(String password, UserCondition condition) {

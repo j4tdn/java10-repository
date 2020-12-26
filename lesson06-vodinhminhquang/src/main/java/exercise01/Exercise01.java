@@ -37,7 +37,8 @@ public class Exercise01 {
 			}
 			System.out.println();
 		} while (!isValidB);
-
+		
+		console.close();
 		System.out.println("Finished !!!");
 	}
 
