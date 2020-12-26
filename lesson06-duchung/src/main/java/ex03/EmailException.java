@@ -9,7 +9,7 @@ public class EmailException {
 
 		try {
 			do {
-				System.out.print("Enter new password : ");
+				System.out.print("Enter email : ");
 				String input = ip.nextLine();
 				if (isValid(input) == 1)
 					break;
