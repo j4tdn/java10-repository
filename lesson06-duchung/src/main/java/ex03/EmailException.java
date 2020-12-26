@@ -6,19 +6,21 @@ public class EmailException {
 	public static Scanner ip = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		do {
-			System.out.print("Enter new password : ");
-			try {
+
+		try {
+			do {
+				System.out.print("Enter new password : ");
 				String input = ip.nextLine();
-				isValid(input);
-				break;
-			} catch (RuntimeException e) {
-				System.out.println(e.getMessage());
-			}
-		} while (true);
+				if (isValid(input) == 1)
+					break;
+			} while (true);
+		} catch (RuntimeException e) {
+			System.out.println(e.getMessage());
+
+		}
 	}
 
-	private static void isValid(String input) {
+	private static int isValid(String input) {
 		if (input.charAt(0) == '@' || input.charAt(input.length() - 1) == '@') {
 			System.out.println("The @ character cannot be at the beginning or end of a position");
 		}
@@ -30,8 +32,13 @@ public class EmailException {
 		}
 		if (count != 1) {
 			System.out.println("Email address contains only one @ characte");
+		} else {
+			System.out.println("Email is Valid !");
+			return 1;
+
 		}
-		System.out.println("Email is Valid !");
+		return 0;
+
 	}
 
 }
