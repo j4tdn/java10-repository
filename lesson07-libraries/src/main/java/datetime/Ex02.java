@@ -25,7 +25,7 @@ public class Ex02 {
 
 		while (c1.before(c2)) {
 			int day = c1.get(Calendar.DAY_OF_MONTH);
-			int month = c1.get(Calendar.MONTH);
+			int month = c1.get(Calendar.MONTH)+1;
 			int year = c1.get(Calendar.YEAR);
 			System.out.println(day + "," + month + "," + year);
 			c1.add(Calendar.DAY_OF_MONTH, 1);
