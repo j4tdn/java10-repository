@@ -1,0 +1,15 @@
+Interface vs Abstract Class
++ JAVA07
+
+class: Father: play
+     : Mother: play
+Chid child = new Child();
+child.play();     
+
++ JAVA08
+>>> Lambda: Condi c = new COnd => override
+>> instance of Functional Interface
+>> strategy pattern
+Interface in JAVA8
++ static
++ default
