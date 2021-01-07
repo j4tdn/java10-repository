@@ -8,7 +8,7 @@ import java.util.Locale;
 public class StringCalendarDate {
 	public static void main(String[] args) {
 		Date date = Calendar.getInstance(new Locale("vi", "VN")).getTime();
-		SimpleDateFormat sdf = new SimpleDateFormat("ss:mm:HH - dd/MM/yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss - dd/MM/yyyy");
 		String s = sdf.format(date);
 		System.out.println(s);
 	}
