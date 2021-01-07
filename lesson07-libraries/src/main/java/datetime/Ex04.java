@@ -24,7 +24,7 @@ public class Ex04 {
 				System.out.println(DateUtils.toString(start));
 				start.add(DAY_OF_MONTH, 7);
 			}else {
-				start.add(DAY_OF_MONTH, 1);
+				start.add(DAY_OF_MONTH, 1); 
 			}
 			
 		}

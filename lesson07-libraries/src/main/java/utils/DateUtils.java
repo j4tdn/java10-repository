@@ -17,7 +17,7 @@ public class DateUtils {
 	 * Convert calendar to date
 	 */
 
-	public static Date toDate(Calendar c) {
+	public static Date toDate(Calendar c) { 
 		Objects.requireNonNull(c, "calendar cannt be null.");
 		return c.getTime();
 	}

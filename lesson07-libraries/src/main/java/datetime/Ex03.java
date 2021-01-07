@@ -24,7 +24,7 @@ public class Ex03 {
 		System.out.println("formatted calendar: "+ DateUtils.toString(now));
 		
 		Date stringToDate = DateUtils.toDate("30.10.2020");
-		Calendar stringToCalendar = DateUtils.toCalendar("18.10.2020");
+		Calendar stringToCalendar = DateUtils.toCalendar("18.10.2020"); 
 		System.out.println("stringToDate: " +stringToDate);
 		System.out.println("stringToCalendar: " +stringToCalendar);
 	}
