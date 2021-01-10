@@ -5,7 +5,7 @@ import java.util.Calendar;
 public class Ex02 {
 	public static void main(String[] args) {
 		Calendar c = Calendar.getInstance();
-		
+
 		loopDaysInMonth(c);
 	}
 
@@ -17,7 +17,7 @@ public class Ex02 {
 		Calendar c2 = Calendar.getInstance();
 		c2.setTimeInMillis(c.getTimeInMillis());
 		c2.set(Calendar.DAY_OF_MONTH, c.getActualMaximum(Calendar.DAY_OF_MONTH));
-        c2.add(Calendar.DAY_OF_MONTH, 1);
+		c2.add(Calendar.DAY_OF_MONTH, 1);
 		while (c1.before(c2)) {
 			int day = c1.get(Calendar.DAY_OF_MONTH);
 			int month = c1.get(Calendar.MONTH);
