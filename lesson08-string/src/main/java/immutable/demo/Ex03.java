@@ -6,7 +6,7 @@ package immutable.demo;
  * bắt đầu hoặc kết thúc bằng một suffix nào đó hay ko. 
  * • Cắt chuỗi s thành các
  * chuỗi con nhỏ hơn theo vị trí bất kì 
- * • Convert char array to string and vice
+ *  • Convert char array to string and vice
  * verse
  *
  */
@@ -20,9 +20,9 @@ public class Ex03 {
 		System.out.println("length: " + elements.length);
 
 		// delimiter: ,\\s ==> \\s là khoảng trắng
-		String hobbies = "music, badminton -book -, game.code";
+		String hobbies = "music badminton -book , game,code";
 
-		String[] hobbyArray = hobbies.split("[\\s-.]+);");
+		String[] hobbyArray = hobbies.split("[\\s,.-]+");
 		iterate(hobbyArray);
 	}
 

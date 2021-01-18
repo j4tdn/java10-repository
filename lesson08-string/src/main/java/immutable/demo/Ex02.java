@@ -5,7 +5,7 @@ public class Ex02 {
 		String[] books = { "SGK123", "SGK234-KM", "STK345", "STK456-KM" };
 		for (String book : books) {
 			System.out.println(book + " is TextBook: " + book.startsWith("SGK"));
-			System.out.println(book + " is SaleOff: " + book.startsWith("KM"));
+			System.out.println(book + " is SaleOff: " + book.endsWith("KM"));
 		}
 
 		// replace

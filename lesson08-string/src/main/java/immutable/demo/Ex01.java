@@ -1,8 +1,12 @@
 package immutable.demo;
 
 /**
- * • Tính chiều dài của chuỗi s • Nối chuỗi s1 vào chuỗi s • Lấy một ký tự tại
- * vị trí index trong chuỗi s • Duyệt từng phần tử trong chuỗi • Tìm vị trí xuất
+ * • Tính chiều dài của chuỗi s 
+ * • Nối chuỗi s1 vào chuỗi s 
+ * • Lấy một ký tự tại
+ * vị trí index trong chuỗi s 
+ * • Duyệt từng phần tử trong chuỗi
+ * • Tìm vị trí xuất
  * hiện đầu tiên, cuối cùng của chuỗi s2 trong chuỗi s
  *
  */
@@ -13,7 +17,7 @@ public class Ex01 {
 
 		// Nối chuỗi
 		String s1 = s + "to Java10";
-		System.out.println("s1: " + s1);
+		System.out.println("s1: " + s1); 
 
 		String s2 = s.concat("to Java01");
 		System.out.println("s2: " + s2);
