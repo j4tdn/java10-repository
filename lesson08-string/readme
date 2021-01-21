@@ -1,0 +1,10 @@
+1.String Immutable
+===> Cannot change the value of original string memory in heap
+String Object         >> heap
+String literal >>> winner>> constant pool
+
+2. String Mutable
+StringBuilder ==> Single thread >> heap
+StringBuffer ==> Multiple thread >> heap
+
+Speed: StringBuilder >> StringBuffer >> String Literal

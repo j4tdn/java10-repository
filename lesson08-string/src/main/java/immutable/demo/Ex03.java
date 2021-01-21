@@ -22,7 +22,7 @@ public class Ex03 {
 		//delimiter: ,\\s  ==> \\s là khoảng trắng
 		String hobbies = "music, badminton -book -, game.code";
 		
-		String [] hobbyArray = hobbies.split("[\\s-.]+);");
+		String [] hobbyArray = hobbies.split("[\\s-.]+)");
 		iterate(hobbyArray);
 	}
 	
