@@ -5,9 +5,9 @@ public class Student {
 	public int ID;
 	public String classified;
 
-	public Student(String name, int ID, String classified) {
+	public Student(String name, int iD, String classified) {
 		this.name = name;
-		ID = ID;
+		ID = iD;
 		this.classified = classified;
 	}
 
@@ -38,7 +38,7 @@ public class Student {
 	@Override
 	public String toString() {
 
-		return "Ranked [ID=" + ID + ",name=" + name + ",classified=" + classified + "]";
+		return ID + "+" + name + "+" + classified;
 	}
 
 }
