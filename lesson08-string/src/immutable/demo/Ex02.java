@@ -1,25 +1,39 @@
 package immutable.demo;
-
+/*
+ * Kiểm tra kí tự bắt đầu, kết thúc trong chuỗi s
+ * Thay thế chuỗi s1 bằng chuỗi s2 trong chuỗi s
+ * Loại bỏ các khoảng trắng thừa của chuỗi s3
+ * Tạo chuỗi con s4 từ chuỗi s bắt đầu từ vị trí số 6
+ */
 public class Ex02 {
 	public static void main(String[] args) {
 		String[] books = {"SGK123", "SGK234-KM", "STK345", "STK456-KM"};
-		for (String book : books) {
-			System.out.println(book + " isTextbook: " + book.startsWith("SGK"));
-			System.out.println(book + " isKM: " + book.endsWith("KM"));
+		// 1: startsWith(), endsWith()
+		for(String book : books) {
+			System.out.println(book + " is TextBook: " + book.startsWith("SGK"));
+			System.out.println(book + " is SaleOff: " + book.endsWith("KM"));
 		}
 		
-		String s = "Hello BKIT";
-		String replaced = s.replace("Hello", "Hi");
-		System.out.println(s);
-		System.out.println(replaced);
-		
-		String redundantSpaces = "    Cheer      from     viet nam";
-		String removed = redundantSpaces.trim().replaceAll("\\s{1,}", " ");
+		// replace() return aString 
+		String s = "Hello Nam";
+		String replaced = s.replace("Hello", "Hi"); 
+		System.out.println("s: " + s);
+		System.out.println("replaced: " + replaced);
+	
+		String redundantSpaces = "   Cheers      from  Viet    Nam    ";
+		// regex: replace 1 or n white spaces to 1 white space
+		String removed = redundantSpaces.trim().replaceAll("\\s+", " ");
 		System.out.println(removed);
-		
+	
 		String parent = "abcdefgh";
 		String child = parent.substring(1, 3);
-		System.out.println(child);
-
+		String generation = "xyz";
+		System.out.println("child: " + child);
+		
+		System.out.println("contains 01: " + parent.contains(child));
+		System.out.println("contains 02: " + (parent.indexOf(child) != -1));
+		
+		System.out.println("contains 03: " + parent.contains(generation));
+		System.out.println("contains 04: " + (parent.indexOf(generation) != -1));
 	}
 }
