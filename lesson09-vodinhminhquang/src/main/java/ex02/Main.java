@@ -40,7 +40,7 @@ public class Main {
 		 Collections.sort(f);
 		 System.out.println(input2);
 		 System.out.println(f);
-		 
+		  
 		 
 	}
 	
