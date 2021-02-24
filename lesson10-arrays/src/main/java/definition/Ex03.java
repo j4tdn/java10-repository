@@ -11,6 +11,7 @@ public class Ex03 {
 		forEach(digits);
 		// A: 1, 6 >><<
 		// B: 20, 6 >><<
+		
 		// C: 1, 20 >><<
 	}
 

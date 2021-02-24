@@ -19,7 +19,7 @@ public class ArrayUtils {
 			System.out.println(item + "   ");
 		}
 	}
-	
+
 	public static void forIndex2D(int[][] items) {
 		for (int row = 0; row < items.length; row++) {
 			for (int col = 0; col < items[row].length; col++) {
@@ -28,5 +28,4 @@ public class ArrayUtils {
 			System.out.println();
 		}
 	}
-	
 }
