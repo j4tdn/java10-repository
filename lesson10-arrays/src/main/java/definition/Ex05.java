@@ -9,7 +9,7 @@ public class Ex05 {
 		
 		//2 dimension
 		//rows: 3, columns: 3
-		int[][] b = { { 1, 2 }, { 4, 5 }, { 7, 7 } };
+		int[][] b = { { 1, 2 }, { 4, 5, 6 }, { 7, 7, 8 } };
 
 		ArrayUtils.forIndex2D(b);
 

@@ -12,13 +12,13 @@ public class Ex01 {
 		forIndex(digits);
 		forEach(numbers);
 	}
-
+//for-index
 	private static void forIndex(int[] items) {
 		for (int i = 0; i < items.length; i++) {
 			System.out.println("items[" + i + "]: " + items[i]);
 		}
 	}
-
+//for-each
 	private static void forEach(int[] items) {
 		for (int i : items) {
 			System.out.println(i);
