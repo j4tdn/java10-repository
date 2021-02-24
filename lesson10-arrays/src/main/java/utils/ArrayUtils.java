@@ -29,4 +29,24 @@ public class ArrayUtils {
 			System.out.println();
 		}
 	}
+
+	public static void getOdd(int[] items) {
+		System.out.println("Các số lẻ trong mảng: ");
+		for (int i = 0; i < items.length; i++) {
+			if (items[i] % 2 != 0) {
+				System.out.println(items[i]);
+			}
+		}
+	}
+
+	public static void getEven(int[] items) {
+		System.out.println();
+		System.out.println("Các số chẵn trong mảng: ");
+		for (int i = 0; i < items.length; i++) {
+			if (items[i] % 2 == 0) {
+
+				System.out.println(items[i]);
+			}
+		}
+	}
 }
