@@ -1,10 +1,15 @@
 package defintion;
 
+import java.util.Arrays;
+
 public class Ex01 {
 	public static void main(String[] args) {
 		int[] digits = new int[5];
 		int[] numbers = { 2, 5, 8, 4 };
-
+		// gán giá trị mặc định
+		Arrays.fill(digits, 99);
+		
+		
 		System.out.println("digits length: " + digits.length);
 		System.out.println("number length: " + numbers.length);
 		System.out.println("class:  " + digits.getClass());
@@ -13,7 +18,8 @@ public class Ex01 {
 
 		forEach(numbers);
 		forIndex(numbers);
-		
+		forIndex(digits);
+
 	}
 
 	// for-index
