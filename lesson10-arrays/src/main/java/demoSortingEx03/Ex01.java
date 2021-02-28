@@ -8,7 +8,7 @@ public class Ex01 {
 	public static void main(String[] args) {
 		int[] numbers = { 1, 5, 9, 4, 6, 11 };
 		//descending
-		 bubbleSort(numbers);
+		bubbleSort1(numbers);
 		ArrayUtils.forEach(numbers);
 		
 		System.out.println("===================");
@@ -20,7 +20,7 @@ public class Ex01 {
 		
 	}
 	//Ex01: Sorting with int manually
-	private static void bubbleSort(int [] digits) {
+	public static void bubbleSort(int [] digits) {
 		for(int out = digits.length-1; out >0; out-- ) {
 			for(int in =0; in <out;in++) {
 				if(digits[in]< digits[out]) {
@@ -31,5 +31,17 @@ public class Ex01 {
 			}
 		}
 	}
+	private static void bubbleSort1(int [] digits) {
+		for(int out = 0; out <digits.length	; out++ ) {
+			for(int in =0; in <digits.length-1-in;in++) {
+				if(digits[in] > digits[in+1]) {
+					int tmp = digits[in+1];
+					digits[in +1]= digits[in];
+					digits[in]= tmp;
+				}
+			}
+		}
+	}
+	
 	
 }
