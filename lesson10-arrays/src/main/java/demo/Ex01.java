@@ -6,6 +6,7 @@ public class Ex01 {
 	public static void main(String[] args) {
 		int[] a = { 1, 9, 5, 36, 12, 33 };
 		System.out.print("sum: " + sum(a));
+		System.out.println("\n=============");
 		System.out.println("Min-Max: " + getMinMax(a));
 		System.out.println("add: " + Arrays.toString(add(a, 17, 2)));
 		System.out.println("remove: " + Arrays.toString(remove(a, 3)));
