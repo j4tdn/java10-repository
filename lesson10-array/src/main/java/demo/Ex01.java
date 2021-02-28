@@ -10,8 +10,9 @@ public class Ex01 {
 		System.out.println(getMinMax(original));
 		System.out.println("Add: " + Arrays.toString(add(original, 17, 2)));
 		System.out.println("Remove: " + Arrays.toString(remove(original, 3)));
-		
-	
+		SelectionSort(original);
+		System.out.println("Selection Sort: " + Arrays.toString(original));
+		System.out.println("Reverse: " + Arrays.toString(reverse(original)));
 	}
 	// 1. Odd number
 	private static int sum (int[] arr) {
@@ -72,30 +73,23 @@ public class Ex01 {
 		return Arrays.copyOfRange(tmp, 0, arr.length - 1);
 	}
 	// 6. Sort
-	private static void sort (int[] arr) {
-		int i1 = 0;
-		int i2 = 0;
-		
-		
-		for(int i = 0; i < arr.length; i++) {
+	private static void SelectionSort (int[] arr) {
+		for(int i = 0; i < arr.length - 1; i++) {
 			int smallest = i;
-			for(int j = 0; j < arr.length - 1; j++) {
+			for(int j = i + 1; j < arr.length; j++) {
 				if (arr[smallest] > arr[j]) {
 					smallest = j;
 				}
 			}
-		}
-		swap(arr, i1, i2);
-		
-		for(int i = 0; i < arr.length; i++) {
-			System.out.print(arr[i] + " ");
+			// swap smallest to the front
+			swap(arr, i, smallest);
 		}
 	}
 	
 	private static void swap (int[] arr, int i1, int i2) {
-		int temp = i1;
-		i1 = i2;
-		i2 = temp;
+		int temp = arr[i1];
+		arr[i1] = arr[i2];
+		arr[i2] = temp;
 	}
 	
 	private static class MinMax {
@@ -130,5 +124,7 @@ public class Ex01 {
 		public String toString() {
 			return "min: " + min + ", max:" + max;
 		}
+	}
+	public static void reverse(int[] arr) {
 	}
 }
