@@ -40,4 +40,21 @@ public class Ex05 {
 			
 		}
 	}
+	
+	private static void insertionSort(int[] a) {
+		int count = 0;
+		for (int i = 1; i < a.length; i++) {
+			count = a[i];
+			int j = i;
+			while (j > 0 && a[j - 1] > count) {
+				a[j] = a[j - 1];
+				j--;
+			}
+			a[j] = count;
+		}
+		for (int in : a) {
+			System.out.print(in + " ");
+		}
+
+	}
 }
