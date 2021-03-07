@@ -22,8 +22,6 @@ public class A4 {
 		// item id>=2 : optional
 		items.removeIf(item -> item != null && item.getId()!=null && item.getId()>2);
 		System.out.println("size3: " + items.size());
-
 		
-
 	}
 }
