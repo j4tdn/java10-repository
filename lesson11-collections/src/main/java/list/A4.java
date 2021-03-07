@@ -20,7 +20,7 @@ public class A4 {
 
 		items.remove(deadItem);// consider equals of item
 
-		System.out.println("contains:  " + items.contains(existItem));
+		System.out.println("contains:  " + items.contains(existItem)); // duyet tung phan tu trong list kiem tra equal(so sanh dia chi)
 		// items.remove(items.get(1));
 
 		System.out.println("size 2:   " + items.size());
