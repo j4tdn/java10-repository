@@ -1,4 +1,4 @@
-package vodinhminhquang.lessonabc;
+package vodinhminhquang.lesson10_vodinhminhquang;
 
 import static org.junit.Assert.assertTrue;
 
