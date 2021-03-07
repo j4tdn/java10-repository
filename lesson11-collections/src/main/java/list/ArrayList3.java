@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class ArrayList03 {
+public class ArrayList3 {
 	public static void main(String[] args) {
 		List<String> colors = new ArrayList<>();
 		
