@@ -1,6 +1,6 @@
 package bean;
 
-public class Item {
+public class Item implements Comparable<Item> {
 	private Integer id;
 	private String name;
 
@@ -35,15 +35,20 @@ public class Item {
 			return false;
 		}
 		Item that = (Item) o;
-		return getId().equals(that.getId())
-				&& getName().equals(that.getName());
+		return getId().equals(that.getId()) && getName().equals(that.getName());
 
 	}
 
 	@Override
 	public String toString() {
-		return "item [id=" + id + ", name=" + name + ", getId()=" + getId() + ", getName()=" + getName()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
-				+ "]";
+		return id + ", " + name;
+	}
+
+	@Override
+	public int compareTo(Item o) {
+		if (getId().compareTo(o.getId()) == 0) {
+			return getName().compareTo(o.getName());
+		}
+		return getId().compareTo(o.getId());
 	}
 }
