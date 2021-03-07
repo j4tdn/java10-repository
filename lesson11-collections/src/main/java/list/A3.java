@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class Ex03 {
+public class A3 {
 	public static void main(String[] args) {
 		List<String> colers = new ArrayList<>();
 
