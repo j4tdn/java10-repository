@@ -18,13 +18,13 @@ public class A3 {
 			System.out.print(color + " ");
 		}*/
 		
-		/*Iterator<String> iterator = colors.iterator();
+		Iterator<String> iterator = colors.iterator();
 		while(iterator.hasNext()) {
 			String element = iterator.next();
 			if("red".equals(element)) {
 				iterator.remove();
 			}
-		}*/
+		}
 		
 		//removeIf => contains "e"
 		colors.removeIf(color -> color != null && color.contains("e"));
