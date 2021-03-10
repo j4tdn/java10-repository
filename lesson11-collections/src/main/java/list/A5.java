@@ -12,8 +12,8 @@ public class A5 {
 	public static void main(String[] args) {
 		// static length
 		List<Integer> digits = Arrays.asList(1, 2, 3, 4, 5);
-		Collections.reverse(digits);
-		Collections.shuffle(digits);
+		Collections.reverse(digits); // 
+		Collections.shuffle(digits); // 
 
 		Collections.sort(digits);
 		printf(digits);
