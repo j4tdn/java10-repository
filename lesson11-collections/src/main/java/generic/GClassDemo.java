@@ -17,7 +17,8 @@ public class GClassDemo {
 		// functional interface
 		int count = digits.count(digit -> digit > 30);
 		System.out.println("count: " + count);
-		digits.removeIf(digit -> digit == 30);
+		boolean flag = digits.removeIf(digit -> digit == 30);
+		System.out.println(flag);
 		digits.iterate();
 		
 	}

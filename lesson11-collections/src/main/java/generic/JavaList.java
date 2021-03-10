@@ -70,6 +70,8 @@ public class JavaList<E> implements IList<E> {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	// có thể trả về là void, nhưng nên để boolean với Functional interface
+	// để check function đã làm đúng với điều kiện đưa vào hay chưa 
 	@Override
 	public boolean removeIf(Predicate<E> predicate) {
 		int pos = -1;
