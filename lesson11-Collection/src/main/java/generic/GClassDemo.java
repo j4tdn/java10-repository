@@ -8,6 +8,7 @@ public class GClassDemo {
 		digits.add(10);
 		digits.add(20);
 		digits.add(30);
+		
 		digits.add(40);
 		digits.add(50);
 		System.out.println("size: " + digits.size());
