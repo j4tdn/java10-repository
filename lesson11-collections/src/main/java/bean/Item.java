@@ -1,9 +1,11 @@
 package bean;
 
-public class Item implements Comparable<Item>{
+import java.util.Objects;
+
+public class Item implements Comparable<Item> {
 	private Integer id;
 	private String name;
-	
+
 	public Item() {
 	}
 
@@ -27,19 +29,19 @@ public class Item implements Comparable<Item>{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
-		} 
+		}
 		if (!(obj instanceof Item)) {
 			return false;
 		}
 		Item that = (Item) obj;
 		return getId().equals(that.getId()) && getName().equals(that.getName());
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", name=" + name + "]";
@@ -52,4 +54,10 @@ public class Item implements Comparable<Item>{
 		}
 		return getId().compareTo(o.getId());
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId(), getName());
+	}
+
 }
