@@ -1,5 +1,7 @@
 package bean;
 
+import java.util.Objects;
+
 public class Item implements Comparable<Item> {
 	private Integer id;
 	private String name;
@@ -40,6 +42,10 @@ public class Item implements Comparable<Item> {
 	@Override
 	public String toString() {
 		return id + ", " + name;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId(),getName());
 	}
 	@Override
 	public int compareTo(Item o) {
