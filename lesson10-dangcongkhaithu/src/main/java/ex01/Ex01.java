@@ -70,7 +70,6 @@ public class Ex01 {
 		} else {
 			System.out.println("start = end");
 		}
-
 	}
 
 	private static void insertionSort(int[] numbers) {
