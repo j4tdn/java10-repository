@@ -21,7 +21,7 @@ public class Ex01 {
 		System.out.println("==================================");
 
 		// 4.Tìm số lớn thứ 3 trong mảng
-		System.out.println(getThirdLargest(numbers));
+		System.out.println( getThirdLargest(numbers));
 	}
 
 	private static int[] getUnique(int[] digits) {
