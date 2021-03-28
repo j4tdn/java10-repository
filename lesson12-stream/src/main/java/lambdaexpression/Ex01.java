@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import bean.Apple;
+
 public class Ex01 {
 	// Biểu thức lambda dùng để thay thế cho một FunctionalInterface
 	public static void main(String[] args) {
-		List<Apple> listApple = Arrays.asList(new Apple("red", 15), 
-											new Apple("green", 12), 
-											new Apple("green", 15),
-											new Apple("red", 10));
+		List<Apple> listApple = Arrays.asList();
 		
 		List<Apple> result = filterApple(listApple, apple -> apple.getColor().equals("green") && apple.getWeight() == 12);
 		
