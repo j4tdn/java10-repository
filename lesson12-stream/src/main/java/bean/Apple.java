@@ -14,7 +14,11 @@ public class Apple {
 		this.color = color;
 		System.out.println("Apple => Calling 1pr constructor");
 	}
-	
+	public Apple(String color, String country) {
+		this.color = color;
+		this.country = country;
+		System.out.println("Apple => Calling 2pr constructor");
+	}
 	public Apple(int id, String color, double weight, String country) {
 		this.id = id;
 		this.color = color;
