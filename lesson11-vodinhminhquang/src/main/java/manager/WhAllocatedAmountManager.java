@@ -4,10 +4,13 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Map.Entry;
+import java.util.function.Function;
 import java.util.Set;
 
 public class WhAllocatedAmountManager {
@@ -22,24 +25,66 @@ public class WhAllocatedAmountManager {
 		printMap(allocationKey);
 		System.out.println("=================");
 		Map<Long, BigDecimal> stockPreviousDayMap = stockPreviousDayMap(data);
-		BigDecimal sumStockPreviousDay = sumStockPreviousDay(stockPreviousDayMap);
+		BigDecimal sumStockPreviousDay = sumGetValue(stockPreviousDayMap);
 		Map<Long, BigDecimal> amountAllocatedmap = amountAllocatedMap(allocationKey, stockPreviousDayMap,
 				sumStockPreviousDay, allocationAmount);
 		printMap(amountAllocatedmap);
 		System.out.println("=================");
 		Map<Long, BigDecimal> demandMap = demandMap(interpolated, stockPreviousDayMap);
+		demandMap.put(1L, new BigDecimal(22));
+		demandMap.put(6L, new BigDecimal(6));
 		printMap(demandMap);
-//		Set<Entry<Long, BigDecimal>> entrySet = interpolated.entrySet();
-//		BigDecimal value = new BigDecimal(0);
-//		for (Entry<Long, BigDecimal> entry : entrySet) {
-//			value = interpolated.get(entry.getKey()).subtract(stockPreviousDayMap.get(entry.getKey())).setScale(0,
-//					RoundingMode.HALF_UP);
-//			if (value.signum() == 1) {
-//				demandMap.put(entry.getKey(), value);
-//			} else {
-//				demandMap.put(entry.getKey(), BigDecimal.ZERO);
+		System.out.println("=================");
+
+		Map<Long, BigDecimal> differenceMap = new HashMap<Long, BigDecimal>();
+
+		Set<Entry<Long, BigDecimal>> entrySet = demandMap.entrySet();
+		BigDecimal difference = new BigDecimal(0);
+		for (Entry<Long, BigDecimal> entry : entrySet) {
+			difference = amountAllocatedmap.get(entry.getKey()).subtract(entry.getValue());
+			differenceMap.put(entry.getKey(), difference);
+		}
+		printMap(differenceMap);
+		System.out.println("=================");
+		System.out.println(sumGetValue(amountAllocatedmap));
+		System.out.println("=================");
+
+		BigDecimal newAllocationAmount = new BigDecimal(allocationAmount);
+
+//		List<BigDecimal> differenceArrayList = differenceMap.values().stream()
+//				.collect(Collectors.toCollection(ArrayList::new));
+//		for (int i = 0; i < differenceArrayList.size(); i++) {
+//			System.out.print(differenceArrayList.get(i) + " ");
+//		}
+//		System.out.println("\n=================");
+//		differenceArrayList.sort(new Comparator<BigDecimal>() {
+//			@Override
+//			public int compare(BigDecimal o1, BigDecimal o2) {
+//				// TODO Auto-generated method stub
+//				return o1.compareTo(o2);
+//			}
+//		});
+//		System.out.println(differenceArrayList.toString());
+		
+		
+//		BigDecimal tempValue = new BigDecimal(0);
+//		for (int i = 0; i < differenceArrayList.size() - 1; i++) {
+//			for (int j = i + 1; j < differenceArrayList.size(); j++) {
+//				if (differenceArrayList.get(i).equals(differenceArrayList.get(j))) {
+//					System.out.print("the first " + differenceArrayList.get(i) + " ,the second " + differenceArrayList.get(j));
+//				}
 //			}
 //		}
+//		System.out.println("\n=================");
+		Optional<Entry<Long, BigDecimal>> maxEntry = differenceMap.entrySet().stream()
+				.max(Comparator.comparing(new Function<Entry<Long, BigDecimal>, BigDecimal>() {
+					@Override
+					public BigDecimal apply(Entry<Long, BigDecimal> t) {
+						return t.getValue();
+					}
+				}));
+		System.out.println(maxEntry.get().getValue());
+		
 	}
 
 	private static List<Store> getItems() {
@@ -169,7 +214,7 @@ public class WhAllocatedAmountManager {
 		return stockPreviousDayMap;
 	}
 
-	private static BigDecimal sumStockPreviousDay(Map<Long, BigDecimal> stockPreviousDayMap) {
+	private static BigDecimal sumGetValue(Map<Long, BigDecimal> stockPreviousDayMap) {
 		BigDecimal sum = new BigDecimal(0);
 
 		Set<Entry<Long, BigDecimal>> entrySet = stockPreviousDayMap.entrySet();
