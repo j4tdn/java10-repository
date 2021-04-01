@@ -10,7 +10,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.IntFunction;
+import java.util.function.Predicate;
+import java.util.function.ToIntFunction;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
+import java.util.stream.Stream;
 import java.util.Set;
 
 public class WhAllocatedAmountManager {
@@ -49,8 +59,42 @@ public class WhAllocatedAmountManager {
 		System.out.println(sumGetValue(amountAllocatedmap));
 		System.out.println("=================");
 
-		BigDecimal newAllocationAmount = new BigDecimal(allocationAmount);
+		Optional<Entry<Long, BigDecimal>> maxEntry = differenceMap.entrySet().stream()
+				.max(Comparator.comparing(Map.Entry::getValue));
+		BigDecimal biggestValue = maxEntry.get().getValue();
+		System.out.println(biggestValue);
 
+		System.out.println("===================");
+
+		Map<Long, BigDecimal> biggestValuesMap = differenceMap.entrySet().stream()
+				.filter(t -> t.getValue().equals(biggestValue))
+				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+		biggestValuesMap.entrySet().forEach(System.out::println);
+		System.out.println("===================");
+
+		BigDecimal smallerDemand = new BigDecimal(1000000);
+		Long storeChangedId = 0L;
+		// check demand map
+		Set<Entry<Long, BigDecimal>> biggestMapEntrySet = biggestValuesMap.entrySet();
+		for(Entry<Long, BigDecimal> entry : biggestMapEntrySet) {
+			if(demandMap.get(entry.getKey()).compareTo(smallerDemand) < 0) {
+				smallerDemand = demandMap.get(entry.getKey());
+			}
+		}
+		System.out.println(smallerDemand);
+		final BigDecimal smallerDemandInCurlyBrace = smallerDemand;
+		LongStream getId = demandMap.entrySet().stream()
+				.filter(new Predicate<Entry<Long, BigDecimal>>() {
+					@Override
+					public boolean test(Entry<Long, BigDecimal> t) {
+						// TODO Auto-generated method stub
+						return smallerDemandInCurlyBrace.equals(t.getValue()) && biggestValuesMap.containsKey(t.getValue());
+					}
+				})
+				.mapToLong(t -> t.getKey());
+		System.out.println(getId.toString());
+	
+//		BigDecimal newAllocationAmount = new BigDecimal(allocationAmount);
 //		List<BigDecimal> differenceArrayList = differenceMap.values().stream()
 //				.collect(Collectors.toCollection(ArrayList::new));
 //		for (int i = 0; i < differenceArrayList.size(); i++) {
@@ -65,8 +109,7 @@ public class WhAllocatedAmountManager {
 //			}
 //		});
 //		System.out.println(differenceArrayList.toString());
-		
-		
+
 //		BigDecimal tempValue = new BigDecimal(0);
 //		for (int i = 0; i < differenceArrayList.size() - 1; i++) {
 //			for (int j = i + 1; j < differenceArrayList.size(); j++) {
@@ -75,16 +118,11 @@ public class WhAllocatedAmountManager {
 //				}
 //			}
 //		}
-//		System.out.println("\n=================");
-		Optional<Entry<Long, BigDecimal>> maxEntry = differenceMap.entrySet().stream()
-				.max(Comparator.comparing(new Function<Entry<Long, BigDecimal>, BigDecimal>() {
-					@Override
-					public BigDecimal apply(Entry<Long, BigDecimal> t) {
-						return t.getValue();
-					}
-				}));
-		System.out.println(maxEntry.get().getValue());
-		
+//		
+//		Long numberOfElements = differenceMap.entrySet().stream().filter(t -> t.getValue().equals(biggestValue)).count();
+//		System.out.println("===================");
+//		System.out.println(numberOfElements);
+
 	}
 
 	private static List<Store> getItems() {
