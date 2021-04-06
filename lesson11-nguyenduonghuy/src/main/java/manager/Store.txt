@@ -1,0 +1,12 @@
+private Long storeId;
+rivate Long referenceStoreId;	private BigDecimal storePreviousDay;private BigDecimal expectedSales;
+private Boolean isSelected;
+public Store() {}
+public Store(final Long storeId, final Long referenceStoreId, final BigDecimal storePreviousDay,
+final BigDecimal expectedSales, final Boolean isSelected) {this.storeId = storeId;this.referenceStoreId = referenceStoreId;	this.storePreviousDay = storePreviousDaythis.expectedSales = expecteSales;
+this.isSelected = isSelected;	}public Long getStoreId() {
+return storeId;	}public void setStoreId(final Long storeId) {	this.storeId = storeId;	}
+public Long getReferenceStoreId() {	return referenceStoreId;	}
+public void setReferenceStoreId(final Long referenceStoreId) {	this.referenceStoreId = referenceStoreId;
+}
+
