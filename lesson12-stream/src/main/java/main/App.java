@@ -1,11 +1,14 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -59,7 +62,46 @@ public class App {
 		Function<String, Apple> fun = Apple::new;
 		Apple a2 = fun.apply("green");
 		// one parameter - constructor
+		
+		//composing lambda expression
+		Comparator<Apple> c1 = (ap1, ap2)->a1.getId() - a2.getId();
+		Comparator<Apple> c2 = (ap1, ap2)->Double.compare(ap1.getWeight(), ap2.getWeight());
+		
+		inventory.sort(c1.thenComparing(c2));
+		//relationship c1 with c2
+		
+		System.out.println("=============");
+		
+		//weight > 120 & color = red
+		Predicate<Apple> redPredicate = a->"red".equals(a.getColor());
+		Predicate<Apple> weightPredicate = a->a.getWeight()>120;
+		
+		//filter(inventory,redPredicate.negate()).forEach(System.out::println); get not color red
+		filter(inventory,redPredicate.and(weightPredicate)).forEach(System.out::println); // merger 2 pr
+		
+		System.out.println("==============");
+		
+		Function<Integer, Integer> f = x -> x+2;
+		Function<Integer, Integer> g = x -> x*2;
+		// g(f(x))
+		Function<Integer, Integer>  r =  f.andThen(g);
+		//r = Function<Integer, Integer>  l =  g.compose(f);
+		Integer digits =  r.apply(3);
+		System.out.println("digits: " +digits);
+		
+		
+		
 	} 
+	private static List<Apple> filter(List<Apple> inventory, Predicate<Apple> predicate){
+		List<Apple> result = new ArrayList<>();
+		for(Apple apple : inventory) {
+			if(predicate.test(apple)) {
+				result.add(apple);
+			}
+		}
+		return result;
+		
+	}
 	
 	private static List<Apple> getAll(){
 		return Arrays.asList(
