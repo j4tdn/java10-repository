@@ -10,6 +10,10 @@ public class Apple {
 		System.out.println("");
 	}
 
+	public Apple(String color) {
+		System.out.println("");
+	}
+	
 	public Apple(int id, String color, double weight, String country) {
 		super();
 		this.id = id;
