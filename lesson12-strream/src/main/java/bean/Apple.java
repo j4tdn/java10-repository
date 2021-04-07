@@ -55,6 +55,6 @@ public class Apple {
 
 	@Override
 	public String toString() {
-		return "Apple [id=" + id + ", color=" + color + ", weight=" + weight + ", country=" + country + "]";
+		return "Apple [id: " + id + ", color=" + color + ", weight=" + weight + ", country=" + country + "]";
 	}
 }	
