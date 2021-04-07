@@ -1,4 +1,4 @@
-package bin;
+package bean;
 
 public class Apple {
 	private Integer id;
