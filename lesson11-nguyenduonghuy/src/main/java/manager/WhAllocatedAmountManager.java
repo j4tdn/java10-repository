@@ -5,13 +5,10 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 import java.util.function.ToDoubleFunction;
 
 public class WhAllocatedAmountManager {
@@ -19,22 +16,10 @@ public class WhAllocatedAmountManager {
 		final List<Store> data = getItems();
 		final Integer allocationAmount = 300;
 
-		Map<Long, BigDecimal> e = fillingMissingExpectedSales(data);
+		Map<Long, BigDecimal> e = doAllocation(data, allocationAmount);
 		for (Entry<Long, BigDecimal> entry : e.entrySet()) {
 			System.out.println(entry.getKey() + " - " + entry.getValue());
 		}
-
-		Map<Long, BigDecimal> e1 = calculateAllocationKey(e);
-		for (Entry<Long, BigDecimal> entry : e1.entrySet()) {
-			System.out.println(entry.getKey() + " - " + entry.getValue());
-		}
-		
-		Map<Long, BigDecimal> e2 = calculateAmountAllocated(data, allocationAmount, e1);
-		for (Entry<Long, BigDecimal> entry : e2.entrySet()) {
-			System.out.println(entry.getKey() + " - " + entry.getValue());
-		}
-		
-	
 	}
 
 	private static List<Store> getItems() {
@@ -56,8 +41,12 @@ public class WhAllocatedAmountManager {
 	 * 
 	 * @return map of storeId, storeAllocatedAmount
 	 */
-	private static Map<Long, Integer> doAllocation(List<Store> data, Integer allocationAmount) {
-		return null;
+	private static Map<Long, BigDecimal> doAllocation(List<Store> data, Integer allocationAmount) {
+		Map<Long, BigDecimal> interpolated = fillingMissingExpectedSales(data);
+		Map<Long, BigDecimal> allocationKey = calculateAllocationKey(interpolated);
+		Map<Long, BigDecimal> amountAllocatedMap = calculateAmountAllocated(data, allocationAmount, allocationKey);
+		
+		return amountAllocatedMap;
 	}
 
 	private static Map<Long, BigDecimal> fillingMissingExpectedSales(List<Store> data) {
