@@ -1,12 +1,14 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -23,14 +25,39 @@ public class App {
 		for (Entry<Integer, Apple> entry : map.entrySet()) {
 			System.out.println(entry);
 		}
-		
+
 		// constructor reference
 		Supplier<Apple> sup = Apple::new;
 		Apple a1 = sup.get();
-		
+
 		// interfere
 		Function<String, Apple> fun = Apple::new;
 		Apple a2 = fun.apply("green");
+		// composing lambda expression
+		Comparator<Apple> c1 = (ap1, ap2) -> ap1.getId() - ap2.getId();
+		Comparator<Apple> c2 = (ap1, ap2) -> Double.compare(ap1.getWeight(), ap2.getWeight());
+		inventory.sort(c1.thenComparing(c2));
+		// weight > 120 & color = red
+		Predicate<Apple> redApplePre = a -> "red".equals(a.getColor());
+		Predicate<Apple> weightApplePre = a -> a.getWeight() > 400;
+		System.out.println("=========");
+		filter(inventory, redApplePre.and(weightApplePre)).forEach(System.out::println);
+		System.out.println("============");
+		Function<Integer, Integer> f = x -> x + 2;
+		Function<Integer, Integer> g = x -> x * 3;
+		Function<Integer, Integer> r = f.compose(g);
+		System.out.println(" digit" + r.apply(3));
+	}
+
+	private static List<Apple> filter(List<Apple> inventory, Predicate<Apple> predicate) {
+		List<Apple> result = new ArrayList<>();
+		for (Apple apple : inventory) {
+			if (predicate.test(apple)) {
+				result.add(apple);
+
+			}
+		}
+		return result;
 	}
 
 	private static List<Apple> getAll() {
