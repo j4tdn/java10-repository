@@ -1,0 +1,10 @@
+Functional Interface
+Anonymous class
+Lambda Expression
+
+Method Reference
+Constructor Reference
+Composing lambda expession
+	+ Predicate -> t returns boolean 
+	+ Function  -> t returns R
+	+ Comparator -> o1, o2 return int (<0, =0, >0)
