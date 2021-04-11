@@ -1,18 +1,28 @@
 package bean;
 
+import java.util.Objects;
+
 public class Dish {
+	
+	public enum Kind {
+		MEAT, FISH, OTHER
+	}
+	
+	
 	private String id;
 	private String name;
 	private double calories;
+	private Kind kind;
 	private boolean vegetarian;
 
 	public Dish() {
 	}
 
-	public Dish(String id, String name, double calories, boolean vegetarian) {
+	public Dish(String id, String name, double calories, Kind kind, boolean vegetarian) {
 		this.id = id;
 		this.name = name;
 		this.calories = calories;
+		this.kind = kind;
 		this.vegetarian = vegetarian;
 
 	}
@@ -36,6 +46,14 @@ public class Dish {
 	public double getCalories() {
 		return calories;
 	}
+	
+	public Kind getKind() {
+		return kind;
+	}
+	
+	public void setKind(Kind kind) {
+		this.kind = kind;
+	}
 
 	public void setCalories(double calories) {
 		this.calories = calories;
@@ -44,6 +62,23 @@ public class Dish {
 	public boolean isVegetarian() {
 		return vegetarian;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if(!(o instanceof Dish)) {
+			return false;
+		}
+		Dish that = (Dish)o;
+		return Double.compare(getCalories(), that.getCalories()) == 0;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(getCalories());
+	}
 
 	public void setVegetarian(boolean vegetarian) {
 		this.vegetarian = vegetarian;
@@ -51,7 +86,7 @@ public class Dish {
 
 	@Override
 	public String toString() {
-		return name;
+		return id + ", " + name + ", " + calories + " ," + kind + ", " + vegetarian;
 	}
 
 }
