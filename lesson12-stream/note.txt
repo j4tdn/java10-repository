@@ -5,6 +5,6 @@ Lambda Expression
 Method Reference
 Constructor Reference
 Composing lambda expession
-	+ Predicate -> t returns boolean 
-	+ Function  -> t returns R
-	+ Comparator -> o1, o2 return int (<0, =0, >0)
+	+ Predicate -> t returns boolean (boolean test(T t)
+	+ Function  -> t returns R (R apply (T t))
+	+ Comparator -> o1, o2 return int (int compare(T o1, T o2))

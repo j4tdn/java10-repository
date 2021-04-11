@@ -1,19 +1,28 @@
 package bean;
 
+import java.util.Objects;
+
 public class Dish {
+	
+	public enum Kind {
+		MEAT, FISH, OTHER
+	}
+	
     private String id;
     private String name;
     private double calories;
+    private Kind kind;
     private boolean vegetarian;
-
+    
 
     public Dish() {
     }
 
-    public Dish(String id, String name, double calories, boolean vegetarian) {
+    public Dish(String id, String name, double calories, Kind kind,boolean vegetarian) {
         this.id = id;
         this.name = name;
         this.calories = calories;
+        this.kind = kind;
         this.vegetarian = vegetarian;
 
     }
@@ -50,8 +59,42 @@ public class Dish {
         this.vegetarian = vegetarian;
     }
 
+    public void setKind(Kind kind) {
+		this.kind = kind;
+	}
+    
+    public Kind getKind() {
+		return kind;
+	}
+    
+    // th1: trung o nho dia chi -> true
+    
+    // th2: object truyền vào không phải là kiểu cần tìm -> false
+    
+    // cast object thành dish
+    
+    // return kết quả so sánh (nên dùng Double, Integer)
+    
     @Override
+    public int hashCode() {
+    	return Objects.hash(getCalories());
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+    	if (this == o) {
+    		return true;
+    	}
+    	if(!(o instanceof Dish)) {
+    		return false;
+    	}
+    	Dish that = (Dish)o;
+    	return Double.compare(getCalories(), that.getCalories()) == 0;
+    }
+    
+    
+	@Override
     public String toString() {
-        return name;
+        return id + ", " + name + ", " + calories + ", " + kind + ", " + isVegetarian();
     }
 }
