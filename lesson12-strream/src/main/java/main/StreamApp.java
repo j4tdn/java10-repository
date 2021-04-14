@@ -17,14 +17,14 @@ public class StreamApp {
 		// data source
 		List<Dish> menu = getAll();
 
-		List<String> temp = menu.stream()// Stream Dish
-				.filter(d -> d.getCalories() > 300)// Stream<Dish>
-				.map(Dish::getName)// Stream String
-				.collect(Collectors.toList());// List<String>
+		List<String> temp = menu.stream() // Stream Dish
+				.filter(d -> d.getCalories() > 300) // Stream<Dish>
+				.map(Dish::getName) // Stream String
+				.collect(Collectors.toList()); // List<String>
 
-		List<String> result = temp.stream()// Stream<String>
-				.skip(temp.size() - 3)// Stream<String>
-				.collect(Collectors.toList());// List<String>
+		List<String> result = temp.stream() // Stream<String>
+				.skip(temp.size() - 3) // Stream<String>
+				.collect(Collectors.toList()); // List<String>
 
 		result.forEach(System.out::println);
 		System.out.println("====================");
@@ -37,26 +37,23 @@ public class StreamApp {
 				.map(d -> {
 					System.out.println("map: " + d.getName());
 					return d.getName();
-				})// Stream <String>
+				}) // Stream <String>
 				.limit(2).count();
 		// terminal:
 		// Stream :1,data source 2, chain of intermediate 3, terminal
 		System.out.println("count: " + count);
 
-		List<Dish> meatDishes = menu.stream()
-			.filter(d -> Kind.MEAT.equals(d.getKind()))
-			.distinct()
-			//hahscode, equals according to	property which produce non-duplicate results
-			
-			
-			.collect(Collectors.toList());
-		meatDishes.forEach((System.out::println));				
+		List<Dish> meatDishes = menu.stream().filter(d -> Kind.MEAT.equals(d.getKind())).distinct()
+				// hahscode, equals according to property which produce non-duplicate results
+
+				.collect(Collectors.toList());
+		meatDishes.forEach((System.out::println));
 	}
-		
-	private static <T, R> Predicate<T> distincBy(Function<T, R> func){
+
+	private static <T, R> Predicate<T> distincBy(Function<T, R> func) {
 		Set<R> noDup = new HashSet<>();
-	return t -> noDup.add(func.apply(t));
-	}	
+		return t -> noDup.add(func.apply(t));
+	}
 
 	private static List<Dish> getAll() {
 		return Arrays.asList(new Dish("1", "D1", 308, Kind.FISH, false), 
