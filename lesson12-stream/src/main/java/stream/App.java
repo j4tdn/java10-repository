@@ -49,7 +49,7 @@ public class App {
 				new Dish("2", "D2", 405, Kind.OTHER, true),
 				new Dish("3", "D3", 329, Kind.MEAT, true),
 				new Dish("4", "D4", 302, Kind.MEAT, false),
-				new Dish("5", "D5	", 480, Kind.OTHER, true),
+				new Dish("5", "D5", 480, Kind.OTHER, true),
 				new Dish("6", "D6", 329, Kind.MEAT, true),
 				new Dish("7", "D7", 302, Kind.MEAT, false));
 	}
