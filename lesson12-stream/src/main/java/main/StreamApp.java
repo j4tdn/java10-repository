@@ -28,13 +28,13 @@ public class StreamApp {
 
 		System.out.println("Count: " + count);
 
-		List<Dish> dishs = menu.stream().filter(d -> d.getKind().equals(Kind.MEAT)).distinct()
+		List<Dish> dishs = menu.stream().filter(distinctBy(Dish::getCalories))
 				.collect(Collectors.toList());
 
 		dishs.forEach(System.out::println);
 
 	}
-	
+
 	private static <T, R> Predicate<T> distinctBy(Function<T, R> fun) {
 		Set<R> noDup = new HashSet<>();
 		return t -> noDup.add(fun.apply(t));
