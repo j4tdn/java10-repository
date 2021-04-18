@@ -1,8 +1,11 @@
 package main;
 
+import java.awt.Menu;
+import java.awt.peer.CheckboxMenuItemPeer;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -61,12 +64,31 @@ public class StreamApp {
 		.filter(distinctBy(Dish::getCalories))
 		.collect(Collectors.toList());
 		meatDishes.forEach(System.out::println);
+		
+		System.out.println("===========================");
+		// Calculate sum of calories of vegetarian dishes
+		Double sum1 = menu.stream()
+				.filter(d -> d.isVegetarian())
+				.map(Dish::getCalories)	// Stream<Double>
+				.reduce(0d, Double::sum);
+		
+		Double sum2 =  menu.stream()
+				.filter(d -> d.isVegetarian())
+				.mapToDouble(Dish::getCalories)
+				.sum();
+		
+		System.out.println("sum 1: "+sum1);
+		System.out.println("sum 2: "+sum2);
+		
 	}
 	
 	private static <T,R> Predicate<T> distinctBy(Function<T, R>func){
 		Set<R> noDup = new HashSet<>();
 		return t -> noDup.add(func.apply(t));
 	}
+
+
+	
 	
 	
 	
