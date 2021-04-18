@@ -45,6 +45,10 @@ public class StreamApp {
 				.filter(distinctBy(Dish::getCalories)) // non-duplicate
 				.collect(Collectors.toList());
 		meatDished.forEach(System.out::println);
+		Double sum1 = menu.stream().filter(d -> d.isVegetarian()).map(Dish::getCalories).reduce(0d, Double::sum);
+	double sum2 = menu.stream().filter(d -> d.isVegetarian()).mapToDouble(Dish::getCalories).sum();
+	System.out.println("sum1:" + sum1);
+	System.out.println("sum2:" + sum2);
 	}
 
 	private static <T, R> Predicate<T> distinctBy(Function<T, R> func) {
