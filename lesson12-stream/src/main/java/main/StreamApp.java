@@ -1,6 +1,5 @@
 package main;
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -60,7 +59,23 @@ public class StreamApp {
 			.filter(distinctBy(Dish::getCalories))
 			.collect(Collectors.toList());
 		meatDished.forEach(System.out::println);
-			
+		
+		
+		// Calculate sum of calories of vegie dishes
+		Double sum1 = menu.stream()			
+			.filter(d -> d.isVegetarian())	
+			.map(Dish::getCalories)		// Stream<Double>	
+			.reduce(0d, Double::sum);
+		
+		
+		Double sum2 = menu.stream()			
+		.filter(d -> d.isVegetarian())	
+		.mapToDouble(Dish::getCalories)		// Stream<Double>	
+		.sum();
+		
+		System.out.println("\n-----------------------------------");
+		System.out.println("sum1: " + sum1);
+		System.out.println("sum2: " + sum2);
 	}
 	
 	private static <T, R> Predicate<T> distinctBy(Function<T, R> func) {
