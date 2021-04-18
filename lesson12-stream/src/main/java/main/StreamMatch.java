@@ -8,7 +8,7 @@ public class StreamMatch {
 	public static void main(String[] args) {
 		int[] digits = { 1, 2, 1, 4, 5, 8, 10, 4, 12 };
 		// 1st: is there any element that is divisible by 10
-		// anyMatch
+		// anyMatch: 
 		boolean anymatch = Arrays.stream(digits)
 				.anyMatch(digit -> digit % 10 == 0);
 		System.out.println("anymatch: " + anymatch);
@@ -32,7 +32,7 @@ public class StreamMatch {
 		}
 
 		// 4th: does all elements less than 100
-		//allMatch
+		//allMatch: kiểm tra tất cả điều kiện trong chuổi,truyền vào T trả về boolean
 		boolean allmatch = Arrays.stream(digits)
 				.allMatch(digit -> digit < 100);
 		System.out.println("allMatch: " + allmatch);
