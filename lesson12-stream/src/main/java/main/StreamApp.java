@@ -28,10 +28,14 @@ public class StreamApp {
 
 		System.out.println("Count: " + count);
 
-		List<Dish> dishs = menu.stream().filter(distinctBy(Dish::getCalories))
-				.collect(Collectors.toList());
+		List<Dish> dishs = menu.stream().filter(distinctBy(Dish::getCalories)).collect(Collectors.toList());
 
 		dishs.forEach(System.out::println);
+
+		Double sum = menu.stream()
+				.filter(d -> d.isVegetarian())
+				.map(Dish::getCalories)
+				.reduce(0d, (a, b) -> a + b);
 
 	}
 
