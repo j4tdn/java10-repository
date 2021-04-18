@@ -41,9 +41,21 @@ public class App {
 				  .filter(distinctBy(Dish::getCalories))
 				  .collect(Collectors.toList());
 		meatDishes.forEach(System.out::println);
+		
+		// Calculate sum of calories of vegetarian dishes
+		Double sumCalories1 = menu.stream()
+				.filter(d -> d.isVegetarian())
+				.map(Dish::getCalories)
+				.reduce(Double.valueOf(0), Double::sum);
+		double sumCalories2 = menu.stream()
+				.filter(d -> d.isVegetarian())
+				.mapToDouble(Dish::getCalories)
+				.sum();
+		
+		System.out.println(sumCalories2);
 	}
 	
-	private static List<Dish> getAll() {
+	public static List<Dish> getAll() {
 		return Arrays.asList(
 				new Dish("1", "D1", 308, Kind.FISH, false),
 				new Dish("2", "D2", 405, Kind.OTHER, true),

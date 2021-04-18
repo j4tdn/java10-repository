@@ -29,5 +29,7 @@ public class StreamMap {
 										.filter(s -> s.contains("2"))
 										.collect(Collectors.toSet());
 		cardContain2.forEach(System.out::println);
+		
+		Arrays.stream(evenNumbers).reduce((a, b) -> a + b).getAsInt();
 	}
 }
