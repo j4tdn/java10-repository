@@ -27,6 +27,7 @@ public class StreamApp {
 		long count = menu.stream().filter(d -> {
 			System.out.println("filter" + d.getName());
 			return d.getCalories() > 300;
+			
 		}) // Stream<Dish>
 				.map(d -> {
 					System.out.println("map: " + d.getName());
@@ -41,6 +42,18 @@ public class StreamApp {
 		.collect(Collectors.toList());
 		
 		dishs.forEach(System.out::println);
+		
+	double sum1 = menu.stream()
+			.filter(d -> d.isVegetarian())
+			.map(Dish :: getCalories)
+			.reduce(0d, (d1,d2)-> d1+d2);
+		
+	double sum2 = menu.stream()
+				.filter(d -> d.isVegetarian())
+				.mapToDouble(Dish :: getCalories)
+				.sum();
+		System.out.println("sum1: " + sum1);
+		System.out.println("sum2: " + sum2);
 	}
 	private static <R, T> Predicate<T> ditinctBy(Function<T, R> fun) {
 		Set<R> noDup = new HashSet<>();
@@ -54,5 +67,9 @@ public class StreamApp {
 				new Dish("3", "D3" , 602, Kind.MEAT,true),
 				new Dish("4", "D4" , 322, Kind.MEAT,false),
 				new Dish("5", "D5" , 422, Kind.FISH,false));
+		
+		
+				
+				
 	}
 }
