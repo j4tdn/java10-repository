@@ -48,6 +48,19 @@ public class StreamApp {
 
 				.collect(Collectors.toList());
 		meatDishes.forEach((System.out::println));
+		// calulate sum of calories of vegie dishes
+		double sum1 = menu.stream()
+				.filter(d -> d.isVegetarian())
+				.map(Dish::getCalories)//Stream<Double>
+				.reduce(0d, Double::sum);
+			
+		double sum2 = menu.stream()
+			.filter(d -> d.isVegetarian())
+			.mapToDouble(Dish::getCalories) //DoubleStream
+			.sum();
+		
+		System.out.println("sum 1: " + sum1);
+		System.out.println("sum 2: " + sum2);
 	}
 
 	private static <T, R> Predicate<T> distincBy(Function<T, R> func) {
