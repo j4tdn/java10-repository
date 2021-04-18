@@ -53,6 +53,21 @@ public static void main(String[] args) {
 				// hashcode, equals  according
 				.collect(Collectors.toList());
 		meatDished.forEach(System.out::println);
+		
+		//Calculate 
+		Double sum1 =  menu.stream()
+				.filter( d-> d.isVegetarian())
+				.map(Dish::getCalories)  //Stream<Double>
+				.reduce(0d,Double::sum);
+		
+		Double sum2 =  menu.stream()
+				.filter( d-> d.isVegetarian())
+				.mapToDouble(Dish::getCalories) // DoubleStream
+				.sum();
+		System.out.println("sum1: "+sum1);
+		System.out.println("sum2: "+sum2);
+				
+		
 	}
     private static <T,R> Predicate<T> dustinctBy(Function<T, R>func){
     	Set<R> noDup = new HashSet<>();
