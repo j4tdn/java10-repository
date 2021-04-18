@@ -62,6 +62,22 @@ public class StreamApp {
 			.collect(Collectors.toList());
 		
 		meatDishes.forEach(System.out::println);
+		
+		System.out.println("==========");
+		
+		// Calculate sum of calories of vegetarian dishes
+			Double sum1 = menu.stream() //Stream<Dish>
+				.filter(d -> d.isVegetarian())
+				.map(Dish::getCalories) //Stream<Double>
+				.reduce(0d, Double::sum);
+			
+			double sum2 = menu.stream() //Stream<Dish>
+			.filter(d -> d.isVegetarian())
+			.mapToDouble(Dish::getCalories) // DoubleStream
+			.sum();
+			
+			System.out.println("sum1: " + sum1);
+			System.out.println("sum2: " + sum2);
 	}
 	private static <T, R> Predicate<Dish> distinctBy(Function<Dish, R> func){
 		Set<R> noDup = new HashSet<>();
