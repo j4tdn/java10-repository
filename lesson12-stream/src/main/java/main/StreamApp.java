@@ -3,6 +3,7 @@ package main;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -34,19 +35,22 @@ public class StreamApp {
 		}).limit(2).count();
 		System.out.println("count: " + count);
 		System.out.println("==============");
-		
-		
-		List<Dish> meatDishes= menu.stream().filter(d->Kind.MEAT.equals(d.getKind()))
-				//.distinct()//hashcode,equals according to property which produce
-				.filter(distinctBy(Dish::getCalories))
-				.collect(Collectors.toList());
+
+		List<Dish> meatDishes = menu.stream().filter(d -> Kind.MEAT.equals(d.getKind()))
+				// .distinct()//hashcode,equals according to property which produce
+				.filter(distinctBy(Dish::getCalories)).collect(Collectors.toList());
 		meatDishes.forEach(System.out::println);
-		
-		
+
+		Double sum1 = menu.stream().filter(d -> d.isVegetarian()).map(Dish::getCalories).reduce(0d, Double::sum);
+		Double sum2 = menu.stream().filter(d -> d.isVegetarian()).mapToDouble(Dish::getCalories).sum();
+		System.out.println("sum 1: " + sum1);
+		System.out.println("sum 2: " + sum2);
+
 	}
-	private static <T,R> Predicate<T> distinctBy(Function<T, R> func){
-		Set<R> noDup=new HashSet<>();
-		return t-> noDup.add(func.apply(t));
+
+	private static <T, R> Predicate<T> distinctBy(Function<T, R> func) {
+		Set<R> noDup = new HashSet<>();
+		return t -> noDup.add(func.apply(t));
 	}
 
 	private static List<Dish> getAll() {
