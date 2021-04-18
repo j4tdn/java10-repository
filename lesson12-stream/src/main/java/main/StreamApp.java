@@ -51,6 +51,21 @@ public class StreamApp {
 				.collect(Collectors.toList());
 
 		meatDished.forEach(System.out::println);
+		
+		// Calculate sum of calories vegie dishes
+		
+		double sum1 = menu.stream()
+		.filter(d -> d.isVegetarian())
+		.map(Dish::getCalories)  	// stream<Double>
+		.reduce(0d, Double::sum);
+		
+		double sum2 = menu.stream()
+				.filter(d -> d.isVegetarian())
+				.mapToDouble(Dish::getCalories) 	// stream<DoubleStream>
+				.sum();
+		
+		System.out.println("sum1: " + sum1);
+		System.out.println("sum2: " + sum2);
 
 	}
 
