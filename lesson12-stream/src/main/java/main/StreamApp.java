@@ -3,10 +3,12 @@ package main;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import bean.Dish;
 import bean.Dish.Kind;
@@ -54,6 +56,26 @@ public class StreamApp {
 		        	.collect(Collectors.toList());
 		      
 		      meatDished.forEach(System.out::println);
+		      
+		      // Calculate sum of calories of 
+		      
+		      System.out.println("===================");
+		      
+		   //cach 1
+		   Double sum1= menu.stream()
+		        	 .filter(d->d.isVegetarian())
+		        	.map(Dish::getCalories)
+		        	.reduce(0d,Double::sum);
+		   //cach 2
+		   Double sum2= menu.stream()
+		        	 .filter(d->d.isVegetarian())
+		        	.mapToDouble(Dish::getCalories)
+		        	.sum();
+		   
+		    System.out.println("sum1:"+sum1);
+		    System.out.println("sum2: "+sum2);
+		       
+		
 		        
 		
 	}
@@ -67,12 +89,11 @@ public class StreamApp {
 		return Arrays.asList(
 				new Dish("1", "D1",620,Kind.MEAT, false), 
 				new Dish("2", "D2",620,Kind.OTHER, false), 
-				new Dish("3", "D3", 329,Kind.OTHER, true),
-				new Dish("4", "D4", 302,Kind.MEAT, true), 
+				new Dish("3", "D3", 329,Kind.OTHER, false),
+				new Dish("4", "D4", 302,Kind.MEAT, false), 
 				new Dish("5", "D5", 480,Kind.MEAT, false),
 				new Dish("6", "D6", 480,Kind.MEAT, true),
-				new Dish("7", "D7", 480,Kind.MEAT, true))
-				;
+				new Dish("7", "D7", 480,Kind.MEAT, true));
 	}
 
 }
