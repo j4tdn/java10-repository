@@ -5,8 +5,10 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.DoubleUnaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.ToDoubleFunction;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -97,8 +99,39 @@ public class StreamApp {
 		
 		List<List<Integer>> listOfLists = Arrays.asList(list1, list2, list3);
 		
+		// Calculate sum of calories of vegetarian food dish
+		System.out.println(menu.stream()
+		.filter(d -> d.isVegetarian())
+		.map(Dish::getCalories) // Stream<Double> --> have to use several functions in Stream<Double>, kinda limited
+		.reduce(Double::sum).get());
+		
+		System.out.println(menu.stream()
+				.filter(t -> t.isVegetarian())
+				.map(Dish::getCalories) // Stream<Double>
+				.mapToDouble(new ToDoubleFunction<Double>() {
+					@Override
+					public double applyAsDouble(Double value) {
+						// d -> d
+						// unboxing Double to double
+						return value.doubleValue();
+					}
+				}) // DoubleStream
+				.sum()
+				);
+		
+		System.out.println(menu.stream()
+				.filter(t -> t.isVegetarian())
+				.mapToDouble(Dish::getCalories) //DoubleStream
+				.boxed() // DoubleStream -> Stream<Double>
+				.reduce(0D, Double::sum))
+				;  
+		
+		System.out.println(menu.stream()
+				.filter(d -> d.getKind().equals(Kind.OTHER))
+				.mapToDouble(Dish::getCalories) // DoubleStream --> support various function for calculating process
+				.sum()
+				);
 														
-					
 	}
 		
 	private static <T, R> Predicate<T> distinctBy(Function<T, R> func){

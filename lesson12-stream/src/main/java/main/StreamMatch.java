@@ -1,6 +1,7 @@
 package main;
 
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.function.IntPredicate;
 
@@ -41,5 +42,6 @@ public class StreamMatch {
 		
 		// 5th: does no elements greater than 0
 		System.out.println("No numbers greater that zero: " + Arrays.stream(digits).noneMatch(digit -> digit > 0));
+		
 	}
 }
