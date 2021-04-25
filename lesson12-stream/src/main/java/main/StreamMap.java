@@ -95,14 +95,5 @@ public class StreamMap {
 		cardResult.forEach(System.out::println);
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 }

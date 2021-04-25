@@ -52,6 +52,7 @@ public class StreamReduce {
 	
 	// Bội chung nhỏ nhất
 	private static int LCM(int a, int b) {
+		// Bội chung nhỏ nhất bằng tích hai số hạng chia cho ước chung lớn nhất
 		return (a * b) / GCD(a, b);
 	}
 	
