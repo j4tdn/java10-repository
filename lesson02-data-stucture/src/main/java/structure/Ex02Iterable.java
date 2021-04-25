@@ -13,11 +13,11 @@ public class Ex02Iterable {
     // break: switch case
     // break: pause and exit the loop
     // continue: ignore the below code and continnue with next loop
-    for (int i = 1; i <= 5; i++);
+    for (int i = 1; i <= 5; i++) {
         if (i == 3) {
         	continue;
         }
-        if ( i = 4) {
+        if ( i == 4) {
         	break;
         }
         System.out.println("i: " + i);
