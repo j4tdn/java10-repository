@@ -1,8 +1,8 @@
 package ddl;
+// data definition language --> create file with structure, name, isWrite, isRead
+
 
 import java.io.File;
-import java.nio.file.Files;
-import java.util.Arrays;
 import java.util.Random;
 
 import utils.FileUtils;
