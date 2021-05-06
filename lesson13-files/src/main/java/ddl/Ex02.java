@@ -24,6 +24,9 @@ public class Ex02 {
 
 		File[] dirPdfFiles = dir.listFiles(file -> file.isFile() && file.getName().endsWith("pdf"));
 		FileUtils.printf(dirPdfFiles);
+		
+		
+		
 	}
 	
 	public static void createFiles(String dirPath, int nofiles) {
