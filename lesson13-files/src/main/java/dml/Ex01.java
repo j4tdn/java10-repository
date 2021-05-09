@@ -16,6 +16,6 @@ public static void main(String[] args) {
 	print(FileUtils.readLines(file));
 	
 	Trader t1 = new Trader("Adam", "Milan");
-	writeLine(file,t1.toLine());
+	writeLines(file,t1.toLine());
 }
 }
