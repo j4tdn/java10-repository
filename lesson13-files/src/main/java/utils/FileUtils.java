@@ -6,14 +6,47 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 
 public class FileUtils {
 	// private constructor
 	private FileUtils() {
 		
+	}
+	
+	public static <T> List<T> readLines(Path path, Function<String, T> func){
+		List<T> data = new ArrayList<>();
+		try {
+			List<String> lines = Files.readAllLines(path);
+			for (String line: lines) {
+				Optional<T> opt = Optional.ofNullable(func.apply(line));
+				if (opt.isPresent()) {
+					data.add(opt.get());
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
+	
+	public static <L extends bean.FileData> void writeFiles(Path path, List<L> lines) {
+		try {
+			List<String> data = lines.stream().map(L::toLine).collect(Collectors.toList());
+			Files.write(path, data, StandardOpenOption.APPEND);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("Write "+ path.getFileName().toString() + " file successfull!");
 	}
 	
 	public static void writeLines(File file, String ...lines) {
