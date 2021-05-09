@@ -17,7 +17,7 @@ public class Ex01 {
 	// Student st1 = new Student(1 , "A", 10); => String s1 = "1, A, 10";
 		
 		// String line = "1, A , 10";
-		
+		 
 		//Student stLine = new Student(ar
 	}
 

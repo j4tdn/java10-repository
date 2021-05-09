@@ -6,9 +6,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import bean.FileData;
 
 public class FileUtils {
 	// private constructor
@@ -16,11 +23,37 @@ public class FileUtils {
 
 	}
 
+	public static <T> List<T> readLines(Path path, Function<String, T> func) {
+		List<T> data = new ArrayList<>();
+		try {
+			List<String> lines = Files.readAllLines(path);
+			for (String line : lines) {
+				Optional<T> opt = Optional.ofNullable(func.apply(line));
+				if (opt.isPresent()) {
+					data.add(opt.get());
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
+
+	public static <L extends FileData> void writeFiles(Path path, List<L> lines) {
+		try {
+			List<String> data = lines.stream().map(L::toLine).collect(Collectors.toList());
+			Files.write(path, data);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Write " + path.getFileName().toString() + " file successful !");
+	}
+
 	public static void writeLines(File file, String... lines) {
 		FileWriter fw = null;
 		BufferedWriter bw = null;
 		try {
-			// Open file - connection
+			// open file - connection
 			fw = new FileWriter(file, true);
 			bw = new BufferedWriter(fw);
 
@@ -30,45 +63,45 @@ public class FileUtils {
 				bw.write(line);
 			}
 
-			System.out.println("Write file" + file.getName() + " successful");
+			System.out.println("Write file " + file.getName() + " sucessful !!!");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			// close connection
+			// save and close
 			close(bw, fw);
 		}
 	}
 
 	public static List<String> readLines(File file) {
+		List<String> lines = new ArrayList<>();
 		FileReader fr = null;
 		BufferedReader br = null;
-		List<String> lines = new ArrayList<>();
 		try {
-			// Open file - connection
+			// open file - connection
 			fr = new FileReader(file);
 			br = new BufferedReader(fr);
+
 			// manipulate with file
 			String line = null;
 			while ((line = br.readLine()) != null) {
 				lines.add(line);
 			}
 
-		} catch (Exception e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
 			// close connection
 			close(br, fr);
 		}
+
 		return lines;
 	}
 
 	public static File createFile(String path) {
 		File file = new File(path);
-
 		try {
 			if (!file.exists()) {
 				File parent = file.getParentFile();
-				System.out.println("parent: " + parent.getPath());
 				if (!parent.exists()) {
 					parent.mkdirs();
 				}
@@ -103,7 +136,7 @@ public class FileUtils {
 	}
 
 	public static void print(File... files) {
-		Arrays.stream(files).forEach(f -> System.out.println(f.getAbsolutePath()));
+		Arrays.stream(files).forEach(f -> System.out.println(f.getAbsoluteFile()));
 	}
 
 	public static <E> void print(List<E> es) {
@@ -119,4 +152,5 @@ public class FileUtils {
 			}
 		});
 	}
+
 }
