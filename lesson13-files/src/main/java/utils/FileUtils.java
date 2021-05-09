@@ -16,11 +16,11 @@ public class FileUtils {
 
 	}
 
-	public static void writeLine(File file, String... lines) {
+	public static void writeLines(File file, String... lines) {
 		FileWriter fw = null;
 		BufferedWriter bw = null;
 		try {
-			// open file - connection
+			// Open file - connection
 			fw = new FileWriter(file, true);
 			bw = new BufferedWriter(fw);
 
@@ -30,35 +30,33 @@ public class FileUtils {
 				bw.write(line);
 			}
 
-			System.out.println("Write file " + file.getName() + " sucessful !!!");
+			System.out.println("Write file" + file.getName() + " successful");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			// save and close
+			// close connection
 			close(bw, fw);
 		}
 	}
 
-	public static List<String> readLine(File file) {
-		List<String> lines = new ArrayList<>();
+	public static List<String> readLines(File file) {
 		FileReader fr = null;
 		BufferedReader br = null;
-
+		List<String> lines = new ArrayList<>();
 		try {
-			// open file - connection
+			// Open file - connection
 			fr = new FileReader(file);
 			br = new BufferedReader(fr);
-
 			// manipulate with file
 			String line = null;
 			while ((line = br.readLine()) != null) {
 				lines.add(line);
 			}
 
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			// save and close
+			// close connection
 			close(br, fr);
 		}
 		return lines;
@@ -66,14 +64,16 @@ public class FileUtils {
 
 	public static File createFile(String path) {
 		File file = new File(path);
+
 		try {
 			if (!file.exists()) {
 				File parent = file.getParentFile();
+				System.out.println("parent: " + parent.getPath());
 				if (!parent.exists()) {
 					parent.mkdirs();
 				}
 				file.createNewFile();
-				System.out.println("file is created successfully !!!");
+				System.out.println("File is created successfully !!!");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -96,7 +96,7 @@ public class FileUtils {
 		System.out.println("path: " + file.getPath());
 		System.out.println("absolute path: " + file.getAbsolutePath());
 		try {
-			System.out.println("canonical path: " + file.getCanonicalFile());
+			System.out.println("canonical path: " + file.getCanonicalPath());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
