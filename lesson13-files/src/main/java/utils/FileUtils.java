@@ -6,9 +6,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import bean.FileData;
 
 public class FileUtils {
 	private FileUtils() {
@@ -53,7 +60,7 @@ public class FileUtils {
 		}
 	}
 
-	public static <E> void printf(E... es) {
+	public static <E> void printf(@SuppressWarnings("unchecked") E... es) {
 		Arrays.stream(es).forEach(System.out::println);
 	}
 
@@ -103,6 +110,32 @@ public class FileUtils {
 			close(br, fr);
 		}
 		return lines;
+	}
+	
+	public static <E extends FileData> void writeFiles(Path path, List<E> lines) {
+		List<String> data = lines.stream().map(E::toLine).collect(Collectors.toList());
+		try {
+			Files.write(path, data);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Write file successfully!");
+	}
+	
+	public static <T> List<T> readLines(Path path, Function<String, T> func) {
+		List<T> data = new ArrayList<>();
+		try {
+			List<String> lines = Files.readAllLines(path);
+			for (String line : lines) {
+				Optional<T> opt = Optional.ofNullable(func.apply(line));
+				if (opt.isPresent()) {
+					data.add(opt.get());
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return data;
 	}
 
 	private static void close(AutoCloseable... closeables) {

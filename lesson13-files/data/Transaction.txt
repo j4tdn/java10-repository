@@ -1,0 +1,6 @@
+[Brian, Cambridge] - 2011 - 300
+[Raoul, Cambridge] - 2012 - 1000
+[Raoul, Cambridge] - 2011 - 400
+[Mario, Milan] - 2012 - 710
+[Mario, Milan] - 2012 - 700
+[Alan, Cambridge] - 2012 - 950
