@@ -11,23 +11,23 @@ public class Ex01 {
 
 	public static void main(String[] args) {
 		File file = new File(path);
-		print(readLine(file));
+		print(readLines(file));
 		
 		Trader t1 = new Trader("Adam", "Milan");
-		writeLine(file, t1.toLine());
-
-		// Student st1 = new Student(1, "A", 10); => String s1 = "1,A,10"
+		writeLines(file, t1.toLine());
 		
-		// String line = "1,A,10"
-		// String [] arr = line.split(",")
+		// Student st1 = new Student(1, "A", 10); => String s1 = "1, A, 10";
 		
-		// Student stLine = new Student(1,"A", 10);
-
+		// String line = "1, A, 10";
+		// String[] arr = line.split(", ");
+		
+		// Student stLine = new Student(arr[0], arr[1], arr[2]);
+		
 		// List<Student> Student: id, name, point => List<String>
 		// List<Employee> Employee: id, name, salary
-
+		
 		// student.txt
 		// 1, A, 10
+		
 	}
-
 }
