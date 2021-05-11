@@ -1,18 +1,27 @@
 package dml;
 
 import java.io.File;
-import utils.FilesUtils;
+
+import bean.Trader;
+
+import static utils.FilesUtils.*;
 
 public class Ex01 {
 	private static final String path = "lesson12\\Trader.txt";
 
 	public static void main(String[] args) {
-//		String[] students = { "Trader T7", "Trader T8", "Trader T9" };
 		File file = new File(path);
 
-//		FilesUtils.writeLines(file, students);
+		Trader t1 = new Trader("Adam", "Milan");
+		writeLines(file, t1.toLine());
+
 		print(readLines(file));
+		
+		
+		// Student st1 = new Student(1 , "A", 10); => String s1 = "1, A, 10";
 
+		// String line = "1, A , 10";
+
+		// Student stLine = new Student
 	}
-
 }
