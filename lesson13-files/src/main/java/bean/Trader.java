@@ -1,6 +1,10 @@
 package bean;
 
-public class Trader implements FileData {
+import java.io.Serializable;
+
+public class Trader implements Serializable, FileData {
+	
+	private static final long serialVersionUID = 1L;
 	private final String name;
 	private final String city;
 
