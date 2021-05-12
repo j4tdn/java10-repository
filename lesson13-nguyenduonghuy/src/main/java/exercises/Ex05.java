@@ -10,8 +10,9 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 
+
 public class Ex05 {
-	private static final String path = "exercise 03" + File.separator + "input.txt";
+	private static final String path = "exercise 03/input.txt";
 	private static Random rd = new Random();
 
 	public static void main(String[] args) throws IOException {
@@ -22,6 +23,8 @@ public class Ex05 {
 		
 		List<String> data = toListString(arr);
 		writeData(file, data);
+		
+		readData(file);
 	}
 	
 	private static File createFile(String path) {
@@ -48,7 +51,16 @@ public class Ex05 {
 			e.printStackTrace();
 		}
 	}
-
+	
+	private static void readData(File file) {
+		try {
+			Files.readAllLines(Paths.get(file.getPath())).forEach(System.out::println);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Read file successfully");
+	}
+	
 	private static int[][] getArray2D(int row, int col) {
 		int[][] arr = new int[row][col];
 		for (int i = 0; i < arr.length; i++) {
