@@ -54,7 +54,7 @@ public class Ex04 {
 	}
 	
 	private static List<Integer> transfer(String line) {
-		return Arrays.stream(line.split("[a-zA-Z]++"))
+		return Arrays.stream(line.split("[a-zA-Z]+"))
 					.filter(i -> i == null || !i.equalsIgnoreCase(""))
 					.map(Integer::parseInt)
 					.collect(Collectors.toList());
