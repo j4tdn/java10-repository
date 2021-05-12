@@ -12,13 +12,20 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Ex04 {
-	private static final String path = "exercise 04/output.txt";
+	private static final String path_input = "exercise 04/input.txt";
+	private static final String path_output = "exercise 04/output.txt";
 	
 	public static void main(String[] args) throws IOException {
-		File file = createFile(path);
+		File fileInput = createFile(path_input);
+		File fileOutput = createFile(path_output);
 		
-		List<Integer> data = readData(file, l -> transfer(l));
+		// read data from input.txt
+		List<Integer> data = readData(fileInput, l -> transfer(l));
 		data.forEach(System.out::println);
+		
+		// write data into output.txt
+		List<String> dataAsString = data.stream().map(String::valueOf).collect(Collectors.toList());
+		writeData(fileOutput, dataAsString);
 	}
 	
 	private static File createFile(String path) {
@@ -35,6 +42,14 @@ public class Ex04 {
 			e.printStackTrace();
 		}
 		return file;
+	}
+	
+	private static void writeData(File file, List<String> data) {
+		try {
+			Files.write(Paths.get(file.getPath()), data);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private static List<Integer> readData(File file, Function<String, List<Integer>> func) {
@@ -54,7 +69,7 @@ public class Ex04 {
 	}
 	
 	private static List<Integer> transfer(String line) {
-		return Arrays.stream(line.split("[a-zA-Z]+"))
+		return Arrays.stream(line.strip().split("[a-zA-Z]+"))
 					.filter(i -> i == null || !i.equalsIgnoreCase(""))
 					.map(Integer::parseInt)
 					.collect(Collectors.toList());

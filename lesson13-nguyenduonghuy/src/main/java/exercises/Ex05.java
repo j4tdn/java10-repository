@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 
 public class Ex05 {
-	private static final String path = "exercise 03/input.txt";
+	private static final String path = "exercise 05/input.txt";
 	private static Random rd = new Random();
 
 	public static void main(String[] args) throws IOException {
