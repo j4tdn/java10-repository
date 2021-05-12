@@ -14,6 +14,8 @@ public class Ex02 {
 		// createFiles("random", 20);
 		File[] roots = File.listRoots();
 		FileUtils.print(roots);
+		
+		System.out.println("================================================");
 
 		File dir = new File(path);
 		File[] dirFile = dir.listFiles();
