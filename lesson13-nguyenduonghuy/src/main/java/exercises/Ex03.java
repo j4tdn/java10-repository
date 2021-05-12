@@ -18,13 +18,13 @@ public class Ex03 {
 	private static final String path = "student/student.txt";
 	private static List<Student> data;
 	private static Scanner sc = new Scanner(System.in);
-	
+
 	public static void main(String[] args) {
 		File file = createFile(path);
 		data = getAllStudents();
 		menu(file);
 	}
-	
+
 	private static File createFile(String path) {
 		File file = new File(path);
 		try {
@@ -40,7 +40,7 @@ public class Ex03 {
 		}
 		return file;
 	}
-	
+
 	private static List<Student> getAllStudents() {
 		List<Student> list = new ArrayList<>();
 		list.add(new Student("S1", "Huy", 9.0));
@@ -49,9 +49,9 @@ public class Ex03 {
 		list.add(new Student("S4", "Ngan", 7.5));
 		list.add(new Student("S5", "Vu", 6.0));
 		list.add(new Student("S6", "Thang", 6.5));
-		return list;					
+		return list;
 	}
-	
+
 	private static void menu(File file) {
 		while (true) {
 			System.out.println("==========================");
@@ -73,13 +73,13 @@ public class Ex03 {
 				add(file, new Student(id, name, gpa));
 				System.out.println("Adding student successfully!");
 				break;
-			case 2: 
+			case 2:
 				System.out.println("Enter id that want to delete: ");
 				String idDelete = sc.nextLine();
 				delete(file, idDelete);
 				System.out.println("Deleting student successfully!");
 				break;
-			case 3: 
+			case 3:
 				System.out.println("Enter id that need to update: ");
 				String idNeedUpdate = sc.nextLine();
 				System.out.println("Enter new ID ");
@@ -89,9 +89,9 @@ public class Ex03 {
 				System.out.println("Enter new GPA: ");
 				double gpaUpdate = Double.parseDouble(sc.nextLine());
 				update(file, idNeedUpdate, new Student(idUpdate, nameUpdate, gpaUpdate));
-				System.out.println("Updating student successfully");
+				System.out.println("Updating student successfully!");
 				break;
-			case 4: 
+			case 4:
 				System.out.println("Student list: ");
 				display(file);
 				break;
@@ -100,18 +100,16 @@ public class Ex03 {
 			}
 		}
 	}
-	
+
 	private static void writeData(File file, List<Student> data) {
-		List<String> dataAsString = data.stream()
-										.map(Student::toLine)
-										.collect(Collectors.toList());
+		List<String> dataAsString = data.stream().map(Student::toLine).collect(Collectors.toList());
 		try {
 			Files.write(Paths.get(file.getPath()), dataAsString);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static List<Student> readLines(Path path, Function<String, Student> func) {
 		List<Student> result = new ArrayList<>();
 		try {
@@ -127,22 +125,22 @@ public class Ex03 {
 		}
 		return result;
 	}
-	
+
 	private static void display(File file) {
 		readLines(Paths.get(file.getPath()), Student::transfer).forEach(System.out::println);
 	}
-	
+
 	private static void add(File file, Student s) {
 		data.add(s);
 		writeData(file, data);
 	}
-	
+
 	private static void delete(File file, String id) {
 		data = readLines(Paths.get(file.getPath()), Student::transfer);
 		data.removeIf(s -> id.equals(s.getId()));
 		writeData(file, data);
 	}
-	
+
 	private static void update(File file, String id, Student sUpdate) {
 		data = readLines(Paths.get(file.getPath()), Student::transfer);
 		for (Student s : data) {
