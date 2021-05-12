@@ -1,8 +1,16 @@
 package bean;
 
-public class Trader implements FileData {
+import java.io.Serializable;
+
+public class Trader implements Serializable, FileData {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2615810303544706342L;
+	
+	// transient: không muốn ghi vào file
 	private final String name;
-	private final String city;
+	private final transient String city;
 
 	public Trader(String name, String city) {
 		this.name = name;
