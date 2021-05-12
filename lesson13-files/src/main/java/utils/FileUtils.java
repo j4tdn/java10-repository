@@ -3,9 +3,13 @@ package utils;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
@@ -13,16 +17,88 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Properties;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import bean.FileData;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import bean.FileData;
+import bean.Student;
+
+// Ctrl + Shift + T: tìm file bất kỳ
 public class FileUtils {
 	// private constructor
 	// private để tránh bên ngoài tạo đối tượng --> <File>.<Function>
 	private FileUtils() {
 
+	}
+
+	public static void writeJson(File file, Object object) {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			mapper.writeValue(file, object);
+			System.out.println("Write file " + file.getName() + " successful !");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static <T> T readJson(File file, Class<T> classType) {
+		T result = null;
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			result = mapper.readValue(file, classType);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	public static Properties getProperties(File file) {
+		Properties props = new Properties();
+		try {
+			props.load(new FileInputStream(file));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return props;
+	}
+
+	public static Object readObject(File file) {
+		Object result = null;
+
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+
+		try {
+			fis = new FileInputStream(file);
+			ois = new ObjectInputStream(fis);
+
+			result = ois.readObject();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			FileUtils.close(ois, fis);
+		}
+		return result;
+	}
+
+	public static void writeObject(File file, Object object) {
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+
+		try {
+			fos = new FileOutputStream(file);
+			oos = new ObjectOutputStream(fos);
+
+			oos.writeObject(object);
+			System.out.println("Write file " + file.getName() + " successful");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			FileUtils.close(oos, fos);
+		}
 	}
 
 	// Function<String, R> notifies that we're gonna transform from String to R
@@ -147,6 +223,11 @@ public class FileUtils {
 		return lines;
 	}
 
+	@SuppressWarnings("unchecked")
+	public static <T> List<T> safeList(Object object) {
+		return (List<T>) object;
+	}
+
 	public static void print(File... files) {
 		Arrays.stream(files).forEach(f -> System.out.println(f.getAbsoluteFile()));
 	}
@@ -155,7 +236,7 @@ public class FileUtils {
 		es.stream().forEach(System.out::println);
 	}
 
-	private static void close(AutoCloseable... closeables) {
+	public static void close(AutoCloseable... closeables) {
 		Arrays.stream(closeables).forEach(c -> {
 			try {
 				c.close();
