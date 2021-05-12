@@ -53,7 +53,6 @@ public class Ex01 {
 		}
 	}
 	
-	// using org.apache.commons.io
 	private static void moveTo(File file, String folder, String ... extension) {
 		for (String ex : extension) {
 			File[] files = file.listFiles(f -> f.getName().contains(ex));
@@ -63,6 +62,7 @@ public class Ex01 {
 		}
 	}
 	
+	// using org.apache.commons.io
 	private static void copyTo(File file, String folder, String ...extension) {
 		for (String ex : extension) {
 			File[] files = file.listFiles(f -> f.getName().contains(ex));
