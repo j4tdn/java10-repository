@@ -27,6 +27,7 @@ public class Ex03 {
 		
 		List<Transaction> transactions = readLines(transactionPath, Transaction::transfer);
 		print(transactions);
+		
 	}
 	
 }
