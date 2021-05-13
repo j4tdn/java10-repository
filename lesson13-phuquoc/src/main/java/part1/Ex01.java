@@ -8,8 +8,7 @@ import java.util.Random;
 
 public class Ex01 {
 //	private static final String path_folders = "garbage\\image\\..\\music\\..\\system\\..\\coding";
-	private static final String path_files = "garbage";
-	private static final String path_folders = "garbage";
+
 	private static final String FILE_DIR = "garbage";
 	
 	private static final String folders_IMAGE = "garbage\\image";
@@ -27,9 +26,9 @@ public class Ex01 {
 	private static final String FILE_JAVA_EXT = ".java";
 	
 	public static void main(String[] args)  {
-		createFiles(path_files, 20);
+		createFiles(FILE_DIR, 20);
 		System.out.println("===============================");
-		createDir(path_folders);
+		createDir(FILE_DIR);
 		moveFiles();
 		System.out.println("===============================");
 		deleteFiles();
@@ -102,13 +101,13 @@ public class Ex01 {
 	
 	public static void coppyFiles() {
 		File old_folder = new File(FILE_DIR);
-		File new_folder = new File(folders_CODING);
 		File fList[] = old_folder.listFiles();
 		for (File f : fList) {
+			File new_folder = new File(folders_CODING + File.separator + f.getName());
 		    if (f.getName().endsWith(FILE_JAVA_EXT)) {
 		    	System.out.println(f.toPath());
 		    	try {
-		    		Files.copy(f.toPath(), new_folder.toPath(), StandardCopyOption.COPY_ATTRIBUTES);
+		    		Files.copy(f.toPath(), new_folder.toPath(), StandardCopyOption.REPLACE_EXISTING);
 //		    		Files.copy(source, target, options);
 		    	} catch (IOException e) {
 					e.printStackTrace();
