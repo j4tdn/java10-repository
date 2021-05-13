@@ -70,7 +70,7 @@ public class Ex04 {
 	
 	private static List<Integer> transfer(String line) {
 		return Arrays.stream(line.strip().split("[a-zA-Z]+"))
-					.filter(i -> i == null || !i.equalsIgnoreCase(""))
+					.filter(i -> i != null || !i.equalsIgnoreCase(""))
 					.map(Integer::parseInt)
 					.collect(Collectors.toList());
 	}
