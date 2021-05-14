@@ -1,10 +1,14 @@
 package bean;
 
-public class Trader implements FileData{
+import java.io.Serializable;
+
+public class Trader implements Serializable, FileData {
+	private static final long serialVersionUID = -2615810303544706342L;
+	// transient: pojo: plain old java object
 	private final String name;
-	private final String city;
- 
-	public Trader( String name, String city) {
+	private final transient String city;
+
+	public Trader(String name, String city) {
 		this.name = name;
 		this.city = city;
 	}
@@ -16,17 +20,21 @@ public class Trader implements FileData{
 	public String getCity() {
 		return this.city;
 	}
-   public String toLine() {
-	   return city + ", "+ name;
-	
-}
-   public Trader transfer(String line) {
-	   String []tmps =line.split(", ");
-	   if(tmps.length != 2) {
-		   return null;
-	   }
-	   return new Trader(tmps[1],tmps[0]);
-   }
+
+	@Override
+	public String toLine() {
+		return city + ", " + name;
+	}
+
+	public static Trader transfer(String line) {
+		// Cambridge, Raoul
+		String[] tmps = line.split(", ");
+		if (tmps.length != 2) {
+			return null;
+		}
+		return new Trader(tmps[1], tmps[0]);
+	}
+
 	public String toString() {
 		return "Trader:" + this.name + " in " + this.city;
 	}
