@@ -18,13 +18,13 @@ public class Ex02 {
 		System.out.println("Time start :");
 		int time = sc.nextInt();
 		
-		if (age <= 3) {
+		if (age >= 1 && age <= 3) {
 			time1 = 20.0;
-		} else if (age <= 13) {
+		} else if (age >= 4 && age <= 13) {
 			time1 = 11.0;
-		} else if (age <= 17) {
+		} else if (age >= 14 && age <= 17) {
 			time1 = 9.0;
-		} else if (age <= 64) {
+		} else if (age >= 18 && age <= 64) {
 			time1 = 8.0;
 		} else {
 			time1 = 7.5;
