@@ -26,6 +26,7 @@ public class Ex01 {
                 System.out.print(key + " ");
             }
         }
+        System.out.println("\n==========================================");
         System.out.print("\nCác phần tử xuất hiện nhiều hơn 1 lần: ");
         for (Integer key : map.keySet()) {
             if (map.get(key) > 1) {

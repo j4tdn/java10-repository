@@ -15,12 +15,20 @@ public class Ex04 {
 		File file = new File(path);
 		List<Student> Students = readFile(file.toPath());
 		Students.forEach(System.out::println);
-		System.out.println("1: Sắp xếp danh sách sinh viên tăng dần theo ĐTB.");
-		Students.stream().sorted(Comparator.comparing(dtb -> dtb.getPoint())).forEach(System.out::println);
+		System.out.println("1: Sắp xếp danh sách sinh viên tăng dần theo ĐTB");
+		Students.stream()
+						.sorted(Comparator.comparing(dtb -> dtb.getPoint()))
+						.forEach(System.out::println);
+		System.out.println("=============================");
 		System.out.println("2: Danh sách sinh viên có ĐTB > 8");
-		Students.stream().filter(dtb -> dtb.getPoint() > 8).forEach(System.out::println);
-		System.out.println("3: Sinh viên NỮ");
-		Students.stream().filter(gt -> gt.getSex().equals("Nu")).forEach(System.out::println);
+		Students.stream()
+						.filter(dtb -> dtb.getPoint() > 8)
+						.forEach(System.out::println);
+		System.out.println("=============================");
+		System.out.println("3: Sinh viên nữ");
+		Students.stream()
+						.filter(gt -> gt.getSex().equals("Nu"))
+						.forEach(System.out::println);
 	}
 
 	private static List<Student> readFile(Path path) {

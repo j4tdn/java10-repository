@@ -6,7 +6,7 @@ public class Ex03 {
 	public static void main(String[] args) {
 		String firstWord = "word";
 		String secondWord = "orwd";
-		System.out.println("Chuỗi trên là đảo chuỗi"+isAnagram(firstWord, secondWord));
+		System.out.println("Chuỗi trên là đảo chuỗi(true/false) :"+isAnagram(firstWord, secondWord));
 		
 		String str = "aaaababbbddc";
 		System.out.println("Kí tự xuất hiện nhiều nhất " + charactersAppearALot(str));
@@ -23,8 +23,8 @@ public class Ex03 {
 	
 	// Ex03.2
 	public static char charactersAppearALot(String str) {
-		int ASCII_SIZE = 256;
-		int count[] = new int[ASCII_SIZE];
+		int SIZE = 256;
+		int count[] = new int[SIZE];
 		int length = str.length();
 		for (int i = 0; i < length; i++)
 			count[str.charAt(i)]++;

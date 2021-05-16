@@ -7,7 +7,6 @@ public class Student {
 	private String sex;
 
 	public Student() {
-
 	}
 
 	public Student(String id, String name, Double point, String sex) {
