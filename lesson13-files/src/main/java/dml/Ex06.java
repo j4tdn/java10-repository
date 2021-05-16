@@ -1,6 +1,6 @@
 package dml;
 
-import static utils.FileUtils.writeJson;
+import static utils.FileUtils.readJson;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -9,8 +9,6 @@ import java.util.HashMap;
 
 import bean.Grade;
 import bean.Student;
-
-import static utils.FileUtils.*;
 public class Ex06 {
 
 	private static final String path = "data" + File.separator + "student.json";
