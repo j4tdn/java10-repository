@@ -1,0 +1,55 @@
+package ex;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+public class ex04_demo {
+	public static void main(String[] args) {
+		File file=new File("student.txt");
+		List<ex04_Student> Students=readFile(file.toPath());
+		Students.forEach(System.out::println);
+		System.out.println("==========================================");
+		
+		System.out.println("1: Sắp xếp danh sách sinh viên tăng dần theo ĐTB.");
+		Students.stream()
+				.sorted(Comparator.comparing(dtb ->dtb.getPoint()))
+				.forEach(System.out::println);
+		System.out.println("==========================================");
+		System.out.println("2: Danh sách sinh viên có ĐTB > 8");
+		Students.stream()
+				.filter(dtb -> dtb.getPoint()>8)
+				.forEach(System.out::println);
+		
+		System.out.println("==========================================");
+		
+		System.out.println("3: Sinh viên NỮ");
+		Students.stream()
+				.filter(gt-> gt.getSex().equals("Nu"))
+				.forEach(System.out::println);
+		
+	}
+	
+	private static List<ex04_Student> readFile(Path path) {
+		List<ex04_Student> result=new ArrayList<>();
+		try {
+			List<String> elements=Files.readAllLines(path);
+			
+			for(String element :elements) {
+				String[] temp=element.split(", ");
+				ex04_Student item =new ex04_Student(temp[0],temp[1],Double.parseDouble(temp[2]),temp[3]);
+				result.add(item);
+			}
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+}
