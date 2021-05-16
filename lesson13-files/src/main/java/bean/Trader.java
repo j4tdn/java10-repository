@@ -1,8 +1,15 @@
 package bean;
 
-public class Trader implements FileData {
+import java.io.Serializable;
+
+public class Trader implements FileData,Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2128055401595243451L;
+	// transient: pojo: plain old java object
 	private final String name;
-	private final String city;
+	private final transient String city;
 
 	public Trader(String name, String city) {
 		this.name = name;
