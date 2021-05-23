@@ -21,6 +21,7 @@ import java.util.Properties;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import bean.FileData;
@@ -42,6 +43,7 @@ public class FileUtils {
 			e.printStackTrace();
 		}
 	}
+	
 
 	public static <T> T readJson(File file, Class<T> classType) {
 		T result = null;
