@@ -2,7 +2,7 @@ package ex3;
 
 import java.util.Arrays;
 
-public class Bai3 {
+public class Bai3   {
 	public static void main(String[] args) {
 		String input = "Vava";
 		String output = "avav";

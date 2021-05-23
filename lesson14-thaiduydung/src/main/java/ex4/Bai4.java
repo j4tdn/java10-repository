@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class Bai4 {
 	public static void main(String[] args) {
-		List<Student> students = readFileStudent();
+		List<Student> students = readFileStudent();   
 		
 		students.forEach(System.out::println);
 	}
