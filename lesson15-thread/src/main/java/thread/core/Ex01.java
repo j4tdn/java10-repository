@@ -1,10 +1,7 @@
-package thread;
+package thread.core;
 
-
-import utils.ThreadUtils;
-
-public class Ex02 {
-	public static void main(String[] args) throws InterruptedException {
+public class Ex01 {
+	public static void main(String[] args) {
 		System.out.println(Thread.currentThread().getName() + " is running ... ");
 		
 		// initial thread
@@ -12,14 +9,11 @@ public class Ex02 {
 			@Override
 			public void run() {
 				System.out.println(Thread.currentThread().getName() + "  is running ... ");
-				ThreadUtils.sleep(3);
 			}
 		};
 		t0.start();	// JVM automatically call run method
-		t0.join();
 		
-		System.out.println("main is doing something ...");
-		ThreadUtils.sleep(2);
+		
 		System.out.println("Thread main end");
 	}
 }
