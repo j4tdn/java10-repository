@@ -1,4 +1,4 @@
-package thread;
+package thread.core;
 
 import java.util.Random;
 import static untils.ThreadUtils.*;

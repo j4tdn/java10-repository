@@ -1,4 +1,4 @@
-package thread;
+package thread.core;
 
 public class Ex05 {
 	private static volatile int counter = 2;
@@ -26,11 +26,10 @@ public class Ex05 {
 			}
 		}, "t1");
 		t1.start();
-			
+
 		counter += 2;
 		System.out.println("main counter " + counter);
 		System.out.println("Thread main end");
-		
-			
+
 	}
 }

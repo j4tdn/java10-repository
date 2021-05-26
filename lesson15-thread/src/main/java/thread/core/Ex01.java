@@ -1,9 +1,9 @@
-package thread;
+package thread.core;
 
 import java.util.concurrent.TimeUnit;
 
-public class Ex02 {
-	public static void main(String[] args) throws InterruptedException {
+public class Ex01 {
+	public static void main(String[] args) {
 		System.out.println("thread main start");
 
 		// Initial thread
@@ -11,22 +11,21 @@ public class Ex02 {
 			@Override
 			public void run() {
 				System.out.println(Thread.currentThread().getName() + " is runing ...");
-				Ex02.sleep(2);
-				System.out.println(Thread.currentThread().getName() + " is ended !!! ");
 			}
 		};
 		t0.start();
-		t0.join();
-		System.out.println("Thread main doing something .... ");
+		// t0.run();
 		sleep(2);
+
 		System.out.println("thread main end");
 	}
 
-	public static void sleep(int seconds) {
+	private static void sleep(int seconds) {
 		try {
 			TimeUnit.SECONDS.sleep(seconds);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+
 		}
 	}
+
 }
