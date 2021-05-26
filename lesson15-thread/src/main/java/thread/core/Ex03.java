@@ -1,4 +1,4 @@
-package thread;
+package thread.core;
 
 public class Ex03 {
 	public static void main(String[] args) {
