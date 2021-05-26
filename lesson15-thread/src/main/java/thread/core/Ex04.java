@@ -1,4 +1,4 @@
-package thread;
+package thread.core;
 
 import static utils.ThreadUtils.sleep;
 
@@ -10,30 +10,25 @@ public class Ex04 {
 	private static long start = 0;
 	
 	public static void main(String[] args) {
-
-		
-		
 		start = System.currentTimeMillis();
 		
-		Task t1 = new Task();
+		Task task = new Task();
 		//t1.run();
-		Thread thread1 = new Thread(t1, "thread1");
-		thread1.run();
+		Thread thread1 = new Thread(task, "thread1");
+		thread1.start();;
 		
-		Task t2 = new Task();
 		//t2.run();
-		Thread thread2 = new Thread(t2, "thread2");
-		thread2.run();
+		Thread thread2 = new Thread(task, "thread2");
+		thread2.start();;
 		
-		Task t3 = new Task();
 		//t3.run();
-		Thread thread3 = new Thread(t3, "thread3");
-		thread3.run();
+		Thread thread3 = new Thread(task, "thread3");
+		thread3.start();
 		System.out.println("Execution Time: " + (System.currentTimeMillis() - start) + " mls");
 	}
 	
 	static class Task implements Runnable{
-		public void run() {
+		public synchronized void run() {
 			String tname = taskNames[rd.nextInt(taskNames.length)];
 			System.out.println(Thread.currentThread().getName() + " is executing task " + tname);
 			sleep(3);
