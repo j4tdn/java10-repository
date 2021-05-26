@@ -1,9 +1,9 @@
-package thread;
+package thread.pool;
+import static utils.ThreadUtils.sleep;
 
 import java.util.Random;
-import static utils.ThreadUtils.*;
 
-public class Ex04 {
+public class Ex02 {
 	private static Random rd = new Random();
 	private static String[] taskNames = {"A", "B", "C", "D"};
 	
@@ -12,31 +12,34 @@ public class Ex04 {
 	public static void main(String[] args) {
 		start = System.currentTimeMillis();
 		
-		Task t1 = new Task();
+		Task task = new Task();
 //		t1.run();
-		Thread thread1 = new Thread(t1, "thread 1");
+		Thread thread1 = new Thread(task, "thread 1");
 		thread1.start();
 		
-		Task t2 = new Task();
 //		t2.run();
-		Thread thread2 = new Thread(t2, "thread 1");
+		Thread thread2 = new Thread(task, "thread 2");
 		thread2.start();
 		
-		Task t3 = new Task();
 //		t3.run();
-		Thread thread3 = new Thread(t3, "thread 1");
+		Thread thread3 = new Thread(task, "thread 3");
 		thread3.start();
 		
 		System.out.println("Execution Time: " + (System.currentTimeMillis() - start) + "mls");
 	}
 	
 	static class Task implements Runnable{
-		public void run() {
+		public synchronized void run() {
 			String tname = taskNames[rd.nextInt(taskNames.length)];
 			System.out.println(Thread.currentThread().getName() + " is excuting task " +tname);
 			sleep(3);
 			System.out.println(Thread.currentThread().getName() + " took " +(System.currentTimeMillis() - start) + "mls");
-
+			
+//			testSync();
 		}
+		
+//		private void testSync() {
+//			System.out.println(Thread.currentThread().getName() + "sync......");
+//		}
 	}
 }
