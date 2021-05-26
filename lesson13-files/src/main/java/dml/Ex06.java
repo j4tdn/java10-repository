@@ -6,6 +6,9 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import bean.Grade;
 import bean.Student;
@@ -16,9 +19,11 @@ public class Ex06 {
 	public static void main(String[] args) {
 //		Student students = getAll();
 //		writeJson(new File(path), students);
-
-		Student student = readJson(new File(path), Student.class);
-		System.out.println(student);
+		
+		List<Student> result = readJson(new File(path), new TypeReference<List<Student>>() {
+		});
+		System.out.println("size: " + result.size());
+		System.out.println(result);
 	}
 
 	private static Student getAll() {

@@ -22,6 +22,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import bean.FileData;
@@ -35,6 +36,7 @@ public class FileUtils {
 	}
 
 	public static void writeJson(File file, Object object) {
+		// used to write needed file with specific object
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			mapper.writeValue(file, object);
@@ -43,18 +45,33 @@ public class FileUtils {
 			e.printStackTrace();
 		}
 	}
-	
 
-	public static <T> T readJson(File file, Class<T> classType) {
-		T result = null;
+	// Used TypeReference for Collections type
+	public static <T> List<T> readJson(File file, TypeReference<List<T>> typeReference) {
+		List<T> result = null;
 		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
 		try {
-			result = mapper.readValue(file, classType);
+			result = mapper.readValue(file, typeReference);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 		return result;
 	}
+
+	// Use Class<T> for object type like String
+
+//	public static <T> T readJson(File file, Class<T> classType) {
+//		T result = null;
+//		ObjectMapper mapper = new ObjectMapper();
+//		try {
+//			result = mapper.readValue(file, classType);
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		return result;
+//	}
 
 	public static Properties getProperties(File file) {
 		Properties props = new Properties();
