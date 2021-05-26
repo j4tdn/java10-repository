@@ -1,33 +1,30 @@
-package thread;
+package thread.core;
 
 import java.util.concurrent.TimeUnit;
 import java.util.function.Predicate;
 
-public class Ex02 {
-public static void main(String[] args) throws InterruptedException {
+public class Ex01 {
+public static void main(String[] args) {
 	System.out.println(Thread.currentThread().getName()+ " is running");
 	System.out.println("thread main start");
+	
+	
 	
 	//Initial thread
 	Thread t0 = new Thread("t0") {
 		@Override
 		public void run() {
 			System.out.println(Thread.currentThread().getName()+ " is running");
-		Ex02.sleep(4);
-		System.out.println(Thread.currentThread().getName()+ " is ended!");
-
 		}
 	};
-	
 	t0.start();//jvm automatically call run method
-	//t0.join();
 	//t0.run();
 	System.out.println("Thread main doing something..... ");
 	sleep(2);
 	System.out.println("thread main end");
 	
 }
-	public static void sleep(int seconds) {
+	private static void sleep(int seconds) {
 		try {
 			TimeUnit.SECONDS.sleep(seconds);
 		} catch (InterruptedException e) {
