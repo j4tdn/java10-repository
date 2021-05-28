@@ -1,4 +1,4 @@
-package thread;
+package thread.core;
 
 public class Ex05 {
 	//volatile
