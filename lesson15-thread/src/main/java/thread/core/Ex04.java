@@ -1,7 +1,8 @@
 package thread.core;
 
+import static utils.ThreadUtils.*;
+
 import java.util.Random;
-import static untils.ThreadUtils.*;
 
 public class Ex04 {
 	private static Random rd = new Random();

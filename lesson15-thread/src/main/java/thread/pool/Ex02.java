@@ -1,7 +1,8 @@
 package thread.pool;
 
+import static utils.ThreadUtils.*;
+
 import java.util.Random;
-import static untils.ThreadUtils.*;
 
 /*
  * synchronized

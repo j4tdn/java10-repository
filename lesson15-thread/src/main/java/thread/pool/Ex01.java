@@ -1,6 +1,6 @@
 package thread.pool;
 
-import static untils.ThreadUtils.*;
+import static utils.ThreadUtils.*;
 
 import java.util.ArrayList;
 import java.util.List;
