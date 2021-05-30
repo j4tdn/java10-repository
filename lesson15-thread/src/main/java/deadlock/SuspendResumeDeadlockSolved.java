@@ -1,0 +1,62 @@
+package deadlock;
+
+import utils.ThreadUtils;
+
+public class SuspendResumeDeadlockSolved {
+	
+	private static String shareObject = "";
+	
+	public static void main(String[] args) throws InterruptedException {
+
+		final Thread thread1 = new Thread("Thread-1") {
+			@SuppressWarnings("deprecation")
+			public void run() {
+				System.out.println(Thread.currentThread().getName() + " has started.");
+				synchronized (shareObject) {
+					System.out.println(Thread.currentThread().getName() + " " + " has obtained lock on shareObject "
+							+ " & suspended...");
+					/*
+					 * suspend the thread, now this thread will release lock on String.class (by
+					 * exiting synchronized block) only when resume() method is called on this
+					 * thread, thread will go in waiting state.
+					 */
+					Thread.currentThread().suspend();
+
+					System.out.println(Thread.currentThread().getName() + " " + " has released lock on shareObject");
+				}
+				System.out.println(Thread.currentThread().getName() + " has ENDED.");
+			}
+		};
+		thread1.start();
+
+		ThreadUtils.sleep(2); // This delay ensures Thread-2 after Thread-1
+
+		Thread thread2 = new Thread("Thread-2") {
+			@SuppressWarnings("deprecation")
+			public void run() {
+				System.out.println(Thread.currentThread().getName() + " has started.");
+
+				// Thread-1 is not going to release lock on String.class
+				// until resume() method is not called.
+
+				/*
+				 * for acquiring lock on shareObject thread-1 must have released lock on
+				 * String.class, if lock is not released, Thread-2 will keep on waiting for
+				 * Thread-1 to release lock on String.class & deadlock will be formed.
+				 */
+				System.out.println(Thread.currentThread().getName() + " is trying to obtain lock on shareObject");
+				
+				thread1.resume(); // thread1 released lock on shareObject
+				
+				synchronized (shareObject) {
+					System.out.println(Thread.currentThread().getName() + " has obtained lock on shareObject");
+					System.out.println(Thread.currentThread().getName() + " has released lock on shareObject");
+				}
+				System.out.println(Thread.currentThread().getName() + " has ENDED.");
+			}
+
+		};
+		thread2.start();
+	}
+	
+}
