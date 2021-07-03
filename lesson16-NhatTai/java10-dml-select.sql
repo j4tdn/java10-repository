@@ -19,17 +19,16 @@ WHERE MaLoai = 3
 order by GiaBan DESC
 limit 1;
 
--- 18. Tìm mặt hàng có giá bán cao nhất của mỗi loại hàng ( chưa được )
-
+-- 18. Tìm mặt hàng có giá bán cao nhất của mỗi loại hàng 
+SELECT * FROM MatHang;
 SELECT mh.MaMH, 
-		mh.TenMH,
-		mh.GiaBan,
 		lh.MaLoai,
-        lh.TenLoai
+        lh.TenLoai,
+        max(GiaBan)
 FROM MatHang mh
 JOIN LoaiHang lh 
 	ON lh.MaLoai = mh.MaLoai
-GROUP BY mh.MaMH ;
+GROUP BY lh.TenLoai ;
 
 
 -- 19. Hiển thị tổng số lượng mặt hàng của mỗi loại hàng trong hệ thống 
