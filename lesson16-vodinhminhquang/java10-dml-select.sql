@@ -77,6 +77,20 @@ SELECT * FROM KhachHang WHERE DiaChi LIKE '%Hải Châu%'
 UNION ALL
 SELECT * FROM KhachHang WHERE MaKh IN (SELECT MaKH FROM DonHang);
 
+-- MatHang - CHiTietDonHang (Ma Loai = 2 va da dc ban)
+-- Lồng phân cấp = Truy Vấn Con = SubQuery
+SELECT * FROM chitietdonhang;
+SELECT * FROM MatHang
+WHERE MaLoai = 2 AND MaMH IN (
+						SELECT MaMH FROM chitietdonhang
+);
+-- Lồng tương quan
+SELECT * FROM MatHang mh
+WHERE MaLoai = 2 AND EXISTS (
+						SELECT MaMH FROM chitietdonhang ctdh
+                        WHERE mh.MaMH  = ctdh.MaMH
+);
+
 -------------- Practice ---------------
 SELECT * FROM MatHang 
 ORDER BY GiaBan,
@@ -211,9 +225,20 @@ JOIN KichCoMatHang kcmh
 ON mh.MaMH = kcmh.MaMH
 GROUP BY mh.MaMh;
 -- 22. Hiển thị giá bán trung bình của mỗi loại hàng
+SELECT * FROM loaihang;
+SELECT * FROM mathang;
+SELECT mh.MaLoai, lh.TenLoai, avg(GiaBan) 
+FROM mathang mh
+JOIN loaihang lh
+ON mh.MaLoai = lh.MaLoai
+GROUP BY MaLoai;
 
 -- 23. In ra 3 loại hàng có số lượng hàng còn lại nhiều nhất ở thời điểm hiện tại
-
+SELECT * FROM mathang mh
+JOIN chitietdonhang ctdh
+ON mh.MaMH = ctdh.MaMH
+ORDER BY ctdh.SoLuong DESC
+LIMIT 3;
 -- 24. Liệt kê những mặt hàng có MaLoai = 2 và thuộc đơn hàng 100100
 SELECT * FROM donhang;
 -- 25. Tìm những mặt hàng có Mã Loại = 2 và đã được bán trong ngày 28/11
@@ -228,12 +253,38 @@ WHERE mh.MaLoai = 2
 AND CAST(dh.ThoiGianDatHang AS DATE) = '2020-12-18';
 
 -- 26. Liệt kê những mặt hàng là 'Mũ' không bán được trong ngày 14/02/2019
+SELECT * FROM mathang;
+SELECT * FROM loaihang;
+SELECT * FROM donhang;
+SELECT * FROM chitietdonhang;
 
+SELECT * FROM mathang WHERE TenMH LIKE '%Mũ%';
+
+SELECT * FROM donhang
+WHERE cast(ThoiGianDatHang AS DATE) = '2020-12-18' 
+AND NOT EXISTS (
+	SELECT * FROM mathang WHERE TenMH LIKE '%Mũ%'
+);
 -- 27. Cập nhật giá bán của tất cả các mặt hàng thuộc loại hàng 'Áo' thành 199
+UPDATE mathang 
+SET GiaBan = 350
+WHERE MaLoai = 1;
+SELECT * FROM mathang;
+SELECT * FROM loaihang;
 -- 28. Backup data. Tạo table LoaiHang_BACKUP(MaLoai, TenLoai)
 -- Sao chép dữ liệu từ bảng LoaiHang sang LoaiHang_BACKUP
 -- 29. Tìm những mặt hàng có Mã Loại = 2 (T-Shirt) và đã được bán trong ngày 23/11
+
+SELECT * FROM mathang mh
+JOIN chitietdonhang ctdh 
+ON mh.MaMH = ctdh.MaMH
+JOIN donhang dh
+ON ctdh.MaDH = dh.MaDH
+WHERE cast(ThoiGianDatHang AS DATE) = '2020-12-18'
+AND MaLoai = 2;
+
 -- 30. Liệt kê 2 sản phẩm (có số lượng tồn kho nhiều nhất) của loại hàng 'Áo' và 'Quần'
+
 -- 31. Tính tổng tiền cho đơn hàng 02
 SELECT dh.MaDH, mh.MaMH, mh.TenMH, mh.GiaBan, SUM(GiaBan) AS Total, dh.ThoiGianDatHang FROM mathang mh
 JOIN chitietdonhang ctdh
@@ -245,3 +296,15 @@ WHERE dh.MaDH = 2;
 -- 32. Xuất thông tin hóa đơn của đơn hàng 02 với thông tin như sau.
     -- SoDH   ChiTietDonHang         TongTien
     -- 02   TenMH:GiaBan:SoLuong       100
+SELECT * FROM donhang;
+SELECT * FROM chitietdonhang;
+SELECT * FROM hoadon;
+
+SELECT ctdh.MaDH, mh.TenMH, mh.GiaBan, ctdh.SoLuong, SUM(GiaBan * SoLuong) AS TongTien
+FROM donhang dh
+JOIN chitietdonhang ctdh
+ON dh.MaDH = ctdh.MaDH
+JOIN mathang mh
+ON ctdh.MaMH = mh.MaMH
+GROUP BY mh.TenMH
+HAVING ctdh.MaDH = 2;
