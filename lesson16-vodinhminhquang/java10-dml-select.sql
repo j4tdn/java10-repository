@@ -272,7 +272,17 @@ WHERE MaLoai = 1;
 SELECT * FROM mathang;
 SELECT * FROM loaihang;
 -- 28. Backup data. Tạo table LoaiHang_BACKUP(MaLoai, TenLoai)
+DROP TABLE IF EXISTS `LoaiHang_BACKUP` ;
+
+CREATE TABLE IF NOT EXISTS `LoaiHang_BACKUP` 
+	(
+	`MaLoai` INT NOT NULL,
+	`TenLoai` VARCHAR(45),
+	PRIMARY KEY (`MaLoai`)
+    );
 -- Sao chép dữ liệu từ bảng LoaiHang sang LoaiHang_BACKUP
+INSERT INTO LoaiHang_BACKUP(MaLoai, TenLoai)
+SELECT * FROM LoaiHang;
 -- 29. Tìm những mặt hàng có Mã Loại = 2 (T-Shirt) và đã được bán trong ngày 23/11
 
 SELECT * FROM mathang mh
