@@ -21,9 +21,11 @@ import java.util.Properties;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import bean.FileData;
+import bean.Student;
 
 public class FileUtils {
 	private FileUtils() {
@@ -40,6 +42,17 @@ public class FileUtils {
 		}
 	}
 
+	public static <T> List<T> readJson(File file, TypeReference<List<T>> typeReference) {
+		List<T> result = null;
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			result = mapper.readValue(file, typeReference);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	public static <T> List<T> readJson(File file, Class<List<T>> classType) {
 		List<T> result = null;
 		ObjectMapper mapper = new ObjectMapper();

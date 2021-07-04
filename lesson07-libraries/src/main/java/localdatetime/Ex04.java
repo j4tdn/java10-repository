@@ -15,6 +15,8 @@ public class Ex04 {
 		String result = between(ldtStart, ldtEnd);
 		System.out.println(result);
 		// a Y b M c D x H y m z s
+		
+		
 	}
 	
 	private static String between(LocalDateTime ldtStart, LocalDateTime ldtEnd) {

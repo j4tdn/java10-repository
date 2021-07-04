@@ -56,7 +56,7 @@ public class Ex01 {
 		
 		// + Ngày đầu tiên trong tuần với locale
 		System.out.println("fdow: " + c.getFirstDayOfWeek());
-	
+		
 		System.out.println("time by tz: " + Calendar.getInstance(TimeZone.getTimeZone("Europe/Berlin")));
 	}
 

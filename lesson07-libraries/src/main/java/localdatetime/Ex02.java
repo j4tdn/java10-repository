@@ -14,9 +14,9 @@ public class Ex02 {
 		System.out.println("second: " + ltStart.getSecond());
 		
 		Duration duration = Duration.between(ltStart, ltEnd);
-		String dString = duration.toHoursPart()   + " H " 
-					   + duration.toMinutesPart() + " M "
-					   + duration.toSecondsPart() + " S ";
+		String dString = duration.toHours()   + " H " 
+					   + duration.toMinutes() + " M "
+					   + duration.getSeconds() + " S ";
  		System.out.println("duration : " + dString);
 		
 	}
