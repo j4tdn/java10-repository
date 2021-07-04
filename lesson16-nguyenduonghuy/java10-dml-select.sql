@@ -129,11 +129,12 @@ WHERE dh.MaDH = 2;
 -- 32. Xuất thông tin hóa đơn của đơn hàng 02 với thông tin như sau.
 --    SoDH   ChiTietDonHang         TongTien
 --    02   TenMH:GiaBan:SoLuong       100
-SELECT dh.MaDH, mh.TenMH, mh.GiaBan, ctdh.SoLuong, SUM(mh.GiaBan * ctdh.SoLuong) TongTienMatHang
+SELECT dh.MaDH, 
+		group_concat(concat(mh.TenMH, ':', mh.GiaBan, ':', ctdh.SoLuong) SEPARATOR ', ') ChiTietDonHang, 
+        SUM(mh.GiaBan * ctdh.SoLuong) TongTienMatHang
 FROM mathang mh
 JOIN chitietdonhang ctdh
 	ON ctdh.MaMH = mh.MaMH
 JOIN donhang dh
 	ON ctdh.MaDH = dh.MaDH
- WHERE dh.MaDH = 2
- GROUP BY mh.MaMH;   
+ WHERE dh.MaDH = 2;   
