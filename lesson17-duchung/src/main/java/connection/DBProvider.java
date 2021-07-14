@@ -9,7 +9,7 @@ public class DBProvider {
 	private static final String DB_CONFIG = "database.properties";
 
 	private DBProvider() {
-
+		// TODO Auto-generated constructor stub
 	}
 
 	public static Properties getDBConfig() {
@@ -19,6 +19,7 @@ public class DBProvider {
 			stream = new FileInputStream(DB_CONFIG);
 			properties.load(stream);
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return properties;
