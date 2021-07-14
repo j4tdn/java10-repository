@@ -5,7 +5,7 @@ import java.time.Month;
 import java.util.List;
 
 import dao.ProductDAO;
-import model.Product;
+import entities.Product;
 
 public class Ex05 {
 	public static void main(String[] args) {

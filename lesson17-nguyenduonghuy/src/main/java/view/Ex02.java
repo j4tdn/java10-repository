@@ -3,7 +3,7 @@ package view;
 import java.util.List;
 
 import dao.ProductDAO;
-import model.Product;
+import entities.Product;
 
 public class Ex02 {
 	public static void main(String[] args) {

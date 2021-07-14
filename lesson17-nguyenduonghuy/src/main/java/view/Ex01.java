@@ -1,7 +1,7 @@
 package view;
 
 import dao.CategoryDAO;
-import model.Category;
+import entities.Category;
 
 public class Ex01 {
 	public static void main(String[] args) {

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import connection.DatabaseConnection;
-import model.Product;
+import entities.Product;
 
 public class ProductDAO {
 	private static Connection con;
