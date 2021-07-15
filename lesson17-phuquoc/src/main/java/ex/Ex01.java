@@ -7,8 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.LoaiHang;
 import connection.DbConnection;
+import persistence.LoaiHang;
 
 public class Ex01 {
 

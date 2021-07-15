@@ -1,4 +1,4 @@
-package bean;
+package persistence;
 
 import java.sql.Date;
 

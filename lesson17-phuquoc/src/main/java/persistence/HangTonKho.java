@@ -1,4 +1,4 @@
-package bean;
+package persistence;
 
 public class HangTonKho {
 	private Integer maloai;

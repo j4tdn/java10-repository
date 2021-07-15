@@ -1,4 +1,4 @@
-package bean;
+package persistence;
 
 public class LoaiHang {
 	private Integer maLoai;

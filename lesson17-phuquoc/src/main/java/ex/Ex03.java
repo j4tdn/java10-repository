@@ -7,8 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.HangTonKho;
 import connection.DbConnection;
+import persistence.HangTonKho;
 
 public class Ex03 {
 	

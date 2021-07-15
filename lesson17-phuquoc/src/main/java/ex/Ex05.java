@@ -8,8 +8,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.MatHang;
 import connection.DbConnection;
+import persistence.MatHang;
 
 public class Ex05 {
 
