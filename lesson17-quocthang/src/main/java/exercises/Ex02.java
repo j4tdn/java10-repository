@@ -9,8 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import bean.MatHang;
 import connection.DbConnection;
+import persistence.MatHang;
 
 public class Ex02 {
 	private static Connection connection = DbConnection.getConnection();
