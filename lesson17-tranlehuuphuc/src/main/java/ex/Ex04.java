@@ -25,8 +25,14 @@ public class Ex04 {
 		conn = DbConnection.getConnection();
 		
 	}
-
+	
+	// POINT: 15
+	
+	// Item: A ko thấy class này trong code
+	// Nếu chỉ trả về danh sách chuỗi. Thì e return List<String> luôn
 	public List<Item> getName() {
+		// VD như này
+		List<String> result = new ArrayList<>();
 		List<Item> result = new ArrayList<>();
 		String sql = "SELECT mh.MaMH, mh.TenMH, dh.ThoiGianDatHang,sum(ctdh.soluong) as TongSoLuong\n"
 				+ "FROM MatHang mh  JOIN ChiTietDonHang ctdh ON mh.MaMH = ctdh.MaMH JOIN DonHang dh ON dh.MaDH = ctdh.MaDH \n"
@@ -38,6 +44,9 @@ public class Ex04 {
 			st = conn.createStatement();
 			rs = st.executeQuery(sql);
 			while (rs.next()) {
+				String name = rs.getString("TenMH");
+				result.add(name);
+				
 				Item ig = new Item(rs.getString("TenMH"));
 				result.add(ig);
 			}

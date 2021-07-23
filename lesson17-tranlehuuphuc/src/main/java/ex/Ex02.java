@@ -25,6 +25,9 @@ public class Ex02 {
 		
 	}
 
+	// POINT: 15
+	
+	// Nên đặt tên class rõ ràng. Ko nên ItemGroup1, ItemGroup2
 	public List<ItemGroup2> getItems() {
 		List<ItemGroup2> result = new ArrayList<>();
 		String sql = "SELECT lh.*,\n" 
@@ -39,6 +42,8 @@ public class Ex02 {
 			st = conn.createStatement();
 			rs = st.executeQuery(sql);
 			while (rs.next()) {
+				// Integer id, String name, String list, Integer amount
+				// Nó cần 4 tham số mà em điền 3 nên code lỗi. Code được mà sai mấy cái hơi cơ bản
 				ItemGroup2 ig = new ItemGroup2(rs.getInt("MaLoai"), rs.getString("TenLoai"), rs.getInt("SoLuong"));
 				result.add(ig);
 			}
