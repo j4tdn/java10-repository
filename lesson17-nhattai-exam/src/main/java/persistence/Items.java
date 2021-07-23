@@ -2,6 +2,8 @@ package persistence;
 
 import java.sql.Time;
 
+// Nên là ItemDto sẽ hợp lý hơn
+// Item là Entity thì nên map hết all columns trong table MatHang
 public class Items {
 	private Integer itemsID;
 	private String itemsName;

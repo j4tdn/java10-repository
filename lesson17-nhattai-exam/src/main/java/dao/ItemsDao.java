@@ -13,6 +13,11 @@ import java.util.List;
 import connection.DbConnection;
 import persistence.Items;
 
+// ClassName: "ItemDao" thôi em nha
+// Có khi cũng Items. Nhưng trường hợp này của mình
+// Mỗi phần tử là 1 Item nên e đặt Item là được rồi
+
+// Items là class Items có chứa nhiều thuộc tính Item bên trong
 public class ItemsDao {
 	private Connection connection;
 	private PreparedStatement pst = null;
@@ -22,6 +27,13 @@ public class ItemsDao {
 		connection = DbConnection.getConnection();
 	}
 
+	// Câu 1: POINT: 25
+	// orderTime là kiểu java.sql.Date
+	// java.sql.Date chỉ chứa ngày tháng năm đúng yêu cầu
+	// Còn nếu java.util.Date thì chứa luôn ngày tháng năm giờ phút giây là sai
+	// Câu này em code đúng rồi. Sửa convention thôi
+	
+	// orderTime -> orderDate
 	public List<Items> getItems(Date orderTime) {
 		List<Items> result = new ArrayList<>();
 		String sql = "SELECT mh.MaMH, mh.TenMH, dh.ThoiGianDatHang \n"
@@ -42,6 +54,8 @@ public class ItemsDao {
 		}
 		return result;
 	}
+	
+	// Câu 3: Great: POINT 25
 	public List<String> getTop3Item(Integer year) {
 		List<String> list = new ArrayList<>();
 		String sql = "SELECT mh.MaMH,\r\n"

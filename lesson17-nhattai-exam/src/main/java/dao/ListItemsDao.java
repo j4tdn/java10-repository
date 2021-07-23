@@ -23,6 +23,9 @@ public class ListItemsDao {
 		connection = DbConnection.getConnection();
 	}
 
+	// POINT: 20
+	// Câu 4: Kết quả chính xác nhưng có thể code đẹp hơn
+	// A review trong class ListItems. Xem ở đó nha
 	public List<ListItems> getListItems() {
 		List<ListItems> result = new ArrayList<>();
 		String sql = "SELECT lh.MaLoai, lh.TenLoai, mh.MaMH, mh.TenMH, mh.GiaBan, mh.GiaMua, kcmh.SoLuong \n"

@@ -1,5 +1,20 @@
 package persistence;
 
+// Như này cũng được. Như thường người ta ko làm như này
+
+// Class: Item chứa các thuộc tính của table MatHang
+// Class: ItemGroup chứa các thuộc tính của table LoaiHang
+
+// 1 LoaiHang có n MatHang
+// 1 MatHang thuộc 1 LoaiHang >> Để 2 thằng này liên kết trong code JAVA
+
+// Thì bên class Item : Em cho thêm 1 thuộc tính là ItemGroup itemGroup
+//     bên class ItemGroup: Em cho thêm 1 thuộc tính là List<Item> items
+
+// Khi đó query trả về e trả về List<Item> trong Item có ItemGroup
+// Hoặc List<ItemGroup> trong ItemGroup có List<Items>
+
+// A đang explain cho câu 4
 public class ListItems {
 	private Integer igroupId;
 	private String iGroupName;

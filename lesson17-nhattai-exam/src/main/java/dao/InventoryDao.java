@@ -21,6 +21,7 @@ public class InventoryDao {
 		connection = DbConnection.getConnection();
 	}
 
+	// Câu 2: POINT 25
 	public List<Inventory> getItems() {
 		List<Inventory> result = new ArrayList<>();
 		String sql = "SELECT lh.*,\n" + " SUM(kcmh.SoLuong) SoLuong\n" + "FROM MatHang mh\n"
