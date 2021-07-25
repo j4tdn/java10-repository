@@ -28,7 +28,11 @@ public class ItemGroupDao {
 		conn = DbConnection.getConnection();
 	}
 	
+	// Câu 1: 25đ
+	// Bài làm tốt
 	public List<ItemSaleGroup> getItemSale(LocalDate dateSale) {
+		// Chuyển compiler sang JDK 1.7 => Xóa cái ItemSaleGroup phía sau
+		// List<T> result = new ArrayList<>();
 		List<ItemSaleGroup> result = new ArrayList<ItemSaleGroup>();
 		String sql = "SELECT mh.MaMH,\r\n"
 				+ "		mh.TenMH,\r\n"
@@ -38,6 +42,8 @@ public class ItemGroupDao {
 				+ "	ON mh.MaMH = ctdh.MaMH\r\n"
 				+ "JOIN DonHang dh\r\n"
 				+ "	ON dh.MaDH = ctdh.MaDH\r\n"
+				// Hàm date(..) này cho ép kiểu từ DateTime về Date hả Quốc ?
+				// Em thử chạy và kết quả giốn với cast(dh.ThoiGianDatHang as DATE) không ?
 				+ "WHERE DATE(dh.ThoiGianDatHang) = ?";
 
 		try {
@@ -56,7 +62,11 @@ public class ItemGroupDao {
 		return result;
 	}
 	
+	// Câu 2: 25đ
+	// Bài làm tốt rồi e nha như các đặt tên class trả về chưa được hay lắm
+	// Đặt tên biến, class trong code là rất khó. Nên suy nghĩ các đặt chính xác nha
 	public List<CategoryGroup> getToTalCategorys() {
+		// Compiler 1.7 tương tự review ở trên
 		List<CategoryGroup> result = new ArrayList<CategoryGroup>();
 		String sql = "SELECT lh.*,\r\n"
 				+ "		Sum(kcmh.Soluong) as SoLuong\r\n"
@@ -82,6 +92,11 @@ public class ItemGroupDao {
 		return result;
 	}
 	
+	// Câu 3: 10đ
+	// Em hiểu sai đề
+	// Tìm top 3 MatHang có số lượng báo nhiều nhất
+	// MatHang-ChiTietDonHang-DonHang và GROUP BY theo MaMH mới đúng
+	// Còn em group by theo MaLoai là top 3 loại hàng rồi
 	public List<ItemTop> getTopItemInYear() {
 		List<ItemTop> result = new ArrayList<ItemTop>();
 		String sql = 
@@ -120,6 +135,10 @@ public class ItemGroupDao {
 		return result;
 	}
 	
+	// Câu 3: 25đ
+	// Tương tự review của những bạn khác nên em nhờ a đọc code bên bạn a đã review rồi giúp a
+	// A khỏi copy qua đây nha
+	// https://github.com/j4tdn/java10-repository/commit/8b31cf357713741ae999415e7e4ded3a1a297810 >> class ListItems
 	public List<ItemGroup> getAllItems() {
 		List<ItemGroup> result = new ArrayList<ItemGroup>();
 		String sql = "SELECT lh.*,\r\n"
