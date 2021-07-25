@@ -19,6 +19,8 @@ public class ItemGroupDao {
 		conn = DatabaseConnection.getConnection();
 	}
 	
+	// Câu 2: 22đ
+	// Bài làm tốt
 	public List<ItemGroupDto> getAllItemGroupDto() {
 		List<ItemGroupDto> list = new ArrayList<>();
 		String sql = "SELECT lh.MaLoai,\r\n"
@@ -34,7 +36,7 @@ public class ItemGroupDao {
 			pst = conn.prepareStatement(sql);
 			rs = pst.executeQuery();
 			while (rs.next()) {
-				ItemGroupDto igr =  new ItemGroupDto(rs.getInt(1), rs.getString(2), rs.getInt(3));
+				ItemGroupDto igr = new ItemGroupDto(rs.getInt(1), rs.getString(2), rs.getInt(3));
 				list.add(igr);
 			}
 		} catch (SQLException e) {

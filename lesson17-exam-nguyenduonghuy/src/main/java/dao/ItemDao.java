@@ -23,6 +23,9 @@ public class ItemDao {
 		conn =  DatabaseConnection.getConnection();
 	}
 	
+	// Câu 1: 22 (A trừ điểm vì dùng getInt(1), getString(2))
+	// Tên hàm: getItemDtos
+	// Trong hàm em truyền vào date thì biết là bydate rồi
 	public List<ItemDto> getItemDtoByDate(LocalDate date) {
 		List<ItemDto> list = new ArrayList<>();
 		String sql = "SELECT mh.MaMH,\r\n"
@@ -39,6 +42,8 @@ public class ItemDao {
 			pst.setDate(1, Date.valueOf(date));
 			rs = pst.executeQuery();
 			while (rs.next()) {
+				// Không nên, không được dùng getInt, String truyền vào STT như vậy
+				// A nói lúc làm rồi. TH có > 20columns lấy về mà code như này thì không được
 				ItemDto item = new ItemDto(rs.getInt(1), rs.getString(2), LocalTime.parse(rs.getString(3)));
 				list.add(item);
 			}
@@ -50,6 +55,9 @@ public class ItemDao {
 		return list;
 	}
 	
+	// Câu 3: 20đ
+	// Tên hàm: getTopItems >> Còn 3 là tham số truyền vào
+	// year dùng int được rồi
 	public List<String> getTop3Item(Integer year) {
 		List<String> list = new ArrayList<>();
 		String sql = "SELECT mh.MaMH,\r\n"
@@ -64,6 +72,7 @@ public class ItemDao {
 					+ "GROUP BY mh.MaMH\r\n"
 					+ "ORDER BY SoLuong DESC,	\r\n"
 					+ "		mh.MaMH\r\n"
+					// Nên là tham số truyền vào
 					+ "LIMIT 3;";
 		try {
 			pst = conn.prepareStatement(sql);
@@ -78,6 +87,10 @@ public class ItemDao {
 		return list;
 	}
 	
+	// Câu 3: 22đ
+	// Tương tự review của những bạn khác nên em nhờ a đọc code bên bạn a đã review rồi giúp a
+	// A khỏi copy qua đây nha
+	// https://github.com/j4tdn/java10-repository/commit/8b31cf357713741ae999415e7e4ded3a1a297810 >> class ListItems
 	public List<ItemDtoFullInfo> getFullInfo() {
 		List<ItemDtoFullInfo> list = new ArrayList<>();
 		String sql = "SELECT lh.MaLoai,\r\n"
