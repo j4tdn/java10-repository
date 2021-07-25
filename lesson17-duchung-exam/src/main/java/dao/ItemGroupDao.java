@@ -20,6 +20,8 @@ public class ItemGroupDao {
 		connection = DbConnection.getConnection();
 	}
 
+	// Câu 2: 25đ
+	// Nên trả về ItemGroupDto hơn là ItemGroup
 	public List<ItemGroup> getAll() {
 		List<ItemGroup> result = new ArrayList<>();
 		String sql = "SELECT lh.maLoai, lh.TenLoai,\r\n" + 

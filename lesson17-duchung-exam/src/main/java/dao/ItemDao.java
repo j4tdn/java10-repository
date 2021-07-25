@@ -24,6 +24,7 @@ public class ItemDao {
 		connection = DbConnection.getConnection();
 	}
 
+	// Câu 3: 13đ
 	public List<Items> getItems() {
 		List<Items> listItems = new ArrayList<>();
 		String sql = "SELECT mh.MaMH, mh.TenMH, dh.ThoiGianDatHang,sum(ctdh.soluong) as TongSoLuong\r\n"
@@ -32,9 +33,14 @@ public class ItemDao {
 				+ "LIMIT 3;\r\n" + "";
 
 		try {
+			// A có nhắc là a để 2020 và TOP 3 là dễ hiểu đề
+			// Còn những giá trị đó phải là tham số truyền vào
+			// Và khi có tham số truyền vào thì nên dùng PrepareStatement để avoid SQL Injection
 			st = connection.createStatement();
 			rs = st.executeQuery(sql);
 			while (rs.next()) {
+				// Đề chỉ yêu cầu trả về TenMH nên e cũng ko cần phải SELECT ra 4 thuộc tính như trên câu SQL
+				// JAVA chỉ cần trả về List<String> Ko cần tạo Items chứa String thừa
 				Items item = new Items(rs.getString("tenMH"));
 				listItems.add(item);
 			}
@@ -47,6 +53,8 @@ public class ItemDao {
 		return listItems;
 	}
 
+	// Câu 4: Em làm cho câu 4 đúng ko ?? 15đ
+	// Câu 4 thì liệt kê hết nên ko cần GROUP BY
 	public List<ItemsDto> getItemsOfGroupId() {
 		List<ItemsDto> listItems = new ArrayList<>();
 		String sql = "SELECT lh.maLoai, lh.TenLoai, mh.maMH, mh.TenMH, mh.GiaBan, mh.GiaMua,\r\n"
@@ -69,10 +77,16 @@ public class ItemDao {
 		}
 		return listItems;
 	}
+	
+	// Câu 1: 25đ
 	public List<ItemsDto> getItems(LocalDate salesDate) {
 		List<ItemsDto> listItems = new ArrayList<>();
 		String sql = "SELECT mh.MaMH, mh.TenMH, dh.ThoiGianDatHang FROM MatHang mh "
 				+ " JOIN ChiTietDonHang ctdh ON mh.MaMH = ctdh.MaMH JOIN DonHang dh"
+				// Tương tự câu hỏi trong bài của Quốc 
+				// https://github.com/j4tdn/java10-repository/commit/aa4934c144fc549ad8dd21249bf535f948595684
+				// Dùng DATE(..) có ép kiểu dc ko. A ko chạy thử. Các bạn chạy rồi answer giúp a
+				// Có same với CAST(dh.ThoiGianDatHang as DATE) không
 				+ " ON dh.MaDH = ctdh.MaDH WHERE DATE(dh.ThoiGianDatHang) = ?";
 
 		try {
