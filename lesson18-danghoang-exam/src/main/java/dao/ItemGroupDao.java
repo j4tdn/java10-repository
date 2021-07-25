@@ -34,6 +34,7 @@ public class ItemGroupDao {
 		conn = DbConnection.getConnection();
 	}
 
+	// Câu nào đây ?
 	public List<ItemGroup> getAll() {
 		List<ItemGroup> result = new ArrayList<>();
 		String sql = "select * from loaihang";
