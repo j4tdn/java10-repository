@@ -30,6 +30,10 @@ public class ItemGroupDao {
 		myConn = DbConnetion.getConnection();
 	}
 
+	// Câu 4: 22đ
+	// Tương tự review của những bạn khác nên em nhờ a đọc code bên bạn a đã review rồi giúp a
+	// A khỏi copy qua đây nha
+	// https://github.com/j4tdn/java10-repository/commit/8b31cf357713741ae999415e7e4ded3a1a297810 >> class ListItems
 	public List<ItemGroup> getAll() {
 		List<ItemGroup> result = new ArrayList<>();
 		String sql = "SELECT lh.MaLoai, lh.TenLoai, mh.MaMH, mh.TenMH, mh.GiaBan, mh.GiaMua, kcmh.Soluong FROM loaihang lh\r\n"
@@ -41,7 +45,10 @@ public class ItemGroupDao {
 			rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
-
+				// Tương tự bài Huy
+				// A dặn từ đầu là ko được chơi truyền columnNumber như thế này
+				// Đơn giản giờ requirement
+				// A yêu cầu không lấy cái MaLoai nữa. Thì có phải là sửa lại hết 6 cái số còn lại không
 				ItemGroup temp = new ItemGroup(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4),
 						rs.getInt(5), rs.getInt(6), rs.getInt(7));
 
@@ -57,8 +64,14 @@ public class ItemGroupDao {
 		return result;
 	}
 
-	public List<Item> getTopItems() {
-		List<Item> result = new ArrayList<>();
+	// Câu 3: 15
+	// Thiếu tham số truyền vào là thời gian đặt hàng năm ... và top mặt hàng cần lấy
+	public List<String> getTopItems() {
+		List<String> result = new ArrayList<>();
+		// WHERE year('2020-01-01') là gì đây em
+		// Phải là WHERE year(ThoiGianDatHang) = ?
+		// LIMIT 3: 3 là tham số truyền vào
+		
 		String sql = "SELECT mh.MaMH, mh.TenMH, sum(ctdh.SoLuong) AS SoLuong, dh.ThoiGianDatHang FROM mathang mh\r\n"
 				+ "JOIN chitietdonhang ctdh\r\n" + "ON mh.MaMH = ctdh.MaMH\r\n" + "JOIN donhang dh\r\n"
 				+ "ON ctdh.MaDH = dh.MaDH\r\n" + "WHERE year('2020-01-01')\r\n" + "GROUP BY mh.MaMH\r\n"
@@ -68,8 +81,8 @@ public class ItemGroupDao {
 			rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
-				Item temp = new Item(rs.getString("TenMH"));
-				result.add(temp);
+				// Em có thể trả về List<String>
+				result.add(rs.getString("TenMMH"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -80,6 +93,8 @@ public class ItemGroupDao {
 		return result;
 	}
 
+	// Câu 2: 25đ
+	// Bài làm tốt
 	public List<ItemGroupStorage> getItemsInStorage() {
 		List<ItemGroupStorage> result = new ArrayList<>();
 		String sql = "SELECT lh.MaLoai, lh.TenLoai, sum(kcmh.Soluong) AS SoLuong FROM loaihang lh\r\n"
@@ -103,6 +118,8 @@ public class ItemGroupDao {
 		return result;
 	}
 
+	// Câu 1: 25đ
+	// Tên class chưa hay lắm
 	public List<ItemGroupTime> getItemInDay(LocalDate date) {
 		List<ItemGroupTime> result = new ArrayList<>();
 
