@@ -25,6 +25,9 @@ public class ItemDao {
 	}
 
 	public List<Items> getItems() {
+		// Khá giống bài của Hùng
+		// A chấm bài Hùng xong trước. Ko biết bạn nào copy bạn nào
+		// Chiều a nói chuyện
 		List<Items> listItems = new ArrayList<>();
 		String sql = "SELECT mh.MaMH, mh.TenMH, dh.ThoiGianDatHang,sum(ctdh.soluong) as TongSoLuong\r\n"
 				+ "FROM MatHang mh  JOIN ChiTietDonHang ctdh ON mh.MaMH = ctdh.MaMH JOIN DonHang dh ON dh.MaDH = ctdh.MaDH \r\n"
