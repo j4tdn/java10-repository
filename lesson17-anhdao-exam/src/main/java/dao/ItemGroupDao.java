@@ -34,6 +34,11 @@ public class ItemGroupDao {
 	// Thống kê số lượng mặt hàng tồn kho của mỗi loại hàng. Kết quả trả về códạng như sau
 		public List<ItemGroupDto> getItemsByGroup() {
 			List<ItemGroupDto>  result = new ArrayList<>();
+			// Câu 2: 22đ
+			// SELECT lh.* bị thừa
+			// Đề yêu cầu và em chỉ lấy ra MaLoai, TenLoai, SoLuong trong Java
+			// Thì chỗ SQL em cũng nên lấy ra chừng đó column thôi. SELECT ra mà ko sử dụng
+			// trong JAVA thì thừa và tốn memory cho ResultSet
 				String sql = 
 						"SELECT lh.*,\n"  
 						+"sum(kcmh.Soluong) TongSoluong\n"  
