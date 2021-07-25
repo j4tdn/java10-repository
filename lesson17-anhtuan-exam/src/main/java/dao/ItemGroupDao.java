@@ -27,9 +27,14 @@ public class ItemGroupDao {
 
 	}
 
+	// Câu 1: 25đ
+	// Tên hàm nên sửa là getItems
 	public List<ItemGroup> getItemToDay(Date date) {
 		List<ItemGroup> result = new ArrayList<>();
 
+		// Bài làm tốt rồi
+		// Convention. Các từ khóa của SQL như SELECT FROM ...
+		// Em nên đặt viết hoa hết. Lỡ đi làm có code review cũng pass
 		String sql = "SELECT mh.MaMH, mh.TenMH, dh.thoigiandathang " 
 				+ "from mathang mh " 
 				+ "join chitietdonhang ctdh "
@@ -55,6 +60,8 @@ public class ItemGroupDao {
 		return result;
 	}
 
+	// Không nên đặt ItemGroup2,3,4 => Confused
+	// Câu 2: 25đ
 	public List<ItemGroup2> getItems() {
 		List<ItemGroup2> result = new ArrayList<>();
 		String sql = "SELECT lh.*,\n" 
@@ -80,6 +87,12 @@ public class ItemGroupDao {
 		return result;
 	}
 
+	// Câu 4: 25 
+	// Cơ bản code đúng rồi. Chạy được như trường hợp tổng quát làm như này hơi cực
+	// Khi giả sử lấy hết các columns từ 3 tables. Thì làm như em rất mệt
+	// A có review ở đây bài bạn Tài: https://github.com/j4tdn/java10-repository/commit/8b31cf357713741ae999415e7e4ded3a1a297810
+	// Xem class ListsItem giúp a cách làm
+	
 	public List<ItemGroup3> Items() {
 		List<ItemGroup3> result = new ArrayList<>();
 		String sql = "SELECT lh.MaLoai, lh.TenLoai, mh.MaMH, mh.TenMH, mh.GiaBan, mh.GiaMua, kcmh.SoLuong \n"
@@ -99,6 +112,10 @@ public class ItemGroupDao {
 		}
 		return result;
 	}
+	
+	// Câu 3: 22đ
+	// Em làm chính xác. Chỉ cố chỗ LIMIT 3 => Em nên để 3 là tham số truyền vào thay vì gán trực tiếp
+	// Tên hàm. getItemsAsName || getItems
 	public List<String> getTop(Integer year) {
 		List<String> list = new ArrayList<>();
 		String sql = "SELECT mh.MaMH,\r\n"
