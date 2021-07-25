@@ -23,6 +23,7 @@ public class ItemGroupDao {
 		conn = DbConnection.getConnection();
 	}
 
+	// Câu 1: 20đ
 	public List<ItemGroup> getItemToDay(Date date) {
 		List<ItemGroup> result = new ArrayList<>();
 
@@ -32,6 +33,10 @@ public class ItemGroupDao {
 				+ "on mh.MaMH = ctdh.MaMH \n" 
 				+ "join donhang dh \n" 
 				+ "on dh.MaDH = ctdh.MaDH \n"
+				// Giống bài Quốc: Xem review a đã review giúp a a đỡ copy lại nha
+				// https://github.com/j4tdn/java10-repository/commit/aa4934c144fc549ad8dd21249bf535f948595684
+				// Và thêm nữa. Là khi nào truy vấn có tham số truyền vào thì dùng PrepareStatement chứ ko nên
+				// dùng Statement >> Avoid SQL Injection
 				+ "where date(dh.thoigiandathang) = '" + date + "'";
 
 		try {

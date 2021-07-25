@@ -1,5 +1,7 @@
 package persistence;
 
+// Không cần thiết phải tạo class này
+// Xem review chỗ ItemDao dòng 55
 public class Items2 {
 	private String item;
 
