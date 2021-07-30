@@ -3,11 +3,17 @@ package persistence;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name = "LoaiHang")
+
+@NamedQueries({
+	@NamedQuery(name = "somename", query ="FROM ItemGroup")
+})
 public class ItemGroup {
 	
 	@Id

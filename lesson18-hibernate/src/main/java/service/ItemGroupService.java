@@ -6,5 +6,5 @@ import persistence.ItemGroup;
 
 public interface ItemGroupService {
 	List<ItemGroup> getAll();
-
+	ItemGroup get(int igrId);
 }
