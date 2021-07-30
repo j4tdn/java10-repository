@@ -4,8 +4,10 @@ import org.hibernate.Session;
 
 import utils.HibernateUtils;
 
-public class AbstractHibernateDao {
+public class EnityDao {
 	Session openSession() {
 		return HibernateUtils.getSessionFactory().openSession();
+		//		return HibernateUtils.getSessionFactoryJava().openSession();
+
 	}
 }

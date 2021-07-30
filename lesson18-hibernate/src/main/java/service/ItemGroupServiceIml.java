@@ -17,4 +17,8 @@ public class ItemGroupServiceIml implements ItemGroupService {
 	public List<ItemGroup> getAll() {
 		return itemGroupDao.getAll();
 	}
+	@Override
+	public ItemGroup get(int igrId) {
+		return itemGroupDao.get(igrId);
+	}
 }

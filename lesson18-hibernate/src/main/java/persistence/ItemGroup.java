@@ -3,15 +3,19 @@ package persistence;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="loaihang")
+@Table(name = "loaihang")
+
+@NamedQueries({ @NamedQuery(name = "someName", query = "From ItemGroup") })
 public class ItemGroup {
 	@Id
-	@Column(name="maloai")
+	@Column(name = "Maloai")
 	private Integer igrId;
-	@Column(name="tenloai")
+	@Column(name = "tenloai")
 	private String name;
 
 	public ItemGroup() {

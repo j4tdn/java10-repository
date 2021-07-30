@@ -14,10 +14,14 @@ public class App {
 
 	public static void main(String[] args) {
 		List<ItemGroup> igrps = itemGroupService.getAll();
-		show(igrps);
+		igrps.forEach(System.out::println);
+		//show(igrps);
+//		ItemGroup igrps = itemGroupService.get(2);
+//		System.out.println(igrps);
 	}
 
 	private static <E> void show(List<E> element) {
 		element.forEach(System.out::println);
 	}
+	
 }
