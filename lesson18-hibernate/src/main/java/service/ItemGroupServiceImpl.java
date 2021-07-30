@@ -8,15 +8,20 @@ import persistence.ItemGroup;
 
 public class ItemGroupServiceImpl implements ItemGroupService {
 
-	private ItemGroupDao ItemGroupDao;
+	private ItemGroupDao itemGroupDao;
 
 	public ItemGroupServiceImpl() {
-		ItemGroupDao = new HibernateItemGroupDao();
+		itemGroupDao = new HibernateItemGroupDao();
 	}
 
 	@Override
 	public List<ItemGroup> getAll() {
-		return ItemGroupDao.getAll();
+		return itemGroupDao.getAll();
+	}
+
+	@Override
+	public ItemGroup get(int igrId) {
+		return itemGroupDao.get(igrId);
 	}
 
 }
