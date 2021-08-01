@@ -19,4 +19,11 @@ public class ItemServiceIml implements ItemService {
 		return ItemDao.getAll();
 	}
 
+	@Override
+	public Item get(int id) {
+		// TODO Auto-generated method stub
+		return ItemDao.get(id);
+	}
+	
+
 }

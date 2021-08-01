@@ -1,7 +1,5 @@
 package demo;
 
-import java.util.List;
-
 import persistence.Item;
 import service.ItemService;
 import service.ItemServiceIml;
@@ -13,7 +11,13 @@ public class AppItem {
 	}
 
 	public static void main(String[] args) {
-		List<Item> igrps = itemService.getAll();
-		igrps.forEach(System.out::println);
+		//List<Item> igrps = itemService.getAll();
+		//igrps.forEach(System.out::println);
+		
+		Item item = itemService.get(3);
+		System.out.println(item);
+		System.out.println("=====");
+		Item item2 = itemService.get(3);
+		System.out.println(item2);
 	}
 }

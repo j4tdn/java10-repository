@@ -2,6 +2,7 @@ package persistence;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -27,7 +28,8 @@ public class Item {
 	private String image;
 	//referencedColumnName la col bi tham chieu, la khoa chinh bang Maloai
 	//name="Maloai" is FK in table MatHang
-	@ManyToOne
+	//default: FetchType.EGEAR
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="MaLoai", referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
 	public Item() {
@@ -96,7 +98,7 @@ public class Item {
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", name=" + name + ", color=" + color + ", material=" + material + ", salesIn="
-				+ salesIn + ", salesOut=" + salesOut + ", image=" + image + ", itemGroup=" + itemGroup + "]";
+				+ salesIn + ", salesOut=" + salesOut + ", image=" + image + ", ItemGroup]";
 	}
 	
 }
