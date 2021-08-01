@@ -3,12 +3,26 @@ package dao;
 import java.util.List;
 
 import org.hibernate.query.NativeQuery;
+import org.hibernate.transform.Transformers;
 import org.hibernate.type.StandardBasicTypes;
+import org.hibernate.type.Type;
 
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 
 public class HibernateItemGroupDao extends EntityDao implements ItemGroupDao {
-
+	
+	private static final String GET_ITEM_DTOS=
+			"SELECT lh.MaLoai AS " + ItemGroupDto.ID + ",\r\n"
+			+ "       lh.TenLoai AS " + ItemGroupDto.NAME + ",\r\n"
+			+ "       SUM(kcmh.SoLuong) AS " + ItemGroupDto.TOTAL_AMOUNT + " \r\n"
+			+ "FROM LoaiHang lh\r\n"
+			+ "JOIN MatHang  mh\r\n"
+			+ "  ON lh.MaLoai = mh.MaLoai\r\n"
+			+ "JOIN KichCoMatHang kcmh\r\n"
+			+ "  ON mh.MaMH = kcmh.MaMH\r\n"
+			+ "GROUP BY lh.MaLoai";
+	
 	public List<ItemGroup> getAll() {
 		// Required: ItemGroup is a Entity
 		// Mapping: tableA = entityA
@@ -29,7 +43,7 @@ public class HibernateItemGroupDao extends EntityDao implements ItemGroupDao {
 		
 		// HQL/JPQL: NamesQueries(NameQuery(name =?, query = ? ))
 		
-		return openSession().createNamedQuery("somename", ItemGroup.class).getResultList();
+		return openSession().createNamedQuery( ItemGroup.GET_ALL , ItemGroup.class).getResultList();
 		
 
 		
@@ -43,5 +57,19 @@ public class HibernateItemGroupDao extends EntityDao implements ItemGroupDao {
 				.setParameter("maloai", igrId, StandardBasicTypes.INTEGER)
 				.getSingleResult();
 	}
+
+	@Override
+	public List<ItemGroupDto> getItemGroupDtos() {
+		NativeQuery<?> query = openSession().createNativeQuery(GET_ITEM_DTOS);
+		
+		query.addScalar(ItemGroupDto.ID, StandardBasicTypes.INTEGER)
+			.addScalar(ItemGroupDto.NAME, StandardBasicTypes.STRING)
+			.addScalar(ItemGroupDto.TOTAL_AMOUNT, StandardBasicTypes.INTEGER)
+			.setResultTransformer(Transformers.aliasToBean(ItemGroupDto.class));
+		
+		return safeList(query);
+	}
+
+	
 
 }

@@ -123,7 +123,7 @@ public class Item {
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", name=" + name + ", color=" + color + ", material=" + material + ", salesIn="
-				+ salesIn + ", salesOut=" + salesOut + ", image=" + image + ", itemGroup=" + itemGroup + "]";
+				+ salesIn + ", salesOut=" + salesOut + ", image=" + image + ", itemGroup=]";
 	}
 	
 }

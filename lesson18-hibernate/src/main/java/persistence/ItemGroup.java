@@ -1,10 +1,14 @@
 package persistence;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -12,9 +16,11 @@ import javax.persistence.Table;
 @Table(name = "LoaiHang")
 
 @NamedQueries({
-	@NamedQuery(name = "somename", query ="FROM ItemGroup")
+	@NamedQuery(name = "GET_ALL", query ="FROM ItemGroup")
 })
 public class ItemGroup {
+	
+	public static final String GET_ALL = "GET_ALL";
 	
 	@Id
 	@Column(name = "MaLoai")
@@ -22,6 +28,9 @@ public class ItemGroup {
 	
 	@Column(name = "TenLoai")
 	private String name;
+	
+	@OneToMany(mappedBy = "itemGroup", fetch = FetchType.LAZY)
+	private List<Item> item;
 	
 	public ItemGroup() {
 		
@@ -44,10 +53,21 @@ public class ItemGroup {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public List<Item> getItem() {
+		return item;
+	}
+
+	public void setItem(List<Item> item) {
+		this.item = item;
+	}
+
 	@Override
 	public String toString() {
-		return "ItemGroup [igrId=" + igrId + ", name=" + name + "]";
+		return "ItemGroup [igrId=" + igrId + ", name=" + name + ", item=" + item + "]";
 	}
+
+	
 	
 
 }

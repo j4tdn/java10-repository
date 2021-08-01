@@ -4,6 +4,7 @@ import java.util.List;
 
 import persistence.Item;
 import persistence.ItemGroup;
+import persistence.ItemGroupDto;
 import service.ItemGroupService;
 import service.ItemGroupServiceImpl;
 import service.ItemService;
@@ -24,8 +25,27 @@ public class App {
 //		ItemGroup igr = itemGroupService.get(2);
 //		System.out.println(igr);
 		
-		List<Item> items = itemService.getAll();
-		items.forEach(System.out::println);
+//		List<ItemGroup> igs = itemGroupService.getAll();
+//		igs.forEach(ig -> System.out.println(ig));
+//		
+//		System.out.println("=====================");
+//		
+//		List<Item> items = itemService.getAll();
+//		items.forEach(System.out::println);
+//		
+//		Item it1 = itemService.getItem(5);
+//		System.out.println(it1);
+//		
+//		Item it2 = itemService.getItem(5);
+//		System.out.println(it2);
+//		Item item1 = itemService.get(1);
+//		System.out.println(item1);
+//		System.out.println("==============");
+//		Item item2 = itemService.get(1);
+//		System.out.println(item2);
+//		
+		List<ItemGroupDto> result = itemGroupService.getDtos();
+		result.forEach(System.out::println);
 	}
 	
 //	private static <E> void show(List<E> elements) {
