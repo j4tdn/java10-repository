@@ -1,6 +1,7 @@
 package service;
 
 import java.util.List;
+import java.util.Objects;
 
 import dao.HibernateItemDao;
 import dao.ItemDao;
@@ -22,6 +23,12 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public Item get(int id) {
 		return itemDao.get(id);
+	}
+
+	@Override
+	public boolean save(Item item) {
+		Objects.requireNonNull(item, "item can not be null");
+		return itemDao.save(item);
 	}
 	
 	

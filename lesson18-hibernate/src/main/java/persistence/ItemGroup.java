@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -29,7 +28,7 @@ public class ItemGroup {
 	@Column(name = "TenLoai")
 	private String name;
 	
-	@OneToMany(mappedBy = "itemGroup", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "itemGroup")
 	private List<Item> item;
 	
 	public ItemGroup() {

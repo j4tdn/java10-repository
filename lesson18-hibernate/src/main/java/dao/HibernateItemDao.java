@@ -4,12 +4,8 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.type.StandardBasicTypes;
-
-
 
 import persistence.Item;
-import persistence.ItemGroup;
 
 public class HibernateItemDao extends EntityDao implements ItemDao {
 
@@ -49,6 +45,25 @@ public class HibernateItemDao extends EntityDao implements ItemDao {
 //			return openSession().createNativeQuery("SELECT * FROM MatHang WHERE MaMH = :MaMH", Item.class)
 //					.setParameter("MaMH", id, StandardBasicTypes.INTEGER)
 //					.getSingleResult();
+		}
+
+	@Override
+	public boolean save(Item item) {
+//			boolean result = false;
+//			Session session = openSession();
+			Session session = getCurrentSession();
+			Transaction transaction = session.beginTransaction();
+			
+			try {
+				// Session >> save saveOfUpdate - hibernate
+				// EntityManager >> persists, merge -jpa
+				session.saveOrUpdate(item);
+//				result = session.save(itemGroup) != null;
+				transaction.commit();
+			} catch (Exception e) {
+				transaction.rollback();
+			}
+			return true;
 		}
 	
 

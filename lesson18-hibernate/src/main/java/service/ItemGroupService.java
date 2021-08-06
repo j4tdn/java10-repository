@@ -10,4 +10,5 @@ public interface ItemGroupService {
 	ItemGroup get(int igrId);
 	
 	List<ItemGroupDto> getDtos();
+	boolean save(ItemGroup itemGroup);
 }
