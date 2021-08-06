@@ -9,4 +9,5 @@ public interface ItemGroupDao {
 	List<ItemGroup> getAll();
 	List<ItemGroupDto> getItemGroupDtos();
 	ItemGroup get(int igrId);
+	boolean save(ItemGroup itemGroup);
 }

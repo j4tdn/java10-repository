@@ -1,6 +1,7 @@
 package service;
 
 import java.util.List;
+import java.util.Objects;
 
 import dao.HibernateItemGroupDao;
 import dao.ItemGroupDao;
@@ -29,5 +30,13 @@ public class ItemGroupServiceImpl implements ItemGroupService{
 	public ItemGroup get(int igrId) {
 		return itemGroupDao.get(igrId);
 	}
+
+	@Override
+	public boolean save(ItemGroup itemGroup) {
+		Objects.requireNonNull(itemGroup, "item group cannot be null !");
+		return itemGroupDao.save(itemGroup);
+	}
+	
+	
 
 }

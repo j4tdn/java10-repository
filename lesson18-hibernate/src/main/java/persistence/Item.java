@@ -1,11 +1,17 @@
 package persistence;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -34,9 +40,19 @@ public class Item {
 	@Column(name = "HinhAnh")
 	private String image;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "MaLoai", referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
+	
+	@OneToMany(mappedBy = "item", fetch = FetchType.EAGER)
+	private List<ItemSize> itemSizes;
+	
+	/*@ManyToMany(cascade = CascadeType.PERSIST)
+	@JoinTable(name = "KichCoMatHang",
+		joinColumns = @JoinColumn(name = "MaMH", referencedColumnName = "MaMH"),
+		inverseJoinColumns = @JoinColumn(name = "MaKC", referencedColumnName = "MaKC")
+	)
+	private List<Size> sizes;*/
 	
 	public Item() {
 	}
@@ -115,6 +131,22 @@ public class Item {
 	public void setItemGroup(ItemGroup itemGroup) {
 		this.itemGroup = itemGroup;
 	}
+	
+	public List<ItemSize> getItemSizes() {
+		return itemSizes;
+	}
+	
+	public void setItemSizes(List<ItemSize> itemSizes) {
+		this.itemSizes = itemSizes;
+	}
+	
+//	public List<Size> getSizes() {
+//		return sizes;
+//	}
+//	
+//	public void setSizes(List<Size> sizes) {
+//		this.sizes = sizes;
+//	}
 
 	@Override
 	public String toString() {
