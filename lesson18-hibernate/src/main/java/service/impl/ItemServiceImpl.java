@@ -1,6 +1,7 @@
 package service.impl;
 
 import java.util.List;
+import java.util.Objects;
 
 import dao.ItemDao;
 import dao.impl.ItemDaoImpl;
@@ -22,5 +23,11 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public Item get(int id) {
 		return itemDao.get(id);
+	}
+	
+	@Override
+	public void save(Item item) {
+		Objects.requireNonNull(item);
+		itemDao.save(item);
 	}
 }

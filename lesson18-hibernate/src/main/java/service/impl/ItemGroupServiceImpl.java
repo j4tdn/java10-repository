@@ -1,6 +1,7 @@
 package service.impl;
 
 import java.util.List;
+import java.util.Objects;
 
 import dao.ItemGroupDao;
 import dao.impl.ItemGroupDaoImpl;
@@ -34,6 +35,12 @@ public class ItemGroupServiceImpl implements ItemGroupService{
 	@Override
 	public ItemGroup get(int igrId) {
 		return itemGroupDao.get(igrId);
+	}
+	
+	@Override
+	public void save(ItemGroup itemGroup) {
+		Objects.requireNonNull(itemGroup);
+		itemGroupDao.save(itemGroup);
 	}
 
 }

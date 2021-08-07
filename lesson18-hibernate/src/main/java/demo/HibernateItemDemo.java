@@ -14,5 +14,7 @@ public class HibernateItemDemo {
 		itemService.getAll().forEach(System.out::println);
 		
 		System.out.println(itemService.get(2));
+		
+		
 	}
 }

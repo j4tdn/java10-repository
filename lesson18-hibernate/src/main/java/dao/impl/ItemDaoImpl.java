@@ -31,4 +31,16 @@ public class ItemDaoImpl extends EntityDao implements ItemDao {
 		}
 		return item;
 	}
+	
+	@Override
+	public void save(Item item) {
+		Session session = getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+		try {
+			session.saveOrUpdate(item);
+			transaction.commit();
+		} catch (Exception e) {
+			transaction.rollback();
+		}
+	}
 }

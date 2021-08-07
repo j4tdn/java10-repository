@@ -2,6 +2,8 @@ package dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.transform.Transformers;
 import org.hibernate.type.StandardBasicTypes;
@@ -53,6 +55,18 @@ public class ItemGroupDaoImpl extends EntityDao implements ItemGroupDao {
 	@Override
 	public ItemGroup get(int igrId) {
 		return openSession().get(ItemGroup.class, igrId);
+	}
+	
+	@Override
+	public void save(ItemGroup itemGroup) {
+		Session session = getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+		try {
+			session.saveOrUpdate(itemGroup);
+			transaction.commit();
+		} catch (Exception e) {
+			transaction.rollback();
+		}
 	}
 
 }

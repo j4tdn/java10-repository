@@ -13,4 +13,6 @@ public interface ItemGroupDao {
 	List<ItemGroupDto> getItemGroupDtos();
 	
 	ItemGroup get(int igrId);
+	
+	void save(ItemGroup itemGroup);
 }

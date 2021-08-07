@@ -8,4 +8,6 @@ public interface ItemDao {
 	List<Item> getAll();
 	
 	Item get(int id);
+	
+	void save(Item item);
 }

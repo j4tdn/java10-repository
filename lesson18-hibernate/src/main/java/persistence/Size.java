@@ -11,27 +11,20 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "LoaiHang")
-public class ItemGroup {
-	
+@Table(name = "KichCo")
+public class Size {
 	@Id
-	@Column(name = "MaLoai")
-	private Integer id;
+	@Column(name = "MaKC")
+	private String id;
 	
-	@Column(name = "TenLoai")
-	private String name;
+	@Column(name =  "MoTa")
+	private String description;
 	
-	@OneToMany(mappedBy = "itemGroup")
-	@ToString.Exclude private List<Item> items;
-	
-	public ItemGroup(Integer id, String name) {
-		this.id = id;
-		this.name = name;
-	}
+	@OneToMany(mappedBy = "size")
+	private List<ItemSize> itemSizes;
 }

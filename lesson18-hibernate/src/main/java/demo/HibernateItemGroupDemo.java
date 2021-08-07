@@ -16,5 +16,6 @@ public class HibernateItemGroupDemo {
 //		System.out.println(itemGroupService.get(2));
 		
 		itemGroupService.getItemGroupDtos().forEach(System.out::println);
+		
 	}
 }
