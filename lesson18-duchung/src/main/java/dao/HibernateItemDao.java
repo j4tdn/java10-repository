@@ -9,7 +9,7 @@ import org.hibernate.transform.Transformers;
 import org.hibernate.type.StandardBasicTypes;
 
 import persistence.ItemDto;
-import persistence.ItemTop3;
+import persistence.ItemTop3Dto;
 import persistence.ListItemByGroudIdDto;
 
 public class HibernateItemDao extends AbstractHibernateDao implements ItemDao {
@@ -18,7 +18,7 @@ public class HibernateItemDao extends AbstractHibernateDao implements ItemDao {
 			+ ", dh.ThoiGianDatHang as "+ItemDto.ODER_TIME+" FROM MatHang mh"
 			+ " JOIN ChiTietDonHang ctdh ON mh.MaMH = ctdh.MaMH JOIN DonHang dh "
 			+ " ON dh.MaDH = ctdh.MaDH WHERE DATE(dh.ThoiGianDatHang) = :DATE";
-	private static final String GET_ITEM_TOP3_BY_YEAR ="SELECT mh.TenMH as "+ItemTop3.ITEM_NAME+",sum(ctdh.soluong) as TongSoLuong "  
+	private static final String GET_ITEM_TOP3_BY_YEAR ="SELECT mh.TenMH as "+ItemTop3Dto.ITEM_NAME+",sum(ctdh.soluong) as TongSoLuong "  
 			+ " FROM MatHang mh  JOIN ChiTietDonHang ctdh ON mh.MaMH = ctdh.MaMH JOIN DonHang dh ON dh.MaDH = ctdh.MaDH  "  
 			+ " WHERE Year(dh.ThoiGianDatHang) = :year " + "GROUP BY mh.maMH ORDER BY TongSoLuong DESC " 
 			+ " LIMIT 3 ";
@@ -37,7 +37,7 @@ public class HibernateItemDao extends AbstractHibernateDao implements ItemDao {
 	public List<ItemDto> getItemBySalesDate(LocalDate salesDate) {
 		NativeQuery<?> query = openSession().createNativeQuery(GET_ITEM_DTOS)
 				.setParameter("DATE",Date.valueOf(salesDate));
-			query.addScalar(ItemDto.ITEM_ID, StandardBasicTypes.INTEGER)
+		   query.addScalar(ItemDto.ITEM_ID, StandardBasicTypes.INTEGER)
 				.addScalar(ItemDto.ITEM_NAME, StandardBasicTypes.STRING)
 				.addScalar(ItemDto.ODER_TIME,StandardBasicTypes.TIME)
 				.setResultTransformer(Transformers.aliasToBean(ItemDto.class));
@@ -46,11 +46,11 @@ public class HibernateItemDao extends AbstractHibernateDao implements ItemDao {
 	// 3. Liệt kê top 3 mặt hàng được bán nhiều nhất năm 2020. Với năm là tham số truyền vào.
 	@SuppressWarnings("deprecation")
 	@Override
-	public List<ItemTop3> getItemTop3ByYear(Integer year) {
+	public List<ItemTop3Dto> getItemTop3ByYear(Integer year) {
 		NativeQuery<?> query = openSession().createNativeQuery(GET_ITEM_TOP3_BY_YEAR)
 				.setParameter("year",year);
-		   query.addScalar(ItemTop3.ITEM_NAME, StandardBasicTypes.STRING)
-				.setResultTransformer(Transformers.aliasToBean(ItemTop3.class));
+		   query.addScalar(ItemTop3Dto.ITEM_NAME, StandardBasicTypes.STRING)
+				.setResultTransformer(Transformers.aliasToBean(ItemTop3Dto.class));
 		return safeList(query);
 	}
 	//4. Liệt kê danh sách các mặt hàng của mỗi loại hàng. 
@@ -61,11 +61,11 @@ public class HibernateItemDao extends AbstractHibernateDao implements ItemDao {
 			query.addScalar(ListItemByGroudIdDto.ID, StandardBasicTypes.INTEGER)
 			     .addScalar(ListItemByGroudIdDto.NAME, StandardBasicTypes.STRING)
 			     .addScalar(ListItemByGroudIdDto.ITEM_ID, StandardBasicTypes.INTEGER)
-				.addScalar(ListItemByGroudIdDto.ITEM_NAME, StandardBasicTypes.STRING)
-				.addScalar(ListItemByGroudIdDto.PRICE, StandardBasicTypes.DOUBLE)
-				.addScalar(ListItemByGroudIdDto.PURCHAS_PRICE, StandardBasicTypes.DOUBLE)
-				.addScalar(ListItemByGroudIdDto.NUMBER, StandardBasicTypes.INTEGER)
-				.setResultTransformer(Transformers.aliasToBean(ListItemByGroudIdDto.class));
+				 .addScalar(ListItemByGroudIdDto.ITEM_NAME, StandardBasicTypes.STRING)
+				 .addScalar(ListItemByGroudIdDto.PRICE, StandardBasicTypes.DOUBLE)
+				 .addScalar(ListItemByGroudIdDto.PURCHAS_PRICE, StandardBasicTypes.DOUBLE)
+				 .addScalar(ListItemByGroudIdDto.NUMBER, StandardBasicTypes.INTEGER)
+				 .setResultTransformer(Transformers.aliasToBean(ListItemByGroudIdDto.class));
 		return safeList(query);
 	}
 

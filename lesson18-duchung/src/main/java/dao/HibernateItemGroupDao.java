@@ -22,7 +22,7 @@ public class HibernateItemGroupDao extends AbstractHibernateDao implements ItemG
 	@Override
 	public List<ItemGroupDto> getItemGroupDaoById() {
 		NativeQuery<?> query = openSession().createNativeQuery(GET_ITEM_GROUP_DTOS);
-		query.addScalar(ItemGroupDto.ID, StandardBasicTypes.INTEGER)
+		    query.addScalar(ItemGroupDto.ID, StandardBasicTypes.INTEGER)
 				.addScalar(ItemGroupDto.NAME, StandardBasicTypes.STRING)
 				.addScalar(ItemGroupDto.NUMBER, StandardBasicTypes.INTEGER)
 				.setResultTransformer(Transformers.aliasToBean(ItemGroupDto.class));
