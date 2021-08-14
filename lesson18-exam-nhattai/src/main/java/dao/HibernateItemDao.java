@@ -62,16 +62,15 @@ public class HibernateItemDao extends AbstracHibernateDao implements ItemDao {
 	
 	//4. Liệt kê danh sách các mặt hàng của mỗi loại hàng. 
 	private static final String LIST_ITEM_BY_ID = 
-			"SELECT lh.maLoai AS "+ ListItemOfIGroupDto.ID + ""
-			+ ", lh.TenLoai AS "+ ListItemOfIGroupDto.NAME + ""
-			+ ", mh.maMH AS "+ ListItemOfIGroupDto.ITEM_ID + ""
-			+ ", mh.TenMH AS " + ListItemOfIGroupDto.ITEM_NAME + ""
-			+ ", mh.GiaBan AS " + ListItemOfIGroupDto.PRICE + ""
-			+ ", mh.GiaMua AS " + ListItemOfIGroupDto.PURCHAS_PRICE + ", " + 
-			" SUM(kcmh.SoLuong) AS "
-			+ ListItemOfIGroupDto.NUMBER
+			"SELECT 					lh.maLoai AS "	 + ListItemOfIGroupDto.ID + ""
+									+ ", lh.TenLoai AS " + ListItemOfIGroupDto.NAME + ""
+									+ ", mh.maMH AS "    + ListItemOfIGroupDto.ITEM_ID + ""
+									+ ", mh.TenMH AS "   + ListItemOfIGroupDto.ITEM_NAME + ""
+									+ ", mh.GiaBan AS "  + ListItemOfIGroupDto.PRICE + ""
+									+ ", mh.GiaMua AS "  + ListItemOfIGroupDto.PURCHAS_PRICE + ", " + 
+									" SUM(kcmh.SoLuong) AS " + ListItemOfIGroupDto.NUMBER
 			+" FROM MatHang mh JOIN LoaiHang lh " + 
-			" ON mh.MaLoai = lh.MaLoai JOIN KichCoMatHang kcmh  ON mh.MaMH = kcmh.MaMH " + 
+				" ON mh.MaLoai = lh.MaLoai JOIN KichCoMatHang kcmh  ON mh.MaMH = kcmh.MaMH " + 
 			" GROUP BY mh.maLoai,mh.maMH"; 
 	
 	@SuppressWarnings("deprecation")
