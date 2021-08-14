@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<ehcache>
+    <cache name="persistence.Department"  
+    	maxElementsInMemory="1000"
+    	timeToIdleSeconds="3"
+    	timeToLiveSeconds="20"
+    />
+	<!-- 
+		maxElementsInMemory: element limit memory
+        timeToIdleSeconds: out of memory after the last time access with duration
+        timeToLiveSeconds: out of memory after the initial time access with duration
+	 -->
+	 
+</ehcache>
