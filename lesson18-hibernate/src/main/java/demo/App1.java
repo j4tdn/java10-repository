@@ -14,14 +14,23 @@ public class App1 {
 	static {
 		itemService = new ItemServiceImpl();
 	}
+	private static ItemGroupService itemGroupService;
+	static {
+		itemGroupService = new ItemGroupServiceImpl();
+	}
+
 	public static void main(String[] args) {
-		List<Item> elements = itemService.getAll();
-		elements.forEach(System.out::println);
-		
+//		List<Item> elements = itemService.getAll();
+//		elements.forEach(System.out::println);
+
 //	    ItemGroup igr = itemGroupService.get(1);
 //		System.out.println(igr);
-		
-	}
-	
-}
 
+		List<ItemGroup> igs = itemGroupService.getAll();
+		igs.forEach(ig -> {
+			System.out.println("size: " + ig.getItems().size());
+		});
+
+	}
+
+}

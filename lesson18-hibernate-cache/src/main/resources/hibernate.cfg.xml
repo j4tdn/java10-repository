@@ -4,9 +4,9 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://localhost:3306/java10_shopping</property>
+		<property name="connection.url">jdbc:mysql://localhost:33066/hib_comman_cache</property>
 		<property name="connection.username">root</property>
-		<property name="connection.password">28070802</property>
+		<property name="connection.password">1234</property>
 
 		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
 
@@ -14,14 +14,17 @@
 		<property name="format_sql">true</property>
 
 		<!-- Set the current session context -->
-		<!-- <property name="current_session_context_class">thread</property> -->
-	
+		<!-- 1st level cache -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- 2nd level cache -->
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<property
+			name="hibernate.cache.provider_configuration_file_resource_path">ehcache.xml</property>
+
 		<!-- Scan Entities -->
-	<mapping class="persistence.ItemGroup" />
-		<mapping class="persistence.Item" />
-		<mapping class="persistence.Size" />
-		<mapping class="persistence.ItemSize" />
-		
+		<mapping class="persistence.Department" />
 	</session-factory>
 
 </hibernate-configuration>
