@@ -7,6 +7,10 @@ import persistence.ItemGroupDto;
 
 public interface ItemGroupService {
 	List<ItemGroup> getAll();
+
 	ItemGroup get(int igrId);
-	 List<ItemGroupDto> getItemGroupDtos();
+
+	List<ItemGroupDto> getItemGroupDtos();
+
+	boolean save(ItemGroup itemGroup);
 }

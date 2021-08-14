@@ -1,6 +1,7 @@
 package service;
 
 import java.util.List;
+import java.util.Objects;
 
 import dao.HibernateItemDao;
 import dao.ItemDao;
@@ -23,6 +24,11 @@ public class ItemServiceIml implements ItemService {
 	public Item get(int id) {
 		// TODO Auto-generated method stub
 		return ItemDao.get(id);
+	}
+	@Override
+	public boolean save(Item item) {
+		Objects.requireNonNull(item, "item group can be null");
+		return ItemDao.save(item);
 	}
 	
 

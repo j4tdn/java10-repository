@@ -1,11 +1,17 @@
 package persistence;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,9 +35,19 @@ public class Item {
 	//referencedColumnName la col bi tham chieu, la khoa chinh bang Maloai
 	//name="Maloai" is FK in table MatHang
 	//default: FetchType.EGEAR
-	@ManyToOne(fetch = FetchType.LAZY)
+	//cascade = CascadeType.ALL -> khi mã loại k tồn tại trong item, khi save item nó thự thêm loại hàng r thêm item cho mình.
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="MaLoai", referencedColumnName = "MaLoai")
 	private ItemGroup itemGroup;
+	
+//	@ManyToMany(cascade = CascadeType.ALL)
+//	@JoinTable(name = "KichCoMatHang",
+//		joinColumns = @JoinColumn(name="MaMH", referencedColumnName = "MaMH"),
+//		inverseJoinColumns =  @JoinColumn(name="MaKC", referencedColumnName = "MaKC"))
+//	private List<Size> sizes;// quan he n-n
+	
+	@OneToMany(mappedBy = "item")
+	private List<ItemSize> itemSizes;
 	public Item() {
 
 	}
@@ -95,6 +111,20 @@ public class Item {
 	public void setItemGroup(ItemGroup itemGroup) {
 		this.itemGroup = itemGroup;
 	}
+	
+	public List<ItemSize> getItemSizes() {
+		return itemSizes;
+	}
+	public void setItemSizes(List<ItemSize> itemSizes) {
+		this.itemSizes = itemSizes;
+	}
+//	
+//	public List<Size> getSizes() {
+//		return sizes;
+//	}
+//	public void setSizes(List<Size> sizes) {
+//		this.sizes = sizes;
+//	}
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", name=" + name + ", color=" + color + ", material=" + material + ", salesIn="

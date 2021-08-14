@@ -3,7 +3,6 @@ package demo;
 import java.util.List;
 
 import persistence.ItemGroup;
-import persistence.ItemGroupDto;
 import service.ItemGroupService;
 import service.ItemGroupServiceIml;
 
@@ -14,16 +13,18 @@ public class App {
 	}
 
 	public static void main(String[] args) {
-		List<ItemGroupDto> igrps = itemGroupService.getItemGroupDtos();
-		igrps.forEach(System.out::println);
-//		List<ItemGroup> igrps = itemGroupService.getAll();
-//		igrps.forEach(System.out::println);
+		boolean isValid = itemGroupService.save(new ItemGroup(10,"aa"));
+		System.out.println(isValid);
+	//	List<ItemGroupDto> igrps = itemGroupService.getItemGroupDtos();
+	//	igrps.forEach(System.out::println);
+    //	List<ItemGroup> igrps = itemGroupService.getAll();
+    //	igrps.forEach(System.out::println);
 		
 		//igrps.forEach(ig->System.out.println(ig.getName()));
 		//show(igrps);
 		
-//		ItemGroup igrps = itemGroupService.get(2);
-//		System.out.println(igrps);
+   //	ItemGroup igrps = itemGroupService.get(2);
+   //	System.out.println(igrps);
 	}
 
 	private static <E> void show(List<E> element) {

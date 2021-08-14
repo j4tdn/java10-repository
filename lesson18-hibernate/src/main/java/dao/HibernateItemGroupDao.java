@@ -3,6 +3,7 @@ package dao;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.transform.Transformers;
 import org.hibernate.type.StandardBasicTypes;
@@ -62,7 +63,7 @@ public class HibernateItemGroupDao extends EnityDao implements ItemGroupDao {
 		// or return openSession().createNativeQuery("select * from loaihang where Maloai = :xyz",
 		// ItemGroup.class).setParameter("xyz", igrId, StandardBasicTypes.INTEGER).getSingleResult();
 	}
-
+	@SuppressWarnings("deprecation")
 	@Override
 	public List<ItemGroupDto> getItemGroupDtos() {
 		// TODO Auto-generated method stub
@@ -74,4 +75,20 @@ public class HibernateItemGroupDao extends EnityDao implements ItemGroupDao {
 		return safeList(query);
 	}
 	
+	@Override
+	public boolean save(ItemGroup itemGroup) {
+		// Session (class) of Hibernate >>		save, saveOrUodate
+		// EnityMananger (interface) of JPA>> persist, merge
+		boolean result = false;
+		Session session = openSession();
+		Transaction transaction = session.beginTransaction();
+		try {
+			// result = session.save(itemGroup)!=null;
+		      session.saveOrUpdate(itemGroup);
+			transaction.commit();
+		} catch (Exception e) {
+			transaction.rollback();
+		}
+		return true;
+	}
 }
