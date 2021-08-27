@@ -1,0 +1,72 @@
+    body {
+        background-color: aqua;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 32px;
+    }
+    
+    .priority {
+        color: violet;
+        font-family: 'Allison', cursive;
+    }
+    /* Text Style */
+    
+    .style-1 {
+        font-size: 40px;
+        font-weight: 700;
+        text-transform: capitalize;
+        color: yellowgreen;
+    }
+    
+    .style-2 {
+        font-size: 40px;
+        text-decoration: line-through;
+        color: yellowgreen;
+    }
+    
+    .nav-block {
+        height: 70px;
+        width: 400px;
+        background-color: beige;
+    }
+    
+    .nav-item {
+        color: black;
+        text-align: center;
+        font-size: 25px;
+        line-height: 70px;
+    }
+    
+    .ls {
+        list-style-type: square;
+        list-style-image: url(../images/world.png);
+        list-style-position: inside;
+    }
+    
+    #id-red {
+        font-style: italic;
+        color: rebeccapurple;
+    }
+    /* Float */
+    
+    .float-left-block {
+        background-color: green;
+        height: 220px;
+        width: 40%;
+        float: left;
+    }
+    
+    .float-right-block {
+        background-color: yellow;
+        height: 220px;
+        width: 50%;
+        float: right;
+    }
+    
+    .float-text-1 {
+        font-size: 20px;
+    }
+    
+    .float-text-2 {
+        font-size: 20px;
+        clear: both;
+    }
