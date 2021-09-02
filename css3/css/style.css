@@ -1,0 +1,71 @@
+.ls{
+list-style-type: none;
+list-style-image: url(images/world.png);
+list-style-position: inside;
+}
+
+.priority{
+	color: yellow;
+}
+.sign{
+	font-family: Tahoma;
+}
+.text{
+	font-family: 'Allison', cursive;
+	font-size: 64px;
+}	
+/*Text Style*/	
+.style1{
+	font-size: 30px;
+	font-weight: 400
+	text-transform: capitalize;
+	color: rgb(134,0,0);
+}
+.style2{
+	font-size: 42px;
+	text-decoration: line-through;
+	color: blue;
+}
+.nav-block{
+	height: 70px;
+	width: 400px;
+	background: black;
+	opacity: 0.8;
+
+}
+.nav-item{
+	color: white;
+	text-align: center;
+	font-size: 38px;
+	line-height: 70px;
+}
+.fwb{
+	font-weight: bold;
+}
+.color-red{
+	color: red;
+}
+#ci-selector{
+	font-style: italic;
+}
+
+/*Float*/
+.float-block{
+	width: 200px;
+	height: 320px
+	background:green;
+}
+
+.float-right-block{
+	width: 70%;
+	height: 70px;
+	background: red;
+     float: left;
+}
+.float-left-block{
+	width: 30%;
+	height: 70px;
+	background: green;
+	float: left;
+
+}
