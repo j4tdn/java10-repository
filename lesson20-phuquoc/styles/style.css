@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+.header{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: black;
+}
+
+.header__img{
+    width: 100px;
+    cursor: pointer;
+}
+
+.header__nav{
+    color: white;
+    display: flex;
+}
+
+.header__nav li {
+    list-style: none;
+    margin: 0 40px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/* BACKGROUND */
+.background{
+    width: 100%;
+    height: 700px;
+    background-image: url("../images/banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.background__title{
+    color: white;
+    text-transform: uppercase;
+    font-size: 62px;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    margin: -50px -100px;
+}
+.background__word{
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    margin: -50px -100px;
+}
+.background__button{
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 60%;
+    left: 53%;
+    margin: -50px -100px;
+    padding: 10px 20px;
+    background: rgb(204, 10, 10);
+}
+
+/* CONTENT */
+.content{
+    display: flex;
+    justify-content: space-around;
+    background: rgb(255,255,255);
+    background: linear-gradient(100deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);
+}
+.content__left{
+    padding: 50px 150px;
+}
+.content__right{
+    color: rgb(192, 192, 192);
+    padding: 50px 150px;
+}
+.content__title{
+    font-size: 36px;
+    margin: 15px 0px;
+}
+.content__df{
+    font-size: 22px;
+    margin: 15px 0px;
+}
+.content__p1, .content__p2{
+    margin: 15px 0px;
+    line-height: 26px;
+}
+
+/* FOOTER */
+.footer{
+    width: 100%;
+    min-height: 150px;
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-around;
+    background: rgb(24, 24, 24);
+}
+.footer h3{
+    color: white;
+    margin: 10px 0px;
+}
+.footer li{
+    color: rgb(199, 199, 199);
+    list-style: none;
+    margin: 10px 0px;
+    font-size: 14px;
+}
+.footer__social__logo{
+    display: flex;
+}
+.footer .logo{
+    font-size: 50px;
+    margin-right: 15px;
+}   
+.footer__social p{
+    font-size: 14px;
+    color: rgb(109, 109, 109);
+}
