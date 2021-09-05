@@ -1,0 +1,69 @@
+html,
+body {
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.title::before {
+    content: "";
+    display: block;
+    background-color: red;
+    width: 20px;
+    height: 2px;
+}
+
+li a {
+    text-decoration: none;
+}
+
+ol>* {
+    color: yellow;
+}
+
+h1+p {
+    color: red;
+}
+
+
+/* link */
+
+a[href*=link] {
+    color: violet;
+}
+
+
+/* form */
+
+.inp-1:focus {
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px #333;
+}
+
+.checkbox-group input[type=checkbox]:checked+label {
+    background-color: yellow;
+}
+
+.inp-2:invalid {
+    box-shadow: 0 0 5px red;
+}
+
+.inp-2:valid {
+    box-shadow: 0 0 5px green;
+}
+
+.pseudo-classes-position p:first-of-type,
+.pseudo-classes-position p:last-of-type {
+    background-color: violet;
+}
+
+.pseudo-classes-position p:nth-of-type(-n+5) {
+    color: springgreen;
+}
+
+.pseudo-classes-position p:nth-last-child(-n+2) {
+    color: blue;
+}
+
+.pseudo-classes-position h4:not(:first-child) {
+    color: crimson;
+}

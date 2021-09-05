@@ -118,6 +118,7 @@
         background-color: coral;
         position: relative;
         z-index: 3;
+        opacity: 0.75;
     }
     
     .p2 {
@@ -150,7 +151,7 @@
     
     .d2 {
         background-color: teal;
-        visibility: hidden;
+        /* visibility: hidden; */
     }
     
     .d3 {
@@ -162,4 +163,15 @@
         height: 350px;
         background: linear-gradient(135deg, rgba(214, 247, 49, 1) 0%, rgba(214, 247, 49, 1) 50%, rgba(214, 247, 49, 1) 50%, rgba(125, 185, 232, 1) 50%, rgba(125, 185, 232, 1) 50%, rgba(125, 185, 232, 1) 99%);
         /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+    
+    .brs {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+    
+    .bsd {
+        /* offset-x offset-y blur color (insert) */
+        box-shadow: 20px 5px 10px #333;
     }
