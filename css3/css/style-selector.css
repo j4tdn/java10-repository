@@ -1,0 +1,65 @@
+/*=============
+=====Page 2 - CSS======*/
+/*SELECTORS*/
+.title::before{
+	content: "";
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: red;
+	margin-top: 30px;
+}
+.title::after {
+	content: " restaurant";
+}
+
+ul>li>a{
+	text-decoration: none;
+
+}
+ol>*{
+	color: green ;
+}
+h1~p{
+	color: red;
+}
+/*a.href.contain("link")*/
+a[href*="link1"]{
+	background: yellow;
+}
+/*pseudo-classes form*/
+.inp-1:focus {
+	box-shadow: 1px 1px 2px green inset;
+	boder: none;
+}
+.cbx-group input[type="checkbox"]:checked + label{
+	background: yellow;
+
+}
+
+.inp-3:invalid{
+	box-shadow: 0 0 5px red;
+}
+.inp-3:valid{
+	box-shadow: 0 0 5px green;
+}
+.inp-4:enabled {
+	color: blue;
+}
+.inp-4:disabled {
+	color: black;
+}
+.pseudo-classes-position p:first-child{
+	background: yellow;
+}
+/*child>> nth starts from 1*/
+.pseudo-classes-position p:nth-child(-n+5) {
+	color: red;
+}
+.pseudo-classes-position p:first-of-type{
+	background: orange;
+}
+
+.pseudo-classes-position h3:first-child{
+	background: green;
+}
