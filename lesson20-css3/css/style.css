@@ -1,0 +1,192 @@
+
+
+/*===================
+	PAGE 01 - CSS	
+*/
+.w2-h1 {
+	width: 200px;
+	min-height: 100px;
+}
+
+.w6-h3 {
+	width: 600px;
+	min-height: 300px;
+}
+
+.container {
+	border: 5px dashed red;
+	padding: 10px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+.element {
+	border: 2px solid lightgreen;
+}
+
+.block-list {
+	border: 5px solid red;
+	background-image: url(../images/background-image.jpg);
+	background-size: cover;
+	margin-bottom: 30px;
+
+	/*
+		NOT AFFECTED BY SCROLL
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		background-position: left; center;
+
+	*/
+}
+
+.block {
+	border: 5px solid green;
+	box-sizing: border-box;
+
+	margin: 40px auto;
+}
+
+
+/*===================
+	Position	
+*/
+.pos-list {
+	width: 620px;
+	border: 2px solid gray;
+	margin: 40px auto;
+	position: relative;
+
+}
+
+.block-element {
+	width: 200px;
+	height: 140px;
+}
+
+.p1 {
+	background: orange;
+}
+.p2 {
+	/* -- Contrast --
+	1. Parent >> relative
+	2. Sub    >> absolute
+	*/
+	background: green;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+.p3 {
+	background: blue;
+}
+/*===================
+	DISPLAY - CSS	
+*/
+
+.display-list {
+	width: 600px;
+	border: 2px solid greenyellow;
+}
+
+.display-list div {
+	display: inline-block;
+}
+
+.d1 {
+	background: orange;
+}
+.d2 {
+	background: green;
+}
+.d3 {
+	background: blue;
+}
+
+/*===================
+	BORDER RADIUS
+*/
+
+.brs {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+
+.bsd {
+	/*offset-x offset-y blur-radius color*/
+	box-shadow: 0px 0px 60px orange;
+}
+
+/*===================
+	INDEX - CSS	
+*/
+.ls {
+	list-style-type: none;
+	list-style-image: url(../images/world.png);
+	list-style-position: inside;
+}
+
+.priority {
+	color: lightyellow;
+}		
+
+.sign {
+	font-family: tahoma;
+}
+
+.text {
+	font-family: 'Hina Mincho', serif;
+}
+/*Text Style*/
+
+.style1{
+	font-size: 30px;
+	font-weight: 400px;
+	text-transform: capitalize;
+	color: blue;
+}
+
+.style2 {
+	font-size: 42px;
+	text-decoration: line-through;
+	color: blue;
+}
+
+.nav-block {
+	height: 70px;
+	width: 700px;
+	background: black;
+	opacity: 0.8;
+}
+
+.nav-item {
+	color: white;
+	text-align: center;
+	font-size: 38px;
+	line-height: 70px;
+}
+.fwb {
+	font-weight: bold;
+}
+
+.color-red {
+	color: red;
+}
+
+#ci-selector {
+	font-style: italic;
+}
+
+/*FLOAT*/
+.float-left-block {
+	width: 30%;
+	height: 70px;
+	background: #F00;
+	float: left;
+}
+
+/*.float-right-block {
+	width: 70%;
+	height: 70px;
+	background: #0F0;
+	float: right;	
+}*/

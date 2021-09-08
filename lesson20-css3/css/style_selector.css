@@ -1,0 +1,73 @@
+/*===================
+	PAGE 02 - CSS	
+*/
+
+/*	SELECTORS */
+.title::before {
+	content: "";
+	display: block;
+	width: 40px;
+	height: 5px;
+	background: red;
+	margin-bottom: 10px;
+}
+.title::after {
+	content: "";
+}
+
+ul>li>a {
+	text-decoration: none;
+}
+
+ol>* {
+	color: green;
+}
+h1~p {
+	color: red;
+}
+/*a.href.contains("link")*/
+a[href*="link2"] {
+	background: yellow;
+}
+
+/* pseudo-classes form */
+
+.inp-1:focus {
+	box-shadow: 2px 2px 5px green inset;
+	overflow: none;
+	border: none;
+}
+.cbx-group input[type="checkbox"]:checked + label {
+	background: yellow;
+}
+/* check valid while texting >> keypress event */
+.inp-3:invalid {
+	box-shadow: 0 0 5px red;
+}
+.inp-3:valid {
+	box-shadow: 0 0 5px gree;
+}
+.inp-4:disabled {
+	color: black;
+}
+.inp-4:enable {
+	color: blue;
+}
+.pseudo-classes-position p:first-child {
+	background: yellow;
+}
+/* child >> nth starts from 1 */
+/* an+b >> b offset starts from 1 */
+.pseudo-classes-position p:nth-of-type(-n + 5) {
+	color: red;
+}
+
+.pseudo-classes-position p:nth-last-child(-n + 3){
+	color: blue;
+}
+.pseudo-classes-position p:first-of-type{
+	color: orange;
+}
+.pseudo-classes-position h3:first-child{
+	color: green;
+}
