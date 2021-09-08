@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    background-color: black;
+    height: 35px;
+}
+
+.header-logo {
+    position: absolute;
+    left: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.header-category {
+  position: absolute;
+  right: 100px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.header-category li{
+    color: white;
+    display: inline-block;
+    margin-left: 80px;
+    font-size: 20px;
+}
+
+.header-category ul {
+    list-style: none;
+}
+
+.jumbotron {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 650px;
+    align-items: center;
+    background-image: url("images/banner.png");
+    background-repeat: no-repeat space;
+    background-size: cover;
+}
+
+.jumbotron-items {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.jumbotron-items h1 {
+    color: white;
+    font-size: 65px;
+}
+
+.jumbotron-items p {
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.jumbotron-items button {
+    background: red;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    width: 150px;
+    height: 40px;
+    border-radius: 0%;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(98deg, rgb(255,255,255) 0%,rgb(255,255,255) 50%,rgb(27,27,27) 50%,rgb(27,27,27) 100%);
+}
+
+.content-left {
+    padding-left: 100px;
+    padding-right: 150px;
+}
+
+.content-right {
+    color: white;
+    padding-left: 150px;
+    padding-right: 100px;
+}
+
+.content h3 {
+    font-size: 40px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.content h3::after {
+    content: "";
+    display: flex;
+	width: 50px;
+	height: 3px;
+	margin-top: 20px;
+	background-color: red;
+}
+
+.content h4 {
+    padding-bottom: 20px;
+    font-style: italic;
+    font-size: 30px;
+}
+
+.content p {
+    padding-bottom: 20px;
+    font-size: 18px;
+}
+footer { 
+    background: black;
+    color: white;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.footer-ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+}
+
+.footer-ul li {
+    padding-top: 10px;
+    padding-left: 50px;
+}
+
+.footer-social-icon {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0px;
+}
