@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*------------------------ HEADER /*------------------------*/
+header {
+    width: 100%;
+    height: 55px;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+header nav {
+    flex-basis: 30%;
+}
+
+header nav .nav-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header .nav .nav-list li {
+    list-style: none;
+    text-transform: uppercase;
+
+}
+
+header .header-logo {
+    margin: 0 50px;
+}
+
+
+/*------------------------ MAIN ------------------------*/
+
+main {
+    width: 80%;
+    height: auto;
+    margin: 0 135px;
+    display: flex;
+}
+
+/*--- ARTICLES OF MAIN ---*/
+
+article {
+    flex-basis: 80%;
+    margin-right: 10px;
+}
+
+article h1 {
+    margin: 30px 0 0 0;
+}
+
+.row img {
+    margin-right: 20px;
+    padding-top: 10px;
+    height: 200px;
+    width: 35%;
+}
+
+main article .row {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.row-text {
+    line-height: 35px;
+}
+
+.row-text .tittle {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.row-text .intro {
+    margin-top: 10px;
+    line-height: 20px;
+}
+
+.row-text .intro i {
+    color: orange;
+}
+
+.color-words {
+    color: orange;
+}
+
+.row-text p:last-child i {
+    margin-right: 10px;
+}
+
+.row-text .eye {
+    margin-right: 10px;
+    margin-left: 4px;
+}
+
+.fa-comment {
+    margin-left: 10px;
+}
+
+article button {
+    background-color: white;
+    border: 1px solid orange;
+    padding: 10px 30px;
+    margin-left: 32%;
+    margin-bottom: 60px;
+}
+
+/*--- ASIDE OF MAIN ---*/
+
+/* SEARCH  */
+aside {
+    margin-top: 70px;
+    margin-left: 20px;
+    flex-basis: 20%;
+}
+
+aside .form input {
+    width: 100%;
+    height: 25px;
+    padding-left: 30px;
+    margin-bottom: 40px;
+    font-size: 15px;
+    float: right;
+    border-radius: 20px;
+    border: 1px solid #999;
+}
+
+aside .form i {
+    position: relative;
+    top: -59px;
+    left: 7px;
+}
+
+#hr-popular {
+    position: relative;
+    width: 43%;
+    top: -9px;
+    left: 120px;  
+}
+/* TABLE CALENDAR */
+
+.calendar {
+    width: 100%;
+    border: 1px solid #999;
+    border-collapse: collapse;
+}
+
+.calendar tr, td {
+    border: 1px solid rgb(228, 226, 226);
+    text-align: center;
+    height: 24px;
+}
+
+.calendar th {
+    height: 30px;
+}
+
+.calendar th span {
+    margin: 0 55px;
+}
+
+.calendar tbody tr:first-child {
+    background-color: #999;
+}
+
+.calendar tbody tr:nth-child(2) td:nth-child(-n + 2) {
+    color: #999;
+}
+
+.calendar tbody tr:nth-child(6) td:nth-child(n + 6) {
+    color: #999;
+}
+
+.calendar tbody tr:last-child td:nth-child(2) {
+    background-color: orange;
+}
+
+/* INFORMATION */
+
+aside .news {
+    padding-top: 30px;
+}
+
+aside .information {
+    padding: 10px 0;
+}
+
+aside .time-inf {
+    color: grey;
+    font-size: 14px;
+}
+
+
+/*------------------------ FOOTER ------------------------*/
+
+footer {
+    width: 100%;
+    background-color: yellow;
+}
+
+footer .end {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .end .ft {
+    width: 30%;
+    display: flex;
+    font-size: 15px;    
+    align-items: center;
+    justify-content: center;
+}
+
+footer .end .ft p {
+    color: rgb(63, 62, 62);
+}
+
+footer .end .ft .footer-list {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+footer .end .ft .footer-list li {
+    list-style: none;
+    margin: 0 20px;
+}
+
+footer .end .ft .icon-footer i {
+    display: flex;
+    margin-right: 15px;
+    align-items: center;
+    margin-left: 25px;
+    color: orange;
+    position: relative;
+    right: 17px;
+    line-height: 30px;
+}
+
+footer .end .ft .icon-footer {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 10px; 
+}
+
+.ft3 {
+    padding-left: 45px;
+}
