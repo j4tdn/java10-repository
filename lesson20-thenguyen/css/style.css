@@ -1,0 +1,271 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-size: 16px;
+    line-height: 1.4;
+}
+/* =====================> HEADER <=================== */
+header,footer{
+    width: 100%;
+    height: 67px;
+    background-color: #f6c61c;
+}
+header .wrapper,
+footer .wrapper{
+    width: 1170px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+header nav ul{
+    display: flex;
+    column-gap: 66px;
+}
+header nav a,
+footer nav a{
+    font-family: Proxima;
+    color: #000;
+    text-decoration: none;
+}
+header nav ul li,
+footer nav ul li{
+    list-style: none;
+}
+/* =====================> MAIN <=================== */
+
+
+
+main {
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+}
+
+/* =====================> MAIN - ARTICLE<=================== */
+
+main article {
+    flex-basis: 80%;
+    margin-right: 10px;
+    
+}
+
+
+
+main article h1 {
+    margin-top: 50px;
+
+}
+
+main article .row {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    margin-bottom: 150px;
+}
+
+
+main article .row .row-img {
+    width: 30%;
+    height: 200px;
+    margin-right: 30px;
+    padding-top: 14px;
+}
+
+
+main article .row .row-text .title {
+    margin-top: 6px;
+    font-size: 30px;
+    font-weight: 400;
+    
+}
+
+main article .row .row-text .date {
+    display: flex;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+main article .row .row-text .date p:last-child {
+    color: rgb(255, 212, 19);
+}
+
+
+
+main article .row .date hr {
+    margin: 0 5px;
+}
+
+main article .row .row-text .intro {
+    line-height: 25px;
+    height: 85px;
+}
+
+main article .row .row-text .intro .right {
+    color: orange;
+    cursor: pointer;
+}
+
+main article .row .row-text .view {
+    display: flex;
+    margin-top: 5px;
+}
+main article .row .row-text .view hr{
+    margin: 0 10px;
+}
+
+main article .row .row-text .view i {
+    margin-right: 5px;
+}
+main article .row .row-text .view p {
+    color: orange;
+}
+
+main article button {
+    cursor: pointer;
+    margin: 20px 0px;
+    margin-bottom: 100px;
+    padding: 10px 20px;
+    margin-left: 40%;
+    border: 1px solid orange;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+/* =====================> MAIN - ASIDE<=================== */
+aside  {
+    margin-left: 30px;
+    margin-top: 60px;
+    flex-basis: 20%;
+}
+
+aside  .search {
+   
+    width: 100%;
+   
+}
+aside  .search input{
+    width: 100%;
+    height: 24px;
+    outline: none;
+
+    border-radius: 20px;
+    border: 1px solid #999;
+
+    color: #999;
+    padding-left: 26px;
+}
+aside  .search i {
+    position: relative;
+    top: 22px;
+    left: 4px;
+}
+aside .cal {
+    margin-top: 20px;
+    width: 100%;
+    border: 1px solid #999;
+    border-collapse:collapse;
+}
+
+aside .cal tr,td {
+    border: 1px solid rgb(228, 226, 226);
+    text-align: center;
+    height: 24px;
+}
+
+aside .cal th {
+    height: 30px;
+}
+
+aside .cal th span {
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+aside .cal tbody tr:first-child {
+    background-color: #999;
+}
+
+aside .cal tbody tr:nth-child(2) td:nth-child(-n + 2){
+    color: #999;
+}
+
+
+aside .cal tbody tr:last-child td:nth-child(2) {
+    background-color: orange;
+} 
+
+aside .cal tbody tr:last-child td:nth-child(n + 6) {
+    color: #999;
+}
+
+aside .popula {
+    margin-top: 20px;
+
+}
+
+aside  #popula-hr {
+    width: 40%;
+    position: relative;
+    top: -12px;
+    left: 110px;
+}
+
+
+
+aside .popula-news {
+    margin-top: 20px;
+}
+
+aside .popula-news p {
+    color: #888;
+}
+
+
+/* =====================> FOOTER <=================== */
+
+
+footer .wrapper{
+    justify-content: space-between;
+}
+footer .copy{
+    opacity: 0.3;
+}
+footer nav ul{
+    display: flex;
+    column-gap: 36px;
+}
+footer nav ul a{
+    font-weight: bold;
+    font-size: 18px;
+}
+footer .socials ul{
+    display: flex;
+    column-gap: 12px;
+}
+footer .socials ul li{
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer .socials a{
+    font-size: 24px;
+    color: #f9cc35;
+}
+
+
+
+
+
+
+
