@@ -138,6 +138,7 @@ article {
 	flex-flow: column wrap;
 
 	justify-content: space-between;
+	margin-left: 32px;
 }
 .articles .article-content h3 {
 	font-family: Proxima;
@@ -295,7 +296,11 @@ main button {
 	padding: 4px 0 4px 30px;
 	border-radius: 20px;
 	border: 1px solid #a9a9a9;
+}
 
+.page-footer .footer-nav,
+.page-footer .social-icons {
+	margin-bottom: 115px;
 }
 /*
 	CALENDAR
