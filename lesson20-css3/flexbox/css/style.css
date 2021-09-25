@@ -1,0 +1,94 @@
+/*
+	+ flexbox
+	container >> display:  flex;
+	child     >> flex:  0 1 auto;
+	
+	flex-grow:  0;
+	flex-shrink:  1;
+	flex-basis: auto;
+
+	>> flex direction:  {row}, column;
+
+*/
+.container {
+	display: flex;
+
+	flex-direction: row; /*column*/
+	/*
+		Chiều ngang
+	*/
+	justify-content: space-between;
+	/*
+		Chiều dọc
+	*/
+	align-items: center;
+
+	flex-wrap: wrap;
+}
+
+.item-list{
+	width: 800px;
+	height: 600px;
+	border: 2px solid orangered;
+	margin: 20px 40px;
+	padding: 5px;
+}
+
+.item {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: flex-end;
+
+	width: 120px;
+	height: 120px;
+	border: 1px solid #c00;
+	background: green;
+}
+
+
+.item:nth-of-type(1) {
+	background: orange;
+}
+.item:nth-of-type(2) {
+	width: 180px;
+	background: greenyellow;
+
+	/* contaner >> flex-direction: row >> aligh-self = cross-axis*/
+	/* contaner >> flex-direction: colun >> aligh-self = main-axis*/
+	align-self: center;
+}
+.item:nth-of-type(3) {
+	background: skyblue;
+}
+
+/*
+	parent >> display:  flex;
+	child: >> flex:  grow, shrink, basis;
+		   >> flex: 0, 1, auto;
+*/
+
+.default {
+	height: 320px;
+	display: flex;
+
+	flex-direction: column;
+}
+
+.element {
+	width: 120px;
+	height: 80px;
+	border: 2px solid green;
+
+	margin: 2px;
+	background-color: orange;	
+
+	/*
+		Ignore 'width' properties
+	*/
+	flex-grow: 1;
+}
+
+.item:nth-of-type(3) {
+	flex-grow: 2;
+}
