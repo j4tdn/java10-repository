@@ -62,7 +62,7 @@ let months = ['February', 'March', 'April'];
 /*
     push(e)    >> add(length-1, e)
     pop()      >> remove(lengeth-1)
-    unshift(e) >> add(0, e)
+    unshift(e) >> add(0, element)
     shift      >> remove(0)
     slice(a,b) >> subList(a,b)
     splice(index, count?) >> remove(idx, count?)
