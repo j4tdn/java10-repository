@@ -1,0 +1,98 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(90, 90, 90);
+}
+
+.balloon{
+    position: absolute;
+}
+
+.score-board{
+    background-color: #fff;
+    width: 300px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px 20px 0px 0px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    left: calc(50% - 150px);
+    box-shadow: 0 0 5px 2px white;
+}
+
+.loser{
+    display: none;
+}
+.winner{
+    display: none;
+}
+
+
+
+.start-btn{
+    font-size: 1rem;
+    margin-top: 1rem;
+    padding: .5rem 2rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.start-btn:hover{
+    background-color: aquamarine;
+}
+.start-btn:active{
+    background-color: red;
+    color: white;
+}
+
+.notif{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .8);
+    display: none; 
+    /* //flex */
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.total-score{
+    background-color: white;
+    padding: 10px 100px 40px;
+    border-radius: 5px;
+    text-align: center;
+    box-sizing: 0 0 20px rgba(0,0,0,.8);
+}
+.main-game{
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.restart, .cancel{
+    padding: .5rem 2rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.restart:hover, .cancel:hover{
+    background-color: red;
+    color: white;
+}
+
+.balloon{
+    cursor: pointer;
+}
+.balloon:active{
+    opacity: .8;
+}
