@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+/*------- Dùng chung -------*/
+.box {
+    display: flex;
+}
+
+.box__inner {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(to top, rgb(33, 34, 34) 0%, #444 30%, rgb(33, 34, 34) 100%);
+    color: white;
+    border-radius: 10px;
+    padding-top: 1px;
+    margin-right: 4px;
+}
+
+h3 { 
+    font-size: 17px;
+    text-align: center;
+}
+
+/*================== BOX ==================*/
+
+/*------- Position Y -------*/
+.box .box__inner .main .main__content-box1 {
+    height: 75px;
+    display: flex;
+    justify-content: center;
+}
+
+.box .box__inner .main .main__content-box1 input {
+    transform: rotate(90deg);
+    width: 75px;
+}
+
+.box .box__inner .main .main__content-box1 label {
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*------- Position X, Size, Opacity -------*/
+.box .box__inner .main .main__content-box2 {
+    width: 100px;
+    margin: 0 auto;
+}
+.box .box__inner .main .main__content-box2 label {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box .box__inner .main .main__content-box2 input {
+    width: 100px;
+}
+
+/*------- Shape Type -------*/
+.box .box__inner .main__content-shapetype {
+    height: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box .box__inner .main__content-shapetype select {
+    padding: 2px;
+}
+
+/*------- Hex -------*/
+.main__content-hex {
+    width: 110px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.main__content-hex input {
+    width: 90px;
+}
+
+/*------- Rgba -------*/
+#main__content-rgba {
+    width: 110px;
+    margin: 0 auto;
+}
+
+#main__content-rgba input {
+    width: 90px;
+}
+
+#main__content-rgba label {
+    width: 90px;
+}
+
+/*================= WRAPPING =================*/
+#wrap {
+    margin-top: 20px;
+    height: 150px;
+    width: 150px;
+    background-color: red;
+    position: relative;
+    top: 0;
+    left: 40px;
+}
+

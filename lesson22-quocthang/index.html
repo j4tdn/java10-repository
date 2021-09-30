@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Manipulation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="box">
+        <div class="box__inner">
+            <h3 class="heading">Position Y</h3>
+            <div class="main">
+                <div class="main__content-box1">
+                    <input type="range" min="0" max="300" value="0" id="pos-y">
+                    <label for="pos-y">
+                        <span>0</span>
+                        <span>600</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="box__inner">
+            <h3 class="heading">Position X</h3>
+            <div class="main">
+                <div class="main__content-box2">
+                    <label for="pos-x">
+                        <span>0</span>
+                        <span>800</span>
+                    </label>
+                    <input type="range" min="0" max="800" value="0" id="pos-x">
+                </div>
+            </div>
+        </div>
+        <div class="box__inner">
+            <h3 class="heading">Size</h3>
+            <div class="main">
+                <div class="main__content-box2">
+                    <label for="size">
+                        <span>0</span>
+                        <span>2</span>
+                    </label>
+                    <input type="range" min="0" max="1.5" value="0.75" id="size" step="0.1">
+                </div>
+            </div>
+        </div>
+        <div class="box__inner">
+            <h3 class="heading">Opacity</h3>
+            <div class="main">
+                <div class="main__content-box2">
+                    <label for="opacity">
+                        <span>0</span>
+                        <span>1</span>
+                    </label>
+                    <input type="range" min="0" max="1" value="0.5" id="opacity" step="0.1">
+                </div>
+            </div>
+        </div>
+        <div class="box__inner">
+            <h3 class="heading">Shape Type</h3>
+            <div class="main">
+                <div class="main__content-shapetype">
+                    <select id="type-select">
+                        <option value="square">Square</option>
+                        <option value="circle">Circle</option>
+                        <option value="rhombus">Rhombus</option>
+                    </select>
+                    <button id="type-ok">OK</button>
+                </div>
+            </div>
+        </div>
+        <div class="box__inner">
+            <h3 class="heading">Hex</h3>
+            <div class="main">
+                <div class="main__content-hex">
+                    <label for="hex">#</label>
+                    <input type="text" id="hex">
+                </div>
+            </div>
+        </div>
+        <div class="box__inner">
+            <h3 class="heading">RGBA</h3>
+            <div class="main">
+                <div id="main__content-rgba">
+                    <input type="range" min="0" max="255" value="255" id="r">
+                    <label for="r">r</label>
+
+                    <input type="range" min="0" max="255" value="0" id="g">
+                    <label for="g">g</label>
+
+                    <input type="range" min="0" max="255" value="0" id="b">
+                    <label for="b">b</label>
+
+                    <input type="range" min="0" max="1" value="1" id="a" step="0.01">
+                    <label for="a">a</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="box__bottom">
+        <div id="wrap"></div>
+    </div>
+
+
+
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
