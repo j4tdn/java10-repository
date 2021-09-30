@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Manipulation - HaiDang</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <div class="control-bar">
+            <div class="control-block">
+                <label for="position-x-input">Position X</label>
+                <div class="range-input">
+                    <input type="range" id="position-x-input" value="0">
+                </div>
+            </div>
+            <div class="control-block">
+                <label for="position-y-input">Position Y</label>
+                <div class="range-input">
+                    <input type="range" id="position-y-input" value="0">>
+                </div>
+            </div><div class="control-block">
+                <label for="size-input">Size</label>
+                <div class="range-input">
+                    <input type="range" id="size-input">
+                </div>
+            </div><div class="control-block">
+                <label for="opacity-input">Opacity</label>
+                <div class="range-input">
+                    <input type="range" id="opacity-input">
+                </div>
+            </div><div class="control-block">
+                <label for="shape-type-input">Shape Type</label>
+                <div class="range-input">
+                    <select id ="shape">
+                        <option value="square">Square</option>
+                        <option value="circle">Circle</option>
+                        <option value="rhombus">Rhombus</option>
+                    </select>
+                </div>
+            </div><div class="control-block">
+                <label for="hex-code-input">HEX</label>
+                <div class="range-input hex-input">
+                    #<input type="text" id="hex-code-input">
+                </div>
+            </div><div class="control-block">
+                <label for="">RGBA</label>
+                <div class="range-input rgba-input">
+                    <input type="range" id="r-value">
+                    <input type="range" id="g-value" value="10">
+                    <input type="range" id="b-value">
+                    <input type="range" id="a-value">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="box"></div>
+    </main>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
