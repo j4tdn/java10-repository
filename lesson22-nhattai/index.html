@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Block-mainipulation</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="block">
+            <p>Position Y</p>
+            <div class="input-y">
+                <input id="pos-y" type="range" min="0" max="600" value="20">
+                
+                <span>
+                    <p>0</p>
+                    <p>600</p>
+                </span>
+            </div>
+        </div>
+
+        <div class="block">
+            <p>Position X</p>
+            <div class="input-x">
+                <span>
+                    <p>0</p>
+                    <p>800</p>
+                </span>
+                <input  id="pos-x" type="range" min="0" max="800" value="50">
+            </div>
+        </div>
+
+        <div class="block">
+            <p>Size</p>
+            <div class="input-x">
+                <span>
+                    <p>0</p>
+                    <p>2</p>
+                </span>
+                <input  id="size" type="range" min="1" max="15" value="10">
+            </div>
+        </div>
+
+
+        <div class="block">
+            <p>Opacity</p>
+            <div class="input-x">
+                <span>
+                    <p>0</p>
+                    <p>1</p>
+                </span>
+                <input  id="opacity" type="range" min="1" max="10" value="6">
+            </div>
+        </div>
+
+        <div class="block">
+            <p>Shape Type</p>
+            <div class="shape-type">
+                <select name="" id="shape">
+                    <option value="Square">Square</option>
+                    <option value="Circle">Circle</option>
+                    <option value="Rhombus">Rhombus</option>
+                </select>
+                <button id="ok">OK</button>
+            </div>
+        </div>
+
+        <div class="block">
+            <p>HEX</p>
+            <div class="hex">
+                <span>#</span>
+                <input type="text" id="hex">
+            </div>
+        </div>
+
+        <div class="block">
+            <p>RGBA</p>
+            <div class="input-x rgba">
+                <div class="ip">
+                    <input  id="rgba-R" type="range" min="0" max="255" value="255">
+                    <p>r</p>
+                </div>
+                <div class="ip">
+                    <input  id="rgba-G" type="range" min="0" max="255" value="30">
+                    <p>g</p>
+                </div>
+                <div class="ip">
+                    <input  id="rgba-B" type="range" min="0" max="255" value="50">
+                    <p>b</p>
+                </div>
+                <div class="ip">
+                    <input  id="rgba-A" type="range" min="6" max="10" value="1">
+                    <p>a</p>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="main-container">
+        <div id="main-block"></div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
