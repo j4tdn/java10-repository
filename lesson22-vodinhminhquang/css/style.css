@@ -1,0 +1,129 @@
+.control-block {
+  height: 15rem;
+  width: 100%;
+
+  background-color: burlywood;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+}
+
+body {
+  height: 2000px;
+  width: 100%;
+}
+
+.block {
+  height: 12rem;
+  width: 12rem;
+
+  background-color: gainsboro;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.vertical-span {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+#vertical-pos {
+  transform: rotate(90deg);
+}
+
+.stick {
+  padding-top: 5rem;
+  width: 100px;
+}
+
+.stick-x {
+  width: 120px;
+}
+.label-x {
+  display: block;
+
+  display: flex;
+  justify-content: space-between;
+}
+.horizontal-span {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+}
+
+.shape-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+#hex-code {
+  width: 130px;
+  height: 20px;
+}
+
+.rgba-stick {
+  width: 80px;
+}
+
+.rgba-stack {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-around;
+}
+
+.rgba-block {
+  display: flex;
+  flex-wrap: wrap;
+
+  flex-direction: row;
+}
+
+.container {
+  height: 100%;
+}
+
+#shape {
+  position: relative;
+  height: 12rem;
+  width: 12rem;
+
+  background-color: red;
+}
+
+.square {
+  height: 12rem;
+  width: 12rem;
+}
+
+.circle {
+  height: 12rem;
+  width: 12rem;
+  border-radius: 50%;
+}
+
+.rhombus {
+  height: 12rem;
+  width: 12rem;
+
+  rotate: 45deg;
+}

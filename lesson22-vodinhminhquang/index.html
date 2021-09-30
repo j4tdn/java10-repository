@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Manipulation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="control-block">
+        <div class="block">
+            <p class="heading">Position Y</p>
+            <div class="wrapper">
+                <input class="stick" id="vertical-pos" name="pos-y" type="range" min="0" max="600" step="1">
+                <label class="vertical-span" for="pos-y">
+                    <span>
+                        0
+                    </span>
+                    <span>
+                        600
+                    </span>
+                </label>
+            </div>
+        </div>
+        <div class="block">
+            <p class="heading">Position X</p>
+            <div>
+                <label class="label-x" for="pos-x">
+                    <span>
+                        0
+                    </span>
+                    <span>
+                        800
+                    </span>
+                </label>
+                <input class="stick-x" id="pos-x" type="range" name="pos-x" type="range" min="0" max="800" step="1">
+            </div>
+        </div>
+        <div class="block">
+            <p class="heading">Size</p>
+            <div>
+                <label class="label-x" for="pos-x">
+                    <span>
+                        0
+                    </span>
+                    <span>
+                        2
+                    </span>
+                </label>
+                <input class="stick-x" id="size" type="range" name="pos-x" type="range" min="0" max="2" step="0.1">
+            </div>
+        </div>
+        <div class="block">
+            <p class="heading">Opacity</p>
+            <div>
+                <label class="label-x" for="pos-x">
+                    <span>
+                        0
+                    </span>
+                    <span>
+                        1
+                    </span>
+                </label>
+                <input id="opacity" class="stick-x" type="range" name="pos-x" type="range" min="0" max="1" step="0.05">
+            </div>
+        </div>
+        <div class="block">
+            <p class="heading">Shape Type</p>
+            <div class="shape-wrapper">
+                <select class="label-x" name="shape" id="specified-shape">
+                    <option value="square">Square</option>
+                    <option value="circle">Circle</option>
+                    <option value="rhombus">Rhombus</option>
+                </select>
+                <button id="btn">OK</button>
+            </div>
+        </div>
+        <div class="block">
+            <p class="heading">HEX</p>
+            <div>
+                <label for="hex-code">#</label>
+                <input type="text" id="hex-code">
+            </div>
+        </div>
+        <div class="block">
+            <p class="heading">RGBA</p>
+            <div class="rgba-block">
+                <div class="rgba-stack" id="rgba">
+                    <input class="rgba-stick" id="r-value" type="range" min="0" max="255" step="1">
+                    <label for="r-value"></label>
+
+                    <input class="rgba-stick" id="g-value" type="range" min="0" max="255" step="1">
+                    <label for="g-value"></label>
+
+                    <input class="rgba-stick" id="b-value" type="range" min="0" max="255" step="1">
+                    <label for="b-value"></label>
+
+                    <input class="rgba-stick" id="a-value" type="range" min="0" max="255" step="1">
+                    <label for="a-value"></label>
+                </div>
+
+                <div class="rgba-stack">
+                    <span>
+                        R
+                    </span>
+                    <span>
+                        G
+                    </span>
+                    <span>
+                        B
+                    </span>
+                    <span>
+                        A
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ------------------------------------- -->
+
+    <div class="container">
+        <div id="shape" class="transform">
+
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
