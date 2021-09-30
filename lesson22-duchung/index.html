@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Block Manipulation</title>
+</head>
+<body>
+    <div class="mani_block">
+        <div class="block">
+            <h2 class="block_title">Position Y</h2>
+            <div class="block_scroll_y">
+                <input class="range_y" id="pos_y" type="range" min="0" max="600" value="300">
+                <div class="info_y">
+                    <p>0</p>
+                    <p>600</p>
+                </div>
+            </div>
+        </div>
+        <div class="block">
+            <h2 class="block_title">Position X</h2>
+            <div class="block_scroll_x">
+                <div class="info_x">
+                    <p>0</p>
+                    <p>800</p>
+                </div>
+                <input class="range_x" id="pos_x" type="range" min="0" max="800" value="400">
+            </div>
+        </div>
+        <div class="block">
+            <h2 class="block_title">Size</h2>
+            <div class="block_scroll_x">
+                <div class="info_x">
+                    <p>0</p>
+                    <p>2</p>
+                </div>
+                <input class="range_x" id="transf_scale_size" type="range" min="0" max="2" value="1" step="0.1">
+            </div>
+        </div>
+        <div class="block">
+            <h2 class="block_title">Opacity</h2>
+            <div class="block_scroll_x">
+                <div class="info_x">
+                    <p>0</p>
+                    <p>1</p>
+                </div>
+                <input class="range_x" id="opacity" type="range" min="0" max="1" value="1" step="0.1">
+            </div>
+        </div>
+        <div class="block">
+            <h2 class="block_title">Shape Type</h2>
+            <div class="block_shape">
+                <select name="" id="shape">
+                    <option value="Square">Square</option>
+                    <option value="Circle">Circle</option>
+                    <option value="Rhombus">Rhombus</option>
+                </select>
+                <button id="btn_ok">OK</button>
+            </div>
+        </div>
+        <div class="block">
+            <h2 class="block_title">HEX</h2>
+            <div class="block_hex">
+                <p>#</p>
+                <input id="hex" type="text">
+            </div>
+        </div> 
+        <div class="block">
+            <h2 class="block_title">RGBA</h2>
+            <div class="block_scroll_x_rgba">
+                <div class="info_rgba">
+                    <input class="range_rgba" id="rgba_R" type="range" min="0" max="255" value="255">
+                    <p>r</p>
+                </div>
+                <div class="info_rgba">
+                    <input class="range_rgba" id="rgba_G" type="range" min="0" max="255" value="0">
+                    <p>g</p>
+                </div>
+                <div class="info_rgba">
+                    <input class="range_rgba" id="rgba_B" type="range" min="0" max="255" value="0">
+                    <p>b</p>
+                </div>
+                <div class="info_rgba">
+                    <input class="range_rgba" id="rgba_A" type="range" min="0" max="1" value="1" step="0.1">
+                    <p>a</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="shape_block"></div>
+    <script src="javascript/javascript.js"></script> 
+</body>
+</html>
