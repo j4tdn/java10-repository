@@ -32,8 +32,11 @@ const app = {
     speed: 0,
     point : 0,
     totalBalloons : 100,
+    bgAudio : new Audio('./sounds/bg-music.mp3'),
     start : function() {
-        new Audio('./sounds/bg-music.mp3').play();
+        window.addEventListener('mousedown', e => {
+            app.bgAudio.play();
+        });
         var zIndex = 0;
         for(let i = 0; i < app.totalBalloons; i++) {
             setTimeout(function() {
