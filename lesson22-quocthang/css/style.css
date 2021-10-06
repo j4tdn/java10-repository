@@ -1,0 +1,94 @@
+body {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.balloon {
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    top: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.balloon-blue {
+    background-image: url(../images/balloon-blue.png);
+}
+
+.balloon-green {
+    background-image: url(../images/balloon-green.png);
+}
+
+.balloon-red {
+    background-image: url(../images/balloon-red.png);
+}
+
+.balloon-violet {
+    background-image: url(../images/balloon-violet.png);
+}
+
+.balloon-yellow {
+    background-image: url(../images/balloon-yellow.png);
+}
+
+.total-shadow {
+    width: 100vw;
+    height: 100vh;
+    background: rgb(109, 108, 108);
+    display: none;  /* flex */
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    position: relative;
+}
+
+.container {
+    padding: 0px 100px 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.win {
+    display: none;
+}
+
+.win img {
+    width: 300px;
+    margin-bottom: 35px;
+}
+
+.lose {
+    display: none;
+}
+
+.score-block {
+    width: 250px;
+    height: 60px;
+    background-color: #ebe5e5;
+    border-radius: 20px 20px 0 0;
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+
+    /* căn giữa cách 1*/
+    left: 50%;
+    margin-left: -125px;
+    /* cách 2
+    left: calc(50% - 150px); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-block p {
+    font-size: 17px;
+}
+   
