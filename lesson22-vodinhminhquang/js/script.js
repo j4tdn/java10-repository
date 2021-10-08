@@ -4,21 +4,50 @@
 let body = document.body;
 const colors = ['blue', 'green', 'red', 'violet', 'yellow'];
 
+// CSS object
+let overlay = document.querySelector('.overlay');
+
 // window.innerWidth # screen.Width
-let innerWidth = window.innerWidth;
-let innerHeight = window.innerHeight;
+const innerWidth = window.innerWidth;
+const innerHeight = window.innerHeight;
+const balloonWidth = 100;
+const balloonHeight = 200;
 
-let score = 0;
+let popScore = 0;
+let missedScore = 0;
+
 let total = 15;
+let missedBalloon = 5;
+
+let gameOver = false;
+
+let lose_popup = document.getElementById('lose-popup');
+let querySelector = document.querySelector('.overlay');
 // MAIN
+function startGame() {
+    let timeout = 0;
+    let interval = setInterval(() => {
+        timeout = random(600);
 
-(function () {
-    setInterval(() => {
         createBalloon();
-    }, 1200);
-})();
 
+        // if score === total
+        // clearInterval(interval)
+        // show win popups
 
+        if (popScore === total) {
+            clearInterval(interval);
+            lose_popup.classList.remove('hidden');
+            querySelector.classList.remove('hidden');
+        } else if (missedScore === missedBalloon) {
+            clearInterval(interval);
+            console.log("You lose");
+        }
+
+    }, 1000 + timeout);
+};
+
+startGame();
 
 // UTILITY FUNCTIONS 
 function random(bound) {
@@ -47,8 +76,14 @@ function createBalloon() {
 // MAKE A BALOON MOVE
 function balloonTranslation(balloon) {
     let movedDistance = 0;
-    setInterval(() => {
+    let interval = setInterval(() => {
         movedDistance++;
+
+        // if the ballon gets over the inner height
+        // -> stop the interval
+        if (movedDistance >= innerHeight + balloonHeight) {
+            missedScore++;
+        }
         balloon.style.top = (innerHeight - movedDistance) + 'px';
     }, 5);
 }
@@ -58,7 +93,7 @@ function balloonTranslation(balloon) {
 document.addEventListener('click', function (event) {
     if (event.target.classList.contains('balloon')) {
         // event.target returns a balloon object
-        deleteBalloon(event.target)
+        deleteBalloon(event.target);
     }
 });
 
@@ -66,7 +101,7 @@ function deleteBalloon(balloon) {
     // removes a div (DOM element)
     // definition: removes the element from the tree it belongs to. 
     balloon.remove();
-    score++;
+    popScore++;
     updateScores();
     sound();
 }
@@ -75,7 +110,7 @@ function updateScores() {
     // win, lost, scoreboard
     let updateScore = document.querySelectorAll('.score');
     for (let i = 0; i < updateScore.length; i++) {
-        updateScore[i].textContent = score;
+        updateScore[i].textContent = popScore;
     }
 }
 
