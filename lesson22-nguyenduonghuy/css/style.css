@@ -1,0 +1,117 @@
+/* 
+  BODY
+*/
+
+/* eradicate scrolling bar  */
+body {
+  overflow: hidden;
+
+  /* fixed width and height when we change
+    the screen
+  */
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.balloon {
+  position: absolute;
+  /* hiding the balloon */
+  bottom: -200px;
+  width: 100px;
+  height: 200px;
+
+  /* resize the background image to cover the entire container */
+  background-size: cover;
+  background-position: center;
+  /* avoid repeat an image of background-image */
+  background-repeat: no-repeat;
+}
+.balloon-blue {
+  background-image: url(../images/balloon-blue.png);
+}
+.balloon-green {
+  background-image: url(../images/balloon-green.png);
+}
+.balloon-red {
+  background-image: url(../images/balloon-red.png);
+}
+.balloon-violet {
+  background-image: url(../images/balloon-violet.png);
+}
+.balloon-yellow {
+  background-image: url(../images/balloon-yellow.png);
+}
+
+/* 
+  SCOREBOARD
+*/
+.scoreboard {
+  width: 300px;
+  height: 120px;
+  border-radius: 20px 20px 0 0;
+  background-color: rgb(233, 232, 230);
+  opacity: 0.7;
+
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 150px);
+  z-index: 10;
+}
+
+.scoreboard p {
+  text-align: center;
+  font-size: 21px;
+  font-weight: bold;
+
+  padding-top: 30px;
+}
+
+/* 
+  MODAL
+*/
+.hidden {
+  display: none;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  position: absolute;
+  padding: 10px 120px 40px;
+
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.7);
+
+  text-align: center;
+  z-index: 10;
+}
+.overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgb(248, 225, 225);
+  backdrop-filter: opacity(80%);
+  backdrop-filter: blur(10px);
+  z-index: 5;
+}
+/* 
+  WIN -> hidden scoreboard
+*/
+.win {
+  display: block;
+}
+
+.lose {
+  /* display: block; */
+}
