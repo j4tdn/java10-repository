@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="main__block">
+            <h2 class="main__block-title">Position Y</h2>
+            <div class="main__block__scroll-y">
+                <input class="main__block__scroll-input-y" id="posY" type="range" min="0" max="600" value="300">
+                <div class="main__block__scroll-info-y">
+                    <span>0</span>
+                    <span>600</span>
+                </div>
+            </div>
+        </div>
+        <div class="main__block">
+            <h2 class="main__block-title">Position X</h2>
+            <div class="main__block__scroll">
+                <div class="main__block__scroll-info">
+                    <span>0</span>
+                    <span>800</span>
+                </div>
+                <input class="main__block__scroll-input" id="posX" type="range" min="0" max="800" value="400">
+            </div>
+        </div>
+        <div class="main__block">
+            <h2 class="main__block-title">Size</h2>
+            <div class="main__block__scroll">
+                <div class="main__block__scroll-info">
+                    <span>0</span>
+                    <span>2</span>
+                </div>
+                <input class="main__block__scroll-input" id="size" type="range" min="0" max="2" value="1" step="0.1">
+            </div>
+        </div>
+        <div class="main__block">
+            <h2 class="main__block-title">Opacity</h2>
+            <div class="main__block__scroll">
+                <div class="main__block__scroll-info">
+                    <span>0</span>
+                    <span>1</span>
+                </div>
+                <input class="main__block__scroll-input" id="opacity" type="range" min="0" max="1" value="1" step="0.1">
+            </div>
+        </div>
+        <div class="main__block">
+            <h2 class="main__block-title">Shape Type</h2>
+            <div class="main__block__shape">
+                <select name="" id="shape">
+                    <option value="Square">Square</option>
+                    <option value="Circle">Circle</option>
+                    <option value="Rhombus">Rhombus</option>
+                </select>
+                <button id="ok-shape">OK</button>
+            </div>
+        </div>
+        <div class="main__block">
+            <h2 class="main__block-title">HEX</h2>
+            <div class="main__block-hex">
+                <label for="">#</label>
+                <input id="hex" type="text">
+            </div>
+        </div>
+        <div class="main__block">
+            <h2 class="main__block-title">RGBA</h2>
+            <div class="main__block__scroll-rgba">
+                <div class="main__block__scroll-rgba-info">
+                    <input class="rgba-input" id="rgba-R" type="range" min="0" max="255" value="0">
+                    <span>r</span>
+                </div>
+                <div class="main__block__scroll-rgba-info">
+                    <input class="rgba-input" id="rgba-G" type="range" min="0" max="255" value="122">
+                    <span>g</span>
+                </div>
+                <div class="main__block__scroll-rgba-info">
+                    <input class="rgba-input" id="rgba-B" type="range" min="0" max="255" value="255">
+                    <span>b</span>
+                </div>
+                <div class="main__block__scroll-rgba-info">
+                    <input class="rgba-input" id="rgba-A" type="range" min="0" max="1" value="1" step=".1">
+                    <span>a</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-bottom">
+        <div id="block"></div>
+    </div>
+    <script src="javascript/main.js"></script>
+</body>
+
+</html>
