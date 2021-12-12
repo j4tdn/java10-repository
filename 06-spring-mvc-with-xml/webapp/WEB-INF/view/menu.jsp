@@ -13,5 +13,9 @@
 </head>
 <body>
 	<h1 class="red">Spring MVC JSP JSTL - Menu</h1>
+	
+	<hr>
+	
+	<a href="${pageContext.request.contextPath}/student/showForm">Show student form</a>
 </body>
 </html>
