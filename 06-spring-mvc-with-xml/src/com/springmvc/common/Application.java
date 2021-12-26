@@ -1,4 +1,4 @@
-package common;
+package com.springmvc.common;
 
 public class Application {
 	public static final String MENU_PAGE = "menu";

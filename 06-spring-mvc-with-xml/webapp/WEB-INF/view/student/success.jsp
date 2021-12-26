@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/taglib/import.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +25,18 @@
 	<p class="red">Your information </p>
 	
 	<p> Name: ${student.fullname} </p>
-	<p> Age: ${student.age} </p> 
+	<p> Age: ${student.age} </p>
+	<p> Country: ${student.country} </p> 
+	<p> Language: ${student.language} </p> 
+	
+	<hr>
+	
+	<p> Operating Systems: </p> 
+	<ul>
+		<c:forEach var="os" items="${student.systems}">
+			<li>${os}</li>
+		</c:forEach>
+	</ul>
 
 
 </body>

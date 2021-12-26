@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ include file="/WEB-INF/taglib/import.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,13 +11,39 @@
 	
 	<hr> <br>
 
-	<form:form modelAttribute="student" action="${pageContext.request.contextPath}/student/processForm" method="post">
+	<form:form modelAttribute="student" action="${contextPath}/student/processForm" method="post">
 		
+		<label>Full name:</label>
 		<form:input path="fullname" placeholder="What's your name"/>
 		
 		<br> <br>
 		
-		<form:input path="age" placeholder="How old are your"/>
+		<label>Age:</label>
+		<form:input path="age" placeholder="How old are you"/>
+		
+		<br> <br>
+		
+		<label>Country:</label>
+		<form:select path="country">
+			<c:forEach var="countryAsString" items="${countries}">
+				<form:option value="${countryAsString}" label="${countryAsString}" />
+			</c:forEach>
+		</form:select>
+		
+		<br> <br>
+		
+		<label>Language:</label>
+		<c:forEach var="languageAsString" items="${languages}">
+			<form:radiobutton path="language" value="${languageAsString}" label="${languageAsString}"/>
+		</c:forEach>
+		
+		
+		<br> <br>
+		
+		<label>OS(s):</label>
+		<c:forEach var="os" items="${operatingSystems}">
+			<form:checkbox path="systems" value="${os}" label="${os}"/>
+		</c:forEach>
 		
 		<br> <br>
 		

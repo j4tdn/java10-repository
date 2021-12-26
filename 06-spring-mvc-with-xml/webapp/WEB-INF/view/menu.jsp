@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/taglib/import.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +15,6 @@
 	
 	<hr>
 	
-	<a href="${pageContext.request.contextPath}/student/showForm">Show student form</a>
+	<a href="${contextPath}/student/showForm">Show student form</a>
 </body>
 </html>
