@@ -11,7 +11,7 @@
 <body>
 	<h4 class='title'>Customer Sign up Page</h4>
 
-	<hr>
+	<hr> <!-- thymeleaf || JS Fw -->
 
 	<form:form modelAttribute="customer"
 		action="${contextPath}/customer/processForm" method="post">
