@@ -8,7 +8,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.spring.bean.Item;
 import com.spring.service.ClientService;
 import com.spring.service.ItemService;
-import com.spring.service.ItemServiceImpl;
 
 public class App {
 	public static void main(String[] args) {

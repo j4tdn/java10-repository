@@ -10,8 +10,8 @@ import com.springmvc.validation.StartsWith;
 
 public class Customer {
 
-	// TODO: @Min @Max >> Value
-	// TODO: @Size     >> Length
+	// : @Min @Max >> Value
+	// : @Size     >> Length
 
 	@NotNull(message = "first name is required")
 	@Size(min = 5, max = 10, message = "length is from 5 to 10")
