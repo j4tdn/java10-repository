@@ -23,7 +23,31 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	@Override
 	@Transactional
+	public List<Customer> getAll(int offset, int rowcount, String sort) {
+		return customerDao.getAll(offset, rowcount, sort);
+	}
+	
+	@Override
+	@Transactional
 	public int countTotalRecords() {
 		return customerDao.countTotalRecords();
+	}
+	
+	@Override
+	@Transactional
+	public void save(Customer customer) {
+		customerDao.save(customer);
+	}
+	
+	@Override
+	@Transactional
+	public Customer get(int id) {
+		return customerDao.get(id);
+	}
+	
+	@Override
+	@Transactional
+	public void delete(int id) {
+		customerDao.delete(id);
 	}
 }

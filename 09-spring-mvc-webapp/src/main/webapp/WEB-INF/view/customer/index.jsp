@@ -23,7 +23,7 @@
 				<a class="navbar-brand">Customer Management Application</a>
 				<form:form action="${contextPath}/customer" class="d-flex" method="GET">
 					<input type="hidden" name="page" value="${param.page}">
-					<input name="text" value="${param.text}"
+					<input name="text" value="${fn:trim(param.text)}"
 						class="form-control me-2" type="search" placeholder="Search"
 						aria-label="Search">
 					<button class="btn btn-outline-success" type="submit">Search</button>
@@ -38,13 +38,18 @@
 			class="btn btn-primary btn-sm mt-3 mb-3"> <i
 			class="far fa-address-book"></i> Add Customer
 		</a>
-
+		
+		<c:set var="currentPage" value="${param.page}" />
+		<c:if test="${empty currentPage}">
+		    <c:set var="currentPage" value="1" />
+		</c:if>
+		
 		<table class="table table-bordered table-striped">
 			<thead class="table-dark">
 				<tr>
-					<th><a href="#">First name</a></th>
-					<th><a href="#">Last name</a></th>
-					<th><a href="#">Email</a></th>
+					<th><a href="${contextPath}/customer?page=${currentPage}&sort=first_name">First name</a></th>
+					<th><a href="${contextPath}/customer?page=${currentPage}&sort=last_name">Last name</a></th>
+					<th><a href="${contextPath}/customer?page=${currentPage}&sort=email">Email</a></th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -55,9 +60,10 @@
 						<td>${customer.firstName}</td>
 						<td>${customer.lastName}</td>
 						<td>${customer.email}</td>
-						<td><a href="#" class="btn btn-info btn-sm">Update</a> <a
-							href="#" class="btn btn-danger btn-sm"
-							onclick="if(!confirm('Are you sure you want to delete this customer ?')) return false">Delete</a>
+						<td>
+							<a href="${contextPath}/customer/update?id=${customer.id}" class="btn btn-info btn-sm">Update</a> 
+							<a href="${contextPath}/customer/delete?id=${customer.id}" class="btn btn-danger btn-sm"
+							   onclick="if(!confirm('Are you sure you want to delete this customer ?')) return false">Delete</a>
 						</td>
 					</tr>
 				</c:forEach>

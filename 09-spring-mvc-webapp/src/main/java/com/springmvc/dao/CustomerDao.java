@@ -6,6 +6,14 @@ import com.springmvc.entity.Customer;
 
 public interface CustomerDao {
 	List<Customer> getAll(int offset, int rowcount);
+	
+	List<Customer> getAll(int offset, int rowcount, String sort);
 
 	int countTotalRecords();
+
+	void save(Customer customer);
+
+	Customer get(int id);
+
+	void delete(int id);
 }
