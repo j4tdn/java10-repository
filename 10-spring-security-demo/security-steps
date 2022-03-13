@@ -1,0 +1,7 @@
+SIGN IN
+--> UserDetailService
+  --> JdbcDaoImpl
+  --> UserDetails loadUserByUsername(String username)
+
+
+SIGN OUT
