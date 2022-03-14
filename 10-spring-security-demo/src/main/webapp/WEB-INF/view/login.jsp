@@ -17,7 +17,7 @@
 	<div class="container">
 		
 		<!-- The server understood the request but refuses to authorize it. -->
-		<form:form class="form-signin border border-secondary" method="post" action="/10-spring-security-demo/signin">
+		<form:form class="form-signin border border-secondary" method="post" action="${contextPath}/login">
 			<c:if test="${param.error != null}">
 				<p class="center red"> Bad Credentials </p>
 			</c:if>

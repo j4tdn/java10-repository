@@ -15,7 +15,8 @@
 </head>
 <body>
 	<div class="container">
-		<form:form modelAttribute="user" class="form-signin border border-secondary" method="post" action="/10-spring-security-demo/signin">
+		<form:form modelAttribute="user" class="form-signin border border-secondary" method="post" 
+			action="${contextPath}/user/register">
 			<h2 class="form-signin-heading center">Register Page</h2>
 			<div>
 				<label for="username" class="sr-only">Username</label> 
