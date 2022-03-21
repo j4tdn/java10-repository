@@ -23,6 +23,7 @@
 				
 				<h3>Role(s): <sec:authentication property="principal.authorities"/></h3>
 				
+				<h3>Full name: ${user.firstName} &nbsp; ${user.lastName}</h3>
 				
 				<div>
 					<sec:authorize access="hasRole('MANAGER')">

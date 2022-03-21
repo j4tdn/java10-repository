@@ -15,8 +15,10 @@
 </head>
 <body>
 	<div class="container">
+		<c:if test="${regSuccess != null}">
+			<div class="text-center text-success">${regSuccess}</div>
+		</c:if>
 		
-		<!-- The server understood the request but refuses to authorize it. -->
 		<form:form class="form-signin border border-secondary" method="post" action="${contextPath}/login">
 			<c:if test="${param.error != null}">
 				<p class="center red"> Bad Credentials </p>

@@ -25,22 +25,31 @@ public class UserController {
 		return "login";
 	}
 	
-	@PostMapping("/user/register")
-	public String registerUser(@ModelAttribute("user") User user, Model model) {
-		User existedUser = service.findUserByUserName(user.getUsername());
-		if (existedUser != null) {
-			model.addAttribute("user", user);
-			model.addAttribute("existedUser", "Username " + user.getUsername() + " already existed !");
-			return "register";
-		}
-		// save to database
-		return "login";
-	}
-	
 	@GetMapping("/user/register")
 	public String showRegisterUserForm(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
 		return "register";
+	}
+	
+	@PostMapping("/user/register")
+	public String registerUser(@ModelAttribute("user") User user, Model model) {
+		User existedUser = service.findUserByUserName(user.getUsername());
+		if (existedUser != null) {
+			// model.addAttribute("user", user);
+			model.addAttribute("existedUser", "Username " + user.getUsername() + " already existed");
+			return "register";
+		}
+		
+		// save to database
+		try {
+			service.save(user);
+			model.addAttribute("regSuccess", "Account " + user.getFullName() + " has registered successful");
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("systemError", "System error");
+			return "register";
+		}
+		return "login";
 	}
 }

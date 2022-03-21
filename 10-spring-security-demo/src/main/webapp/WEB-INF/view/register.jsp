@@ -15,8 +15,17 @@
 </head>
 <body>
 	<div class="container">
+		<c:if test="${existedUser != null}">
+			<div class="text-center text-danger">${existedUser}</div>
+		</c:if>
+		
+		<c:if test="${systemError != null}">
+			<div class="text-center text-danger">${systemError}</div>
+		</c:if>
+	
 		<form:form modelAttribute="user" class="form-signin border border-secondary" method="post" 
 			action="${contextPath}/user/register">
+			
 			<h2 class="form-signin-heading center">Register Page</h2>
 			<div>
 				<label for="username" class="sr-only">Username</label> 

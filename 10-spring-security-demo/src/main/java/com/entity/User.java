@@ -1,10 +1,17 @@
 package com.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +36,12 @@ public class User {
 	
 	@Column(name = "email", nullable = false)
 	private String email;
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "users_roles",
+					joinColumns = @JoinColumn(name="user_id"),
+					inverseJoinColumns = @JoinColumn(name="role_id"))
+	private List<Role> roles;
 
 	public User() {
 	}
@@ -39,6 +52,10 @@ public class User {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	
+	public String getFullName() {
+		return firstName + " " + lastName;
 	}
 
 	public String getPassword() {
@@ -71,6 +88,14 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public List<Role> getRoles() {
+		return roles;
+	}
+	
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
 	@Override
