@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Customer Management</title>
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	<script src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<div class="container">
+		<h1 >Spring Home Page - Welcome</h1>
+		<hr>
+		<p class="font-weight-normal">Welcome to Spring Home Page</p>
+		<p class="font-weight-normal">I wish you all the best</p>
+		<hr>
+		<div>
+			<a class="btn btn-outline-primary" th:href="@{/login}" role="button">Login</a>
+			<a class="btn btn-primary" th:href="@{/register}" role="button">Sign up</a>
+		</div>
+	</div>
+</body>
+</html>

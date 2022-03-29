@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Customer List</title>
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<div class="container">
+		<div>
+			<h2>Employee List</h2>
+			<hr>
+		</div>
+		<div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
+			<a class="btn btn-primary mb-3" th:href="@{/customer/add}" role="button">
+				Add Customer
+			</a>
+			<hr>
+		</div>
+		<div>
+			<table class="table table-bordered table-striped">
+				<thead class="table-primary text-center">
+					<tr>
+						<th scope="col">
+							<a th:href="@{'/customer/page/' + ${currentPage}+ '?sortBy=firstName&order=' + ${reverseOrder}}">
+								First Name
+							</a>
+						</th>
+						<th scope="col">
+							<a th:href="@{'/customer/page/' + ${currentPage}+ '?sortBy=lastName&order=' + ${reverseOrder}}">
+								Last Name
+							</a>
+						</th>
+						<th scope="col">
+							<a th:href="@{'/customer/page/' + ${currentPage}+ '?sortBy=email&order=' + ${reverseOrder}}">
+								Email
+							</a>
+						</th>
+						<th scope="col" sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="c : ${listCustomer}">
+						<td th:text="${c.firstName}"></td>
+						<td th:text="${c.lastName}"></td>
+						<td th:text=${c.email}></td>
+						<td class="text-center" sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
+							<a th:href="@{/customer/update/{id}(id=${c.id})}" class="btn btn-primary ">Update</a>
+							<a th:href="@{/customer/delete/{id}(id=${c.id})}" class="btn btn-danger"
+								sec:authorize="hasRole('ROLE_ADMIN')"
+								onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+								Delete
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="d-flex justify-content-between">
+			<a th:href="@{/home}">Back to Home Page</a>
+			<nav th:if="${totalElements} > 5" class="d-flex justify-content-end d-flex align-items-center" aria-label="Page navigation example">
+			  <p>Total rows: <span th:text="${totalElements}"></span></p>
+			  <ul class="pagination">
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			    <li class="page-item" th:each="i: ${#numbers.sequence(1, totalPages)}">
+			    	<a class="page-link" th:if="${currentPage == i}" >[[${i}]]</a>
+			    	<a class="page-link" th:unless="${currentPage == i}" th:href="@{'/customer/page/' + ${i}+ '?sortBy=' + ${sortBy} + '&order=' + ${order}}">[[${i}]]</a>
+			    </li>
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+		</div>
+	</div>
+</body>
+</html>
