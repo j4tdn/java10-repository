@@ -31,9 +31,10 @@ public class CustomerController {
 
 	@GetMapping("/page/{pageNo}")
 	public String getCustomerPagianted(@PathVariable int pageNo, 
-			@RequestParam(defaultValue = "firstName") String sortBy,
-			@RequestParam(defaultValue = ASCENDING) String order,
-			Model model) {
+									@RequestParam(defaultValue = "id") String sortBy,
+									@RequestParam(defaultValue = ASCENDING) String order,
+									@RequestParam(required = false) String keyword,
+									Model model) {
 		Page<Customer> pageCustomer = this.customerService.getPaginated(pageNo, PAGE_SIZE, sortBy, order);
 		List<Customer> listCustomer = pageCustomer.getContent();
 		int totalPages = pageCustomer.getTotalPages();

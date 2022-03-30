@@ -11,15 +11,27 @@
 <body>
 	<div class="container">
 		<div>
-			<h2>Employee List</h2>
+			<h2 class="text-success">Customer Relationship Manager</h2>
 			<hr>
 		</div>
-		<div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
-			<a class="btn btn-primary mb-3" th:href="@{/customer/add}" role="button">
-				Add Customer
-			</a>
-			<hr>
+		<div class="d-flex justify-content-between">
+			<div >
+				<a class="btn btn-success mb-3" sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')" th:href="@{/customer/add}" role="button">
+					Add Customer
+				</a>
+			</div>
+			<div>
+				<form class="row g-3" th:action="@{/customer/page/1}" method="get">
+				    <div class="col-auto">
+				      <input type="text" class="form-control" id="search" name="keyword" placeholder="Search Customer:">
+				    </div>
+				    <div class="col-auto">
+				      <button type="submit" class="btn btn-info mb-3">Search</button>
+				    </div>
+				</form>
+			</div>
 		</div>
+		<hr>
 		<div>
 			<table class="table table-bordered table-striped">
 				<thead class="table-primary text-center">
@@ -61,8 +73,8 @@
 		</div>
 		<div class="d-flex justify-content-between">
 			<a th:href="@{/home}">Back to Home Page</a>
-			<nav th:if="${totalElements} > 5" class="d-flex justify-content-end d-flex align-items-center" aria-label="Page navigation example">
-			  <p>Total rows: <span th:text="${totalElements}"></span></p>
+			<nav th:if="${totalElements} > 5" class="d-flex justify-content-end align-items-center" aria-label="Page navigation example">
+			  <p style="margin-right: 15px">Total rows: <span th:text="${totalElements}"></span></p>
 			  <ul class="pagination">
 			    <li class="page-item">
 			      <a class="page-link" href="#" aria-label="Previous">

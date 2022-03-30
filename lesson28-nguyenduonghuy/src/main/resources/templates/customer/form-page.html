@@ -9,14 +9,29 @@
 </head>
 <body>
 	<div class="container">
-		<h2>Employee List</h2>
+		<h2 class="text-success">Customer Relationship Manager</h2>
 		<hr>
-		<form th:action="@{/customer/save}" th:object="${customer}" method="post">
+		<form th:action="@{/customer/save}" th:object="${customer}" method="post" class="mb-5">
 			<input type="hidden" th:field="*{id}">
-			<input type="text" th:field="*{firstName}" class="form-control mb-4 col-4" placeholder="First name">
-			<input type="text" th:field="*{lastName}" class="form-control mb-4 col-4" placeholder="Last name">
-			<input type="email" th:field="*{email}" class="form-control mb-4 col-4" placeholder="Email">
-			<button type="submit" class="btn btn-info col-2">Save</button>
+			  <div class="mb-3 row">
+			    <label for="firstName" class="col-sm-2 col-form-label">First Name: </label>
+			    <div class="col-sm-6">
+			      <input th:field="*{firstName}" type="text" class="form-control" id="firstName">
+			    </div>
+			  </div>
+			  <div class="mb-3 row">
+			    <label for="lastName" class="col-sm-2 col-form-label">Last Name: </label>
+			    <div class="col-sm-6">
+			      <input th:field="*{lastName}" type="text" class="form-control" id="lastName">
+			    </div>
+			  </div>
+			  <div class="mb-3 row">
+			    <label for="email" class="col-sm-2 col-form-label">Email: </label>
+			    <div class="col-sm-6">
+			      <input th:field="*{email}" type="text" class="form-control" id="email">
+			    </div>
+			  </div>
+			<button type="submit" class="btn btn-info col-1">Save</button>
 		</form>
 		<a th:href="@{/customer/page/1}">Back to Customer list</a>
 	</div>

@@ -12,8 +12,4 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
 	Page<Customer> findByIsDeleted(int isDeleted, Pageable pageable);
 
-	Page<Customer> findByFirstNameContainingOrLastNameContainingOrEmailContainingAndIsDeleted(
-																							String firstName, String lastName,
-																							String email, int isDeleted, 
-																							Pageable pageable);
 }
