@@ -6,7 +6,7 @@ import com.spring.nguyenduonghuy.lesson28.entity.Customer;
 
 public interface CustomerService {
 
-	Page<Customer> getPaginated(int pageNo, int pageSize, String sortBy, String order);
+	Page<Customer> getPaginated(int pageNo, int pageSize, String sortBy, String order, String keyword);
 
 	Customer get(int customerId);
 

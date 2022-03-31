@@ -10,6 +10,6 @@ import com.spring.nguyenduonghuy.lesson28.entity.Customer;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
-	Page<Customer> findByIsDeleted(int isDeleted, Pageable pageable);
-
+	Page<Customer> findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrEmailContainingIgnoreCaseAndIsDeleted(
+			String firstName, String lastName, String email, int isDeleted, Pageable pageable);
 }

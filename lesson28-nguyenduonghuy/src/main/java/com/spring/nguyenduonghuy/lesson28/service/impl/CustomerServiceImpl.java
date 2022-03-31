@@ -26,11 +26,13 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	@Transactional
-	public Page<Customer> getPaginated(int pageNo, int pageSize, String sortBy, String order) {
+	public Page<Customer> getPaginated(int pageNo, int pageSize, String sortBy, String order, String keyword) {
 		boolean isAsc = Sort.Direction.ASC.name().equalsIgnoreCase(order);
 		Sort sort = isAsc ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();
 		Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
-		return this.customerRepository.findByIsDeleted(IS_PRESENT, pageable);
+		return this.customerRepository
+				.findByFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCaseOrEmailContainingIgnoreCaseAndIsDeleted(
+						keyword, keyword, keyword, IS_PRESENT, pageable);
 	}
 
 	@Override
