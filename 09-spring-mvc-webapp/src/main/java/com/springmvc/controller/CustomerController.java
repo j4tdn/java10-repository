@@ -1,21 +1,22 @@
 package com.springmvc.controller;
 
+import static com.springmvc.common.Application.CUSTOMER_FORM_PAGE;
+import static com.springmvc.common.Application.CUSTOMER_INDEX_PAGE;
+import static com.springmvc.common.Application.CUSTOMER_REDIRECT;
+import static com.springmvc.common.Application.RECORDS_PER_PAGE;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
-import static com.springmvc.common.Application.*;
-
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import com.springmvc.entity.Customer;
 import com.springmvc.service.CustomerService;
@@ -64,6 +65,7 @@ public class CustomerController {
 		return CUSTOMER_INDEX_PAGE;
 	}
 	
+	// http://localhost:8080/09-spring-mvc-webapp/customer/add
 	@GetMapping("/add")
 	public String add(ModelMap modelMap) {
 		// data binding

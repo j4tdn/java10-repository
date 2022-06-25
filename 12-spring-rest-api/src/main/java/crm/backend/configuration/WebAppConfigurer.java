@@ -1,4 +1,4 @@
-package com.springmvc.configuration;
+package crm.backend.configuration;
 
 import java.beans.PropertyVetoException;
 import java.util.Properties;
@@ -27,7 +27,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScan("com.springmvc")
+@ComponentScan("crm.backend")
 @PropertySource({ "classpath:application.properties" })
 public class WebAppConfigurer implements WebMvcConfigurer {
 
@@ -46,7 +46,7 @@ public class WebAppConfigurer implements WebMvcConfigurer {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**").addResourceLocations("/static/");
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 
 	@Bean

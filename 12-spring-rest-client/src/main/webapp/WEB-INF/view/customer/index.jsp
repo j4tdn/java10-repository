@@ -70,7 +70,8 @@
 
 			</tbody>
 		</table>
-
+		
+		<!--
 		<nav class="float-end">
 			<ul class="pagination">
 				<c:if test="${currentPage!=1}">
@@ -102,6 +103,7 @@
 				</c:if>
 			</ul>
 		</nav>
+		  -->
 	</main>
 
 	<footer class="bg-light fixed-bottom py-3 text-center">
